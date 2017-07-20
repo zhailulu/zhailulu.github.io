@@ -4,7 +4,7 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "http://zhailulu.github.io"
+url: "http://yrzhll.top"
 baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
@@ -23,20 +23,20 @@ description: 前端工程师
 
 # List of links in the navigation bar
 navbar-links:
-  主页: "http://zhailulu.github.io/"
+  主页: "http://yrzhll.top/"
   文章:
-    - js: "http://zhailulu.github.io/tag/js"
-    - css: "http://zhailulu.github.io/tag/css"
-    - html: "http://zhailulu.github.io/tag/html"
-    - github: "http://zhailulu.github.io/tag/github"
-    - life: "http://zhailulu.github.io/tag/life"
-    - linux: "http://zhailulu.github.io/tag/linux"
-    - blog: "http://zhailulu.github.io/tag/blog"
-    - php: "http://zhailulu.github.io/tag/php"
-    - web: "http://zhailulu.github.io/tag/php"
-    - other: "http://zhailulu.github.io/tag/php"
-  资源: "http://zhailulu.github.io/resource"
-  关于: "http://zhailulu.github.io/aboutme"
+    - js: "http://yrzhll.top/tag/js"
+    - css: "http://yrzhll.top/tag/css"
+    - html: "http://yrzhll.top/tag/html"
+    - github: "http://yrzhll.top/tag/github"
+    - life: "http://yrzhll.top/tag/life"
+    - linux: "http://yrzhll.top/tag/linux"
+    - blog: "http://yrzhll.top/tag/blog"
+    - php: "http://yrzhll.top/tag/php"
+    - web: "http://yrzhll.top/tag/php"
+    - other: "http://yrzhll.top/tag/php"
+  资源: "http://yrzhll.top/resource"
+  关于: "http://yrzhll.top/aboutme"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
