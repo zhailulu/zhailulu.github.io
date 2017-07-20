@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>解决广告中的document.write</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="解决广告中的document.write" />
+  
+
+   
+  <meta property="og:description" content="网站一般用的都是第三方的广告管理平台，而第三方的广告管理平台一般解决跨域的问题的方案：
+
+1.iframe 2.script 3.document.write
+
+最让人头疼的就是document.write
+
+document.write的用法：实时的将javascript脚本执行到页面中。
+
+也就是这个实时导致执行脚本的时间会阻塞页面的渲染，只有等脚本执行完成后，页面才能执行渲染流程。
+
+这样就会增加空白页面的显示时间。
+
+查了一些资料，对于document.write目前最好的解决办法就是重写document.write
+
+
+
+var origin = document.write;//保存原生态的document.write函数
+document.write = function(code){
+//对code的一些操作
+}document.write = origin;//恢复原生态的document.write函数
+
+
+
+补充一点：
+javascript
+//延迟执行的脚本
+&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;/*code*/&amp;lt;/script&amp;gt;
+
+
+将type中的text/javascript 换成其他任意单词。例如：text/controlJS ,
+
+这样浏览器就不会识别，也不会执行其中相应的代码。
+
+等到页面渲染完成后，在执行脚本
+
+if (window.execScript) {
+  window.execScript(code);
+}else {
+  var fn = function() {
+    window.eval.call(window, code);
+  };
+  fn();
+}
+
+
+
+这里的思路主要参考controlJS的思路。只是提炼自己需要的核心思路。供大家参考。
+
+写的比较简单，但是核心思路都在这里。要根据具体的网站具体分析。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-08-22-write/" />
+  <link rel="canonical" href="http://localhost:4000/2013-08-22-write/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="解决广告中的document.write" />
+  
+
+  
+  <meta name="twitter:description" content="网站一般用的都是第三方的广告管理平台，而第三方的广告管理平台一般解决跨域的问题的方案：
+
+1.iframe 2.script 3.document.write
+
+最让人头疼的就是document.write
+
+document.write的用法：实时的将javascript脚本执行到页面中。
+
+也就是这个实时导致执行脚本的时间会阻塞页面的渲染，只有等脚本执行完成后，页面才能执行渲染流程。
+
+这样就会增加空白页面的显示时间。
+
+查了一些资料，对于document.write目前最好的解决办法就是重写document.write
+
+
+
+var origin = document.write;//保存原生态的document.write函数
+document.write = function(code){
+//对code的一些操作
+}document.write = origin;//恢复原生态的document.write函数
+
+
+
+补充一点：
+javascript
+//延迟执行的脚本
+&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;/*code*/&amp;lt;/script&amp;gt;
+
+
+将type中的text/javascript 换成其他任意单词。例如：text/controlJS ,
+
+这样浏览器就不会识别，也不会执行其中相应的代码。
+
+等到页面渲染完成后，在执行脚本
+
+if (window.execScript) {
+  window.execScript(code);
+}else {
+  var fn = function() {
+    window.eval.call(window, code);
+  };
+  fn();
+}
+
+
+
+这里的思路主要参考controlJS的思路。只是提炼自己需要的核心思路。供大家参考。
+
+写的比较简单，但是核心思路都在这里。要根据具体的网站具体分析。
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>解决广告中的document.write</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on August 22, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>网站一般用的都是第三方的广告管理平台，而第三方的广告管理平台一般解决跨域的问题的方案：</p>
+
+<p>1.iframe 2.script 3.document.write</p>
+
+<p>最让人头疼的就是document.write</p>
+
+<p>document.write的用法：<span class="stress">实时</span>的将javascript脚本执行到页面中。</p>
+
+<p>也就是这个<span class="stress">实时</span>导致执行脚本的时间会阻塞页面的渲染，只有等脚本执行完成后，页面才能执行渲染流程。</p>
+
+<p>这样就会增加空白页面的显示时间。</p>
+
+<p>查了一些资料，对于document.write目前最好的解决办法就是<span class="stress">重写document.write</span></p>
+
+<p><!-- more --></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">origin</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">;</span><span class="c1">//保存原生态的document.write函数</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">code</span><span class="p">){</span>
+<span class="c1">//对code的一些操作</span>
+<span class="p">}</span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span> <span class="o">=</span> <span class="nx">origin</span><span class="p">;</span><span class="c1">//恢复原生态的document.write函数</span>
+</code></pre>
+</div>
+
+<p>补充一点：
+<code class="highlighter-rouge">javascript
+//延迟执行的脚本
+&lt;script type="text/javascript"&gt;/*code*/&lt;/script&gt;
+</code></p>
+
+<p>将type中的text/javascript 换成其他任意单词。例如：<span class="stress">text/controlJS </span>,</p>
+
+<p>这样浏览器就不会识别，也不会执行其中相应的代码。</p>
+
+<p>等到页面渲染完成后，在执行脚本</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">execScript</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">execScript</span><span class="p">(</span><span class="nx">code</span><span class="p">);</span>
+<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">fn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nb">eval</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">code</span><span class="p">);</span>
+  <span class="p">};</span>
+  <span class="nx">fn</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>这里的思路主要参考controlJS的思路。只是提炼自己需要的核心思路。供大家参考。</p>
+
+<p>写的比较简单，但是核心思路都在这里。要根据具体的网站具体分析。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/js">js</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-08-22-write/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-08-14-reg/" data-toggle="tooltip" data-placement="top" title="收集常用的正则表达式">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-09-02-getday/" data-toggle="tooltip" data-placement="top" title="‘星期几’不同脚本写法">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

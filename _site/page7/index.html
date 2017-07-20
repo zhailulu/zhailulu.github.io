@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Yrzhll's Blog - 前端工程师</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+  <meta name="description" content="越努力越幸运...">
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Yrzhll's Blog" />
+  
+
+   
+  <meta property="og:description" content="越努力越幸运...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page7/" />
+  <link rel="canonical" href="http://localhost:4000/page7/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="Yrzhll's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="越努力越幸运...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2013-07-29-xingneng/">
+	  <h2 class="post-title">jquery简单的性能测试</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 29, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        jquery简单的性能测试
+
+
+        
+        
+          <a href="/2013-07-29-xingneng/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/js">js</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2013-07-18-mkdir/">
+	  <h2 class="post-title">Linux的目录架构(转)</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 18, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        Linux的目录架构，并解释每个重要目录的含义。
+
+
+        
+        
+          <a href="/2013-07-18-mkdir/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/linux">linux</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2013-07-10-ueditor/">
+	  <h2 class="post-title">推荐一个很好的富文本web编辑器UEditor</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 10, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        前天产品提了一个编辑器的bug，本人找是找到了问题的症结，就是不好改。框架是压缩兼混淆后的代码。查一下，好多年前的框架。。。
+
+咨询了一个同事有关旧框架的事情，他也建议我升级编辑器并帮忙帮我找了UEditor。嘻嘻。。。。
+
+不错，开源，文档也很好用。由百度web前端研发部开发。符合中国国情，ie6也支持的不错！
+
+官方地址：http://ueditor.baidu.com/website/index.html
+
+
+
+1.部署方法(php版本)
+
+a.下载项目需要的版本源码，以php为例
+
+b.文本编辑框所放的位置
+javascript
+	&amp;lt;div&amp;gt;
+	&amp;lt;script type=&quot;text/plain&quot; id=&quot;myEditor&quot; name=&quot;myContent&quot;&amp;gt;
+	//默认文字内容或修改的内容
+	&amp;lt;/script&amp;gt;
+	&amp;lt;/div&amp;gt;
+
+
+
+        
+        
+          <a href="/2013-07-10-ueditor/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/js">js</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2013-07-04-aop/">
+	  <h2 class="post-title">用AOP改善javascript代码(转)</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 4, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        Aop又叫面向切面编程，用过spring的同学肯定对它非常熟悉，而在js中，AOP是一个被严重忽视的技术点，这篇就通过下面这几个小例子，来说说AOP在js中的妙用.
+```javascript
+Function.prototype.before = function(func){
+   var _self = this;
+   return function(){
+      if(func.apply(this, arguments) === false){
+         return false;
+      }
+      return _self.apply(this, arguments);
+   }
+ }
+
+
+        
+        
+          <a href="/2013-07-04-aop/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/js">js</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2013-07-02-centosnetwork/">
+	  <h2 class="post-title">CentOS minimal 设置网络</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 2, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        CentOS minimal 设置网络
+
+
+        
+        
+          <a href="/2013-07-02-centosnetwork/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/linux">linux</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page6">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page8">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

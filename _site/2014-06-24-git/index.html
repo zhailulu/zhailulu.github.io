@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>centos安装git</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="centos安装git" />
+  
+
+   
+  <meta property="og:description" content="想在虚拟机上搭个框架的开发环境，好久没碰centos了。里面的network不知道怎么搞的，没法连上网。 弄了一天多还没弄好，实在受不了。全部重装，重装了好多次终于正常。目前公司喜欢用git分布式的版本控制工具。先装这个 1.编译基础环境环境 javascript yum -y install gcc make 2.安装依赖的包 javascript yum install -y curl curl-devel zlib-devel openssl-devel perl perl-devel cpio expat-devel gettext-devel 3.下载最新的git包 javascript wget http://www.codemonkey.org.uk/projects/git-snapshots/git/git-latest.tar.xz xz -d git-latest.tar.xz //压缩包是两层压缩，外面是xz压缩方式，里层是tar压缩方式 tar -xvf git-latest.tar cd git-2014-06-24 autoconf ./configure make &amp;amp;&amp;amp; make install 4.检查下安装的版本 javascript git --version 补充：centos6+ yum中有git的版本，也可以直接利用yum源安装 javascript yum...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2014-06-24-git/" />
+  <link rel="canonical" href="http://localhost:4000/2014-06-24-git/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="centos安装git" />
+  
+
+  
+  <meta name="twitter:description" content="想在虚拟机上搭个框架的开发环境，好久没碰centos了。里面的network不知道怎么搞的，没法连上网。 弄了一天多还没弄好，实在受不了。全部重装，重装了好多次终于正常。目前公司喜欢用git分布式的版本控制工具。先装这个 1.编译基础环境环境 javascript yum -y install gcc make 2.安装依赖的包 javascript yum install -y curl curl-devel zlib-devel openssl-devel perl perl-devel cpio expat-devel gettext-devel 3.下载最新的git包 javascript wget http://www.codemonkey.org.uk/projects/git-snapshots/git/git-latest.tar.xz xz -d git-latest.tar.xz //压缩包是两层压缩，外面是xz压缩方式，里层是tar压缩方式 tar -xvf git-latest.tar cd git-2014-06-24 autoconf ./configure make &amp;amp;&amp;amp; make install 4.检查下安装的版本 javascript git --version 补充：centos6+ yum中有git的版本，也可以直接利用yum源安装 javascript yum...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>centos安装git</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on June 24, 2014</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>想在虚拟机上搭个框架的开发环境，好久没碰centos了。里面的network不知道怎么搞的，没法连上网。</p>
+
+<p>弄了一天多还没弄好，实在受不了。全部重装，重装了好多次终于正常。目前公司喜欢用git分布式的版本控制工具。先装这个</p>
+
+<p>1.编译基础环境环境
+<code class="highlighter-rouge">javascript
+yum -y install gcc make
+</code></p>
+
+<p>2.安装依赖的包
+<code class="highlighter-rouge">javascript
+yum install -y curl curl-devel zlib-devel openssl-devel perl perl-devel cpio expat-devel gettext-devel
+</code></p>
+
+<!-- more -->
+
+<p>3.下载最新的git包
+<code class="highlighter-rouge">javascript
+wget http://www.codemonkey.org.uk/projects/git-snapshots/git/git-latest.tar.xz
+xz -d git-latest.tar.xz   //压缩包是两层压缩，外面是xz压缩方式，里层是tar压缩方式
+tar -xvf git-latest.tar
+cd git-2014-06-24 
+autoconf
+./configure
+make &amp;&amp; make install
+</code></p>
+
+<p>4.检查下安装的版本
+<code class="highlighter-rouge">javascript
+git --version
+</code></p>
+
+<p>补充：centos6+ yum中有git的版本，也可以直接利用yum源安装
+<code class="highlighter-rouge">javascript
+yum -y install git  //方便快捷
+</code></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/linux">linux</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2014-06-24-git/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2014-06-06-http/" data-toggle="tooltip" data-placement="top" title="HTTP请求方法">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2014-07-02-xwindow/" data-toggle="tooltip" data-placement="top" title="centos安装xWindow">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

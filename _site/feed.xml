@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yrzhll's Blog</title>
+    <description>前端工程师</description>
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Ajax跨域请求数据神器</title>
+        <description>
+          
+          今天没事突然想起了本人还有一个博客，看到别人给我博客留言，又重新燃起我写博客的热情。
+
+写啥呢？其实在公司不是很忙，也没啥可以发挥，但是俺们不能就这样透支以前的经验。没事自己看书学习。
+
+最近比较火的当属慕课网，业界良心啊！终于不用自己苦苦自学，可以有大牛教你技术了。
+
+前段时间看了一个有关jQuery mobile视频，里面大牛介绍了一个Ajax跨域请求数据神器。小女子佩服的五体投地啊！
+
+原来在上家公司接触到有关跨域请求数据的项目，之前的做法都是下载到本地服务器上，然后在请求。废话不说了。
+
+API地址：http://www.corsproxy.com/
+
+调用方法：
+
+1
+2
+3$.get('http://www.corsproxy.com/en.wikipedia.org/wiki/Http',function(response){
+  document.body.innerHTML = response;
+})
+
+
+在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。
+
+小伙伴们在也不怕跨域的数据了！哦，今天是光棍节，跟俺没关系。但是还是要祝大家光棍节快乐！
+
+
+        </description>
+        <pubDate>Tue, 11 Nov 2014 15:13:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-11-11-ajax/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-11-11-ajax/</guid>
+      </item>
+    
+      <item>
+        <title>vim去掉bom头方法</title>
+        <description>
+          
+          一个多月没写博客了吧！懒得写+不知道写啥+没心情写！呵呵，不好笑！
+
+1.Bom头简介
+   类似WINDOWS自带的记事本等软件，在保存一个以UTF-8编码的文件时，会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即BOM）。它是一串隐藏的字符，用于让记事本等编辑器识别这个文件是否以UTF-8编码。对于一般的文件，这样并不会产生什么麻烦。
+
+2.php中的BOM头
+    对于 PHP来说，BOM是个大麻烦。
+　　PHP并不会忽略BOM，所以在读取、包含或者引用这些文件时，会把BOM作为该文件开头正文的一部分。根据嵌入式语言的特点，这串字符将被直接执行（显示）出来。由此造成即使页面的 top padding 设置为0，也无法让整个网页紧贴浏览器顶部，因为在html一开头有这3个字符呢！
+3.解决方法
+呵呵，上网搜了一下，其实很简单。
+
+1
+2:set nobomb //去掉bom头
+:set bomb //加上bom头
+
+
+        </description>
+        <pubDate>Thu, 30 Oct 2014 11:22:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-10-30-bom/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-10-30-bom/</guid>
+      </item>
+    
+      <item>
+        <title>HTML5：Network Information API简介</title>
+        <description>
+          
+          无意看到博客看到该接口，总结成笔记 1.定义： Network Information API让开发人员得以访问系统与网络（蜂窝网络、无线网络和蓝牙网络等）进行通信所使用的连接类型。 要是连接类型有变化，它还提供了通知脚本的一种手段。 这让开发人员得以对文档对象模型（DOM）进行动态改变，及/或通知用户网络连接类型已有变化。 2.接口： javascript window.navigator.connection || window.navigator.mozConnection //加moz前缀 window.navigator.connection.type: //类型 bluetooth //蓝牙 cellular // 移动连接：EDGE 3G 4G ethernet // 以太网 none // 未连接 wifi // 无线网 other // 不是unknow unknown // 已经建立连接，无法确定类型 3.事件： ontypechange事件。每当网络连接的类型有变化，就会触发该事件。 javascript var connection = window.navigator.connection || window.navigator.mozConnection || null; connection.addEventListener('typechange', function...
+        </description>
+        <pubDate>Mon, 01 Sep 2014 11:22:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-09-01-networkapi/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-09-01-networkapi/</guid>
+      </item>
+    
+      <item>
+        <title>sublime text3安装Emmet</title>
+        <description>
+          
+          最近在学习一些新东西的时候，发现一个挺好玩的东西。跟大家分享一下， 如果知道的话就忽略吧！ 现在sublime3里面有个插件叫Emmet，原名叫zenCoding。前端神插件。速成写Dom。 1.安装packages control 打开console控制台：view-&amp;gt;show console或者快捷键“ctrl + ` ”(esc下面那个键) import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual...
+        </description>
+        <pubDate>Tue, 12 Aug 2014 09:57:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-08-12-emmet/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-08-12-emmet/</guid>
+      </item>
+    
+      <item>
+        <title>centos安装xWindow</title>
+        <description>
+          
+          想在linux里面用浏览器，上网查要装x-Window图形化界面，一般linux图形化界面有两种GHOME和KDE。 高版本的系统就是省事，直接通过yum就能安装。(centos6.4 GHOME) 1.安装x-window javascript yum groupinstall 'X Window System' -y 2.安装GNOME桌面环境 javascript yum groupinstall GNOME Desktop Environment //yum groupinstall KDE Desktop Environment 3.安装中文语言 javascript yum --disablerepo=* --enablerepo=c6-media groupinstall &quot;Chinese Support&quot; 4.启动x图形界面 javascript startx 补充： 卸载GNOME桌面环境 javascript yum groupinstall GNOME Desktop Environment //yum groupinstall KDE Desktop Environment 图形界面与字符界面的切换: 字符界面： CTRL+ALT+F1-6...
+        </description>
+        <pubDate>Wed, 02 Jul 2014 17:04:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-07-02-xwindow/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-07-02-xwindow/</guid>
+      </item>
+    
+      <item>
+        <title>centos安装git</title>
+        <description>
+          
+          想在虚拟机上搭个框架的开发环境，好久没碰centos了。里面的network不知道怎么搞的，没法连上网。 弄了一天多还没弄好，实在受不了。全部重装，重装了好多次终于正常。目前公司喜欢用git分布式的版本控制工具。先装这个 1.编译基础环境环境 javascript yum -y install gcc make 2.安装依赖的包 javascript yum install -y curl curl-devel zlib-devel openssl-devel perl perl-devel cpio expat-devel gettext-devel 3.下载最新的git包 javascript wget http://www.codemonkey.org.uk/projects/git-snapshots/git/git-latest.tar.xz xz -d git-latest.tar.xz //压缩包是两层压缩，外面是xz压缩方式，里层是tar压缩方式 tar -xvf git-latest.tar cd git-2014-06-24 autoconf ./configure make &amp;amp;&amp;amp; make install 4.检查下安装的版本 javascript git --version 补充：centos6+ yum中有git的版本，也可以直接利用yum源安装 javascript yum...
+        </description>
+        <pubDate>Tue, 24 Jun 2014 15:39:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-06-24-git/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-06-24-git/</guid>
+      </item>
+    
+      <item>
+        <title>HTTP请求方法</title>
+        <description>
+          
+          最近京东图书做活动，满两百减一百，一冲动买了好多平常想买的又厚又贵的书。买了就要看啊，不然我的money好心疼！呜呜。。。
+
+其实是最近受打击了，心情也不好！哎！干程序员的女孩不容易啊！
+
+1）GET：请求响应
+
+2）HEAD：与GET相同的响应，只要求响应表头
+
+3）POST：发送数据给服务器处理，数据包含在HTTP信息正文中
+
+
+
+4）PUT：上传文件
+
+5）DELETE：删除文件
+
+6）TRACE：追踪收到的请求
+
+7）OPTIONS：返回服务器所支持的HTTP请求的方法
+
+8）CONNECT：将HTTP请求的连接转换成透明的TCP/IP通道
+
+平常一般的只用到get和post，其实后三种请求方法还是第一次看见。以前知道delete方法，但是以前的老大考虑我还是经验十分不足的丫头片子，所以不准我用delete。
+
+传给后台数据只准用get和post。
+
+现在好懒啊，不想解释了。如果有人要深究，就自己去搜资料吧！心情不好。。。。
+
+        </description>
+        <pubDate>Fri, 06 Jun 2014 10:20:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-06-06-http/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-06-06-http/</guid>
+      </item>
+    
+      <item>
+        <title>php有用的函数</title>
+        <description>
+          
+          公司人手不够，让我学php。在网上看见的，总结的笔记. &amp;lt;?php //PHP允许你定义一个默认参数的函数 function foo($arg1 = '', $arg2 = ''){ echo &quot;arg1: $arg1\n&quot;; echo &quot;arg2: $arg2\n&quot;; } foo('hello','world'); foo(); //PHP还允许你定义一个完全任意的参数的函数 function foo2(){ // 取得所有的传入参数的数组 $args = func_get_args(); foreach ($args as $k =&amp;gt; $v) { echo &quot;arg&quot;.($k+1).&quot;: $v\n&quot;; } } foo2(); foo2('hello'); foo2('hello', 'world', 'again'); //取得所有的后缀为PHP的文件 $files = glob('*.php'); print_r($files); $files...
+        </description>
+        <pubDate>Wed, 14 May 2014 10:50:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-05-14-php/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-05-14-php/</guid>
+      </item>
+    
+      <item>
+        <title>5种你未必知道的JavaScript和CSS交互的方法（转）</title>
+        <description>
+          
+          这篇文章没有直接拷贝过来，直接提取重点简化过来，备用笔记！ 1.用JavaScript获取伪元素(pseudo-element)属性 ```javascript var color = window.getComputedStyle( document.querySelector(‘.element’), ‘:before’ ).getPropertyValue(‘color’); // Get the content value of .element:before var content = window.getComputedStyle( document.querySelector(‘.element’), ‘:before’ ).getPropertyValue(‘content’); ``` 2.classList API–样式列表 javascript myDiv.classList.add('myCssClass'); // 添加class myDiv.classList.remove('myCssClass'); //删除class myDiv.classList.toggle('myCssClass'); //切换class 3.直接对样式表进行添加和删除样式规则 ```javascript function addCSSRule(sheet, selector, rules, index) { if(sheet.insertRule) { sheet.insertRule(selector + “{“ + rules...
+        </description>
+        <pubDate>Thu, 03 Apr 2014 11:52:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-04-03-js/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-04-03-js/</guid>
+      </item>
+    
+      <item>
+        <title>飞机去哪了？</title>
+        <description>
+          
+          休婚假回公司第一天上班，就碰到测试机内存坏了。闲来无事，看倒腾讯首页关于飞机失踪的计时器。 挖出来代码一起分享 1 2 3 4 5 6 7 8 9 10 11 12 13//样式 .mhkjsl_mod{background:url(http://mat1.gtimg.com/www/images/qq2012/mhkjslBg20140310.jpg) no-repeat 0 0;height:75px;width:660px;position:relative;} .mhkjsl_mod b{color:#ff8400;font:18px/20px 'Microsoft YaHei';} .mhkjsl_mod .ljzt{position:absolute;z-index:9;top:0;left:0;width:660px;height:75px;} .mhkjsl_mod .ljzt:focus{outline:none} #mhkjslTimeNum{position:absolute;top:46px;_top:48px;left:213px;_left:218px;} #mhkjslTimeNum .day{margin-right:28px;_margin-right:32px;} #mhkjslTimeNum .xi{margin-right:43px;_margin-right:46px;} #mhkjslTimeNum .min{margin-right:26px;_margin-right:30px;} @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){ #mhkjslTimeNum{position:absolute;top:45px;left:218px;} #mhkjslTimeNum .day{margin-right:32px;}#mhkjslTimeNum .xi{margin-right:46px;}#mhkjslTimeNum .min{margin-right:30px;}...
+        </description>
+        <pubDate>Tue, 18 Mar 2014 15:11:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-03-18-air/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-03-18-air/</guid>
+      </item>
+    
+      <item>
+        <title>八年抗战即将结束</title>
+        <description>
+          
+          2014年3月10号我和他终于要举办结婚仪式！
+
+用终于这两个字一点也不过分，将近八年时间。
+
+补充一句过来人的经验：恋爱还是不要谈的太久，真的坏处大于好处。不然到最后根本没有你想的那么浪漫。
+
+
+
+恋爱史：
+
+1.2005年5月20号晚上答应做他女朋友。（记不清是巧合，还是那天我故意的。）
+
+2.2008年他毕业，我升本。毕业分手高峰期，我们也没有人想过这个问题。
+
+3.2010年他读研，我毕业去上海工作。异地恋的开始
+
+4.2012年他毕业回合肥，我回合肥工作。
+
+5.2013年4月2号领结婚证，买房子。
+
+6.2014年3月10号结婚。
+
+QQ情侣上面显示我们到结婚前一天已相恋2851天, 希望我们以后的婚姻生活能够幸福快乐！！！
+
+
+
+        </description>
+        <pubDate>Fri, 07 Mar 2014 16:48:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-03-07-marry/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-03-07-marry/</guid>
+      </item>
+    
+      <item>
+        <title>使用console.time()计算js代码执行时间</title>
+        <description>
+          
+          firefox，chrome开发工具都提供了调试api，console.time就是其中一个工具 console.time() 方法可用来计算 js 执行的时间。 console.time('good'); var $page = $('#page'),option; for(var i=1;i&amp;lt;1000;i++){ option+=&quot;&amp;lt;option value=&quot;+i+&quot;&amp;gt;第 &quot;+i+&quot; 页&amp;lt;/option&amp;gt;&quot;; } //dom 操作一次 $page.append(option); console.timeEnd('good'); IE不支持，下面是兼容代码 ```javascript if(window.console &amp;amp;&amp;amp; typeof(window.console.time) == “undefined”) { console.time = function(name, reset){ if(!name) { return; } var time = new Date().getTime(); if(!console.timeCounters) { console.timeCounters = {}; } var key...
+        </description>
+        <pubDate>Wed, 05 Mar 2014 10:26:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-03-05-console/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-03-05-console/</guid>
+      </item>
+    
+      <item>
+        <title>JavaScript的全局函数</title>
+        <description>
+          
+          JavaScript 中包含以下 7 个全局函数，用于完成一些常用的功能（以后的章节中可能会用到）：escape( )、eval( )、isFinite( )、isNaN( )、parseFloat( )、parseInt( )、unescape( )。 1.escape( ) escape( ) 函数以一个 string 对象或表达式为参数并返回一个 string 对象。参数指定的字符串中的所有非字母字符被转换成以 XX% 表示的等价数字，XX 是一个表示非字母字符的十六进制数。 以下示例显示了 escape( ) 函数的作用。 2.eval( ) eval( ) 函数将通过参数传入的一个包含 JavaScript 语句的字符串作为一个 JavaScript 源代码执行。eval( ) 返回执行 JavaScript 语句的返回值。 3.isFinite( ) isFinite ( ) 函数用于确定一个变量是否有界，如果有界则返回 true，否则返回 false。所谓有界是指表达式的值界于 MAX_VALUE 和...
+        </description>
+        <pubDate>Wed, 26 Feb 2014 09:57:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-02-26-globalfuntion/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-02-26-globalfuntion/</guid>
+      </item>
+    
+      <item>
+        <title>揭示魔术：如何将HTML字符串正确地转换为一个DOM元素（翻译）</title>
+        <description>
+          
+          这看起来似乎是一个简单的任务。然而，事实并非如此。如果你经常使用现在几个流行的解决方案去解决这个问题的时候，你会发现其实存在很大的问题。 比方说，我们有以下的HTML标记 javascript&amp;lt;section&amp;gt;&amp;lt;a href=&quot;#&quot;&amp;gt;Link label&amp;lt;/a&amp;gt;&amp;lt;/section&amp;gt; 如果你去搜索这个问题的时候会发现目前最流行的解决方案是使用创建一个新元素的innerHTML属性。 javascript var notWorking = function(html) { var el = document.createElement('div'); el.innerHTML = html; return el.childNodes[0]; } console.log(notWorking('&amp;lt;section&amp;gt;&amp;lt;a href=&quot;#&quot;&amp;gt;Link label&amp;lt;/a&amp;gt;&amp;lt;/section&amp;gt;')); 可以看到上面的运行结果完全是正确的，会得到一个包含着a的section DOM元素。这样看来确实很正常，也很简单。 现在我们试试插入其他的HTML字符串 javascriptconsole.log(notWorking('&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Text Here&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;')); 而此时得到的结果： javascriptText Here 咦。。。tr和td标签消失了，这样看来好像是不正确的。其实这才是浏览器正常的行为。我去查了有关该问题的相关资料 2006年时候Eric Vasilik的一篇文章这样说的： 当通过设置元素的innerHTML属性时，HTML字符串要通过解析器才能运行的 当解析类似”&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Foo”前面不带”table”标签的字符串时，解析器会忽略相关的tr和td标签 于是我意识到通过innerHTML设置的字符串不应该是混合的一系列标签，而是一个正确有效的DOM表达式。 如果我加上table应该就能得到正确的结果了 javascriptconsole.log(notWorking('&amp;lt;table&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Text Here&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;')); 结果如下 javascript&amp;lt;table&amp;gt;&amp;lt;tbody&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Text Here&amp;lt;/td&amp;gt;&amp;lt;/tbody&amp;gt;&amp;lt;/table&amp;gt; 这就证明Eric Vasilik是正确的。我的方法类似于检查所传递的字符串然后自动添加正确的标签。不是返回第一个节点，而是返回一个正确的嵌套的节点。看起来有不少工作量啊。 但是，等等。。。jQuery应该不存在这个问题。你输入”tr,td”标签依然能得到所期望的结果。我研究了一些jquery的代码找到下面一段 // We...
+        </description>
+        <pubDate>Fri, 21 Feb 2014 16:16:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-02-21-htmlstring/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-02-21-htmlstring/</guid>
+      </item>
+    
+      <item>
+        <title>程序员的《权利法案》（转）</title>
+        <description>
+          
+           1.每个程序员都应该有两个显示器
+
+在LCD价格跳水以及双输出的显卡如此普及的情况下，如果你还把你的开发者限制在一个屏幕上，那你一定是疯了。通过把电脑桌面双倍扩大可以获得生产力的提升，这已经被充分论证过了。如果你想把开发者的生产力发挥到极致，请确保每个开发者都有两个显示器。
+
+ 2.每个程序员都应该有一台快速的电脑
+
+程序员必须运行很多软件才能完成他们的工作：开发环境、数据库引擎、网络服务器、虚拟机，如此等等。运行所有这些软件需要一台快速的电脑，再配上很多内存。程序员的电脑越快，他们每次编译、调试的周期就越短。我不是让你当“发烧友”，花天价去购买最新、最顶级的配置——但是，你也得向高配置看齐吧。给你的开发者配备快速的、带有很多内存的电脑吧。眼巴巴地盯着进度条等待绝对是一种浪费！
+
+ 3. 每个程序员都应该自己选择鼠标和键盘
+
+在大学的时候，我经营过一个代客油漆的业务。我雇用的每一位油漆工都需要他们自己购买刷子。这是我早期积累的经验之一。将一把标准的刷子扔给一位新的油漆工是行不通的。这些“公司标配的”刷子不被爱惜，很快就会沦落到破损不堪的状况。但是，那些自己买刷子的油漆工很珍惜他们的刷子。他们懂得欣赏花20美元买来的专业刷子与那些从一元店里买来的一次性刷子之间的差别。拥有自己的刷子让他们产生一种持久的责任感和手艺人的感觉。程序员应该和他们的鼠标以及键盘保持一种相同的关系——它们是我们用来实践我们手艺的最基本的日常工具，我们应该加以善待。
+
+
+
+ 4.每个程序员都应该有一把舒适的椅子
+
+别小看这个问题！很大程度上来说，我们靠屁股每天坐上8个小时来谋生。为什么不在一把舒适的、设计优良的椅子上度过那8小时呢？要坐8个小时啊，仅仅给程序员提供勉强过得去的椅子是不够的，要让他们坐得愉悦才行！当然，你雇用程序员主要是为了他们聪明的脑袋，但是也别忘了照顾他们的其他重要部位。
+
+ 5. 每个程序员都应该能快速接入互联网
+
+任何东西只要能“偷”来的，好的程序员从来不会自己去写。互联网是有史以来“偷”东西的最佳去处。我完全赞成“读万卷书”，但如果没有快速响应的互联网搜索、不能弹指间找到我想要的东西，很难想象我是否还能正常开展工作。
+
+ 6.每个程序员都应该有安静的工作环境
+
+编程需要全神贯注。程序员在一个嘈杂的环境里是没法高效工作的。请确保你的工作环境能够保护程序员的“心流”状态，否则他们宝贵的时间将在各种干扰之下消耗殆尽。
+
+译者注：心理学家米哈里齐克森·米哈里（Mihaly Csikszentmihalyi）将心流（flow）定义为一种将个人精神力完全投注在某种活动上的感觉；心流产生时会有高度的兴奋及充实感。
+
+我们要求的这几个基本权利是容易办到的。这些要求并不过分，但它们对于软件开发者工作生活的质量起着关键性的作用。如果你所在的公司在这方面做得不好，那就改善一下吧，这既不需要大量的资金投入，做起来也并不难。作为程序员，你要去争取应有的权利！而且记住：你可以让公司做出改变，要不然你就换一家公司。
+
+        </description>
+        <pubDate>Tue, 18 Feb 2014 14:59:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-02-18-law/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-02-18-law/</guid>
+      </item>
+    
+      <item>
+        <title>2014马上幸福！</title>
+        <description>
+          
+          ###回顾2013重大事件###
+
+a.跳槽到万家热线,学习有关门户网站方面的需要前端技术。
+
+b.老妹终于被妹夫给忽悠到他家，成为蒋家媳妇。
+
+c.二哥也终于吃到了“天鹅肉”,与“天鹅肉”订婚了。
+
+d.带老爸老妈去了趟北京游玩，并见到了传说已久的四爹。
+
+e.老公的工作也越来越有上进心，知道挣钱了。工作表现也很突出。
+
+f.思姐也怀孕了，马上要生个马宝宝了。
+
+g.我和老公也买了期房，定了婚，拍了婚纱照。
+
+h.老妈和老妹也终于买到了她们满意的房子，就在我小区对面。方便我以后照顾我爸妈。
+
+
+
+###遥望2014重大事件###
+
+a.思姐会诞生下一个马宝宝，她希望是女孩，不过男孩女孩都好。
+
+b.我和老公要举办婚礼，然后去九华山还愿。（他大学同学去九华山替我们两许的愿望，让我们结婚后去还愿）
+
+c.二哥和他的“天鹅肉”举办结婚典礼。（ps 我一定要在他之前结婚，不然我真没脸见人了谈了那么多年还没嫁出去）
+
+d.老妈的房子交房，还要努力攒钱啊！
+
+e.十一爸妈结婚三十周年!
+
+。。。。。。。。。。。。。。。。。。。。。好多未知的事情。。。。。。。。。。。。。。。。。。。。。。。。
+
+希望我们的房子也能年底提前交房。希望老弟能找个合适的对象，三姨和三姨夫着急啊！希望爸妈和未来婆婆，公公能健健康康，平平安安。希望小妹和妹夫能够生活幸福！
+
+希望小姑子也能谈谈恋爱。希望。。。。。。。。。好多希望，嘻嘻！
+
+希望我爱的人和爱我的人 都生活幸福，开开心心，马上大吉！马上有房！马上有钱！马上有对象！马上幸福！
+
+注:以上排名不论前后次序，同等重要！
+
+
+
+
+        </description>
+        <pubDate>Tue, 28 Jan 2014 09:13:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-01-28-2014newyear/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-01-28-2014newyear/</guid>
+      </item>
+    
+      <item>
+        <title>chrome浏览器的默认样式</title>
+        <description>
+          
+          好久没写博客了，好像有一个月了吧！每天大大小小的烦人的事。也不知道写什么，
+
+感觉最近没啥长进，也懒的写了。再没长进，估计就被淘汰了。发点小牢骚，说正题吧！
+
+之前在调样式的时候就发现chrome的一些默认样式，哎呀 真不知道chrome一些默认样式是福还是麻烦。
+
+几乎每次都要取消chrome的一些默认样式，跟其他浏览器保持一致。有点烦人
+
+随便举几个例子：
+
+
+
+1.默认样式字体大小12px;
+   经常调chrome浏览器会发现chrome最小的字体只能是12px.
+
+1
+2   
+html{-webkit-text-size-adjust:none;}//取消chrome默认字体
+
+
+2.input和textarea聚焦边框
+
+1
+2input,button,select,textarea{outline:none}
+textarea{resize:none}  //取消textarea可拖动放大
+
+
+经常遇见的好像也就是上面两个例子
+
+网上搜到的chrome默认样式表
+
+http://wenku.baidu.com/view/98395820aaea998fcc220ee2.html
+
+        </description>
+        <pubDate>Tue, 28 Jan 2014 09:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2014-01-28-chromedefault/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014-01-28-chromedefault/</guid>
+      </item>
+    
+      <item>
+        <title>googleMap V3 Search跑哪里了</title>
+        <description>
+          
+          googleMap V2版本中有个方便的自动搜索框，但V3里面确找不到调用接口。V2和V3的API差别太大了。 找了好久，原来google把这功能提出来，放在库里的places里面了。简单介绍一下调用方法 1.添加places库 javascript &amp;lt;script src=&quot;https://maps.googleapis.com/maps/api/js?v=3.exp&amp;amp;sensor=false&amp;amp;libraries=places&quot; &amp;gt;&amp;lt;/script&amp;gt; 2.页面添加搜索框DOM javascript &amp;lt;input id=&quot;search&quot; class=&quot;controls&quot; type=&quot;text&quot; placeholder=&quot;Search Box&quot;&amp;gt; 3.初始化搜索框initialize ```javascript var input = document.getElementById(‘search’); var searchBox = new google.maps.places.SearchBox(input); //地点变动事件监听器 google.maps.event.addListener(searchBox, ‘places_changed’, function() { var places = searchBox.getPlaces(); var bounds = new google.maps.LatLngBounds(); if(!!marker){ marker.setMap(null); } // Create a marker for each...
+        </description>
+        <pubDate>Wed, 20 Nov 2013 10:24:00 +0000</pubDate>
+        <link>http://localhost:4000/2013-11-20-googlesearch/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013-11-20-googlesearch/</guid>
+      </item>
+    
+      <item>
+        <title>Img src空属性的解决方法对比</title>
+        <description>
+          
+          今天早上服务器超载，让查问题。我一头雾水。后来牛逼的同事找出原因。
+
+原因： 登陆里面img标签里面的src是空属性，造成多请求一次当前目录。
+
+咦。。。本来页面东西就多，回头还多请求一次错误不存在地址。咦。。。。。后果不堪想象。夸张一下。。。。嘻嘻
+
+
+
+我脑袋瓜子思路简单，空的属性没用就去掉呗，反正js会动态添加的。我直接给删掉，后来被同事改成了src=”about:blank”.
+
+也问了技术朋友，说加”#”,
+
+有什么区别啊！不懂，又不好意思问人。自己动手丰衣食足。自己上网下了工具fiddler的，自己弄了简单的demo测试一下。
+
+
+
+1.Img Src设置为”#”
+
+
+
+2.Img src=”about:blank”
+
+
+
+3.直接去掉，反正看着碍眼
+
+
+
+嘻嘻 结果很明白了。#不行，还是造成两次请求。后两种方法都可以。
+
+好像什么还有其他一些标签src为空也会造成类似的情况，最后不要有空属性。
+
+想起来了 之前好像object那次src为空也是这种情况，那时候还糊里糊涂的。笨蛋！
+
+主要是IE浏览器，讨厌的IE。chrome啊之类的高级浏览器都自动转换成about:blank了。所以没啥问题
+
+
+        </description>
+        <pubDate>Fri, 08 Nov 2013 11:19:00 +0000</pubDate>
+        <link>http://localhost:4000/2013-11-08-imgsrc/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013-11-08-imgsrc/</guid>
+      </item>
+    
+      <item>
+        <title>初试Grunt js项目构建工具</title>
+        <description>
+          
+          初试grunt项目构建工具 看别人的博客，无意发现了grunt。就尝试在VMWare虚拟机上centos(linux)环境搭建了简单的项目。 1.安装nodeJS和npm环境. 具体步骤省略。 2.grunt有两个版本(服务器端版本-grunt和客户端版本-grunt cli) 安装客户端版本 1 2npm install -g grunt-cli //安装grunt cli npm uninstall -g grunt //卸载服务器版本grunt 3.项目根目录下创建package.json文件 1 2 3 4 5 6 7 8 //package.json { &quot;name&quot;: &quot;work&quot;, //项目名字 &quot;version&quot;: &quot;1.0.0&quot;, &quot;devDependencies&quot;: { &quot;grunt-contrib-uglify&quot;: &quot;~0.2.0&quot; //压缩js工具 } } 4.项目根目录执行命令 1npm install //安装工具包 5.创建src 和build文件，在src里面创建一个test.js 1 2...
+        </description>
+        <pubDate>Tue, 29 Oct 2013 15:53:00 +0000</pubDate>
+        <link>http://localhost:4000/2013-10-29-grunt/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013-10-29-grunt/</guid>
+      </item>
+    
+  </channel>
+</rss>

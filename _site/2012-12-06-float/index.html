@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>google earth 中有关浮动层的添加问题</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="google earth 中有关浮动层的添加问题" />
+  
+
+   
+  <meta property="og:description" content="最近项目需要google earth有关的技术点，遇见了要在google earth上面添加浮动层的问题。怎么设置z-index也没发使得元素在earth上面显示，总是被压下去。 补充：google map没有此类问题，设z-index就可以控制浮动层的位置。 查了好多资料，才发现也有其他人遇见。好像是google earth固有的“缺陷”。 解决办法： 利用动态生成iframe讲图片添加进去并设置z-index。iframe-shim-for-google-earth 经典代码阶段： ```javascript //本地的html按钮 function createNativeHTMLButton(x, y, width, height,id) { // 创建浮动层 var button = document.createElement(“div”); button.className=”nxte”; button.id=id; var ahref = document.createElement(‘a’); ahref.href = ‘#’; button.appendChild(ahref); // create an IFRAME shim for the button var iframeShim = document.createElement(‘iframe’); iframeShim.frameBorder = 0; iframeShim.id=id+”Iframe”;...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2012-12-06-float/" />
+  <link rel="canonical" href="http://localhost:4000/2012-12-06-float/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="google earth 中有关浮动层的添加问题" />
+  
+
+  
+  <meta name="twitter:description" content="最近项目需要google earth有关的技术点，遇见了要在google earth上面添加浮动层的问题。怎么设置z-index也没发使得元素在earth上面显示，总是被压下去。 补充：google map没有此类问题，设z-index就可以控制浮动层的位置。 查了好多资料，才发现也有其他人遇见。好像是google earth固有的“缺陷”。 解决办法： 利用动态生成iframe讲图片添加进去并设置z-index。iframe-shim-for-google-earth 经典代码阶段： ```javascript //本地的html按钮 function createNativeHTMLButton(x, y, width, height,id) { // 创建浮动层 var button = document.createElement(“div”); button.className=”nxte”; button.id=id; var ahref = document.createElement(‘a’); ahref.href = ‘#’; button.appendChild(ahref); // create an IFRAME shim for the button var iframeShim = document.createElement(‘iframe’); iframeShim.frameBorder = 0; iframeShim.id=id+”Iframe”;...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>google earth 中有关浮动层的添加问题</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on December 6, 2012</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>最近项目需要google earth有关的技术点，遇见了要在google earth上面添加浮动层的问题。怎么设置z-index也没发使得元素在earth上面显示，总是被压下去。</p>
+
+<p>补充：google map没有此类问题，设z-index就可以控制浮动层的位置。</p>
+
+<p><!-- more --></p>
+
+<p>查了好多资料，才发现也有其他人遇见。好像是google earth固有的“缺陷”。</p>
+
+<p>解决办法：
+  利用动态生成iframe讲图片添加进去并设置z-index。iframe-shim-for-google-earth</p>
+
+<p>经典代码阶段：</p>
+
+<p>```javascript
+   //本地的html按钮<br />
+  function createNativeHTMLButton(x, y, width, height,id) {<br />
+  // 创建浮动层<br />
+  var button = document.createElement(“div”);<br />
+  button.className=”nxte”;<br />
+  button.id=id;<br />
+  var ahref = document.createElement(‘a’);<br />
+  ahref.href = ‘#’;<br />
+  button.appendChild(ahref);</p>
+
+<p>// create an IFRAME shim for the button<br />
+  var iframeShim = document.createElement(‘iframe’);<br />
+  iframeShim.frameBorder = 0;<br />
+  iframeShim.id=id+”Iframe”;<br />
+  iframeShim.scrolling = ‘no’;<br />
+  iframeShim.src = (navigator.userAgent.indexOf(‘MSIE 6’) &gt;= 0) ?  ‘’ : ‘javascript:void(0);’;</p>
+
+<p>// position the button and IFRAME shim<br />
+  var pluginRect = getElementRect(document.getElementById(‘earth’));<br />
+  button.style.position = iframeShim.style.position = ‘absolute’;<br />
+  button.style.left = iframeShim.style.left = (pluginRect.left + x) + ‘px’;<br />
+  button.style.top = iframeShim.style.top = (pluginRect.top + y) + ‘px’;<br />
+  button.style.width = iframeShim.style.width = width + ‘px’;<br />
+  button.style.height = iframeShim.style.height = height + ‘px’;<br />
+  // set up z-orders<br />
+  button.style.zIndex = 10;<br />
+  iframeShim.style.zIndex = button.style.zIndex - 1;</p>
+
+<p>document.body.appendChild(button);<br />
+  document.body.appendChild(iframeShim);</p>
+
+<p>}</p>
+
+<p>/** 
+ * Helper function to get the rectangle for the given HTML element. 
+ */<br />
+function getElementRect(element) {<br />
+var left = element.offsetLeft;<br />
+var top = element.offsetTop;
+var p = element.offsetParent;<br />
+while (p &amp;&amp; p != document.body.parentNode) {<br />
+if (isFinite(p.offsetLeft) &amp;&amp; isFinite(p.offsetTop)) {<br />
+left += p.offsetLeft;<br />
+top += p.offsetTop;<br />
+}<br />
+p = p.offsetParent;<br />
+}<br />
+return{ left: left, top: top, width: element.offsetWidth, height: element.offsetHeight };<br />
+}<br />
+```</p>
+
+<p>引用:createNativeHTMLButton(left, top, 14, 49,”nxte”);</p>
+
+<p>一个很好的demo：http://lineandpixel.com/blog/iframe-shim-for-google-earth</p>
+
+<p>补充：后来细想一下 估计不需要javascript动态生成，直接用html静态元素估计也可以。本人没有尝试。(<em>^__^</em>) 嘻嘻……</p>
+
+<p><img src="/images/blog/float.jpg" alt="Crepe" /></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/google">google</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2012-12-06-float/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2012-12-05-num/" data-toggle="tooltip" data-placement="top" title="限制octopress主页显示固定篇数方法">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2012-12-07-audio/" data-toggle="tooltip" data-placement="top" title="HTML5带语音的搜索框">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

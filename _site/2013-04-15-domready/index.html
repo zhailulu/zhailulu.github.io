@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Google Map V3 绑定气泡窗口(infowindow)Dom事件方法</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Google Map V3 绑定气泡窗口(infowindow)Dom事件方法" />
+  
+
+   
+  <meta property="og:description" content="Google Map V3 绑定气泡窗口(infowindow)Dom事件方法 在调试功能模块时候，发现怎么用什么方法都无法在infowindow里面添加的div进行绑定事件处理。郁闷啊！上网搜了好多方法也没用， 后来想想还是查了一下官方的API，发现了google.maps.InfoWindow下面的Events里面有个domready事件 官方解释： This event is fired when the &amp;lt;div&amp;gt; containing the InfoWindow’s content is attached to the DOM. You may wish to monitor this event if you are building out your info window content dynamically. 本人理解大概的意思就是InfoWindow里面动态添加的Dom元素完成后的回调函数。 js是个单线程的引擎，只有等到DOM创建完成之后才能绑定事件，这样理解起来应该很简单了吧！ 看同事写的js代码，里面好多setTimeout之类的延迟 估计没弄清楚脚本执行的顺利 觉的延迟几秒就行执行，其实问题很大。哪些脚本要先执行，哪些要后执行 都是有顺序的。 &amp;lt;span class=&quot;stress&quot;&amp;gt;google.maps.event.addDomListener&amp;lt;/span&amp;gt;googleMap 提供的监听Dom元素的事件 上代码：...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-04-15-domready/" />
+  <link rel="canonical" href="http://localhost:4000/2013-04-15-domready/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="Google Map V3 绑定气泡窗口(infowindow)Dom事件方法" />
+  
+
+  
+  <meta name="twitter:description" content="Google Map V3 绑定气泡窗口(infowindow)Dom事件方法 在调试功能模块时候，发现怎么用什么方法都无法在infowindow里面添加的div进行绑定事件处理。郁闷啊！上网搜了好多方法也没用， 后来想想还是查了一下官方的API，发现了google.maps.InfoWindow下面的Events里面有个domready事件 官方解释： This event is fired when the &amp;lt;div&amp;gt; containing the InfoWindow’s content is attached to the DOM. You may wish to monitor this event if you are building out your info window content dynamically. 本人理解大概的意思就是InfoWindow里面动态添加的Dom元素完成后的回调函数。 js是个单线程的引擎，只有等到DOM创建完成之后才能绑定事件，这样理解起来应该很简单了吧！ 看同事写的js代码，里面好多setTimeout之类的延迟 估计没弄清楚脚本执行的顺利 觉的延迟几秒就行执行，其实问题很大。哪些脚本要先执行，哪些要后执行 都是有顺序的。 &amp;lt;span class=&quot;stress&quot;&amp;gt;google.maps.event.addDomListener&amp;lt;/span&amp;gt;googleMap 提供的监听Dom元素的事件 上代码：...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Google Map V3 绑定气泡窗口(infowindow)Dom事件方法</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on April 15, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>Google Map V3 绑定气泡窗口(infowindow)Dom事件方法</p>
+
+<p>在调试功能模块时候，发现怎么用什么方法都无法在infowindow里面添加的div进行绑定事件处理。郁闷啊！上网搜了好多方法也没用，</p>
+
+<p>后来想想还是查了一下官方的API，发现了google.maps.InfoWindow下面的Events里面有个<span class="stress">domready</span>事件</p>
+
+<p><!--more--></p>
+
+<p>官方解释：
+   This event is fired when the &lt;div&gt; containing the InfoWindow’s content is attached to the DOM. 
+   You may wish to monitor this event if you are building out your info window content dynamically.</p>
+
+<p>本人理解大概的意思就是InfoWindow里面动态添加的Dom元素完成后的回调函数。</p>
+
+<p>js是个单线程的引擎，只有等到DOM创建完成之后才能绑定事件，这样理解起来应该很简单了吧！</p>
+
+<p>看同事写的js代码，里面好多setTimeout之类的延迟 估计没弄清楚脚本执行的顺利 觉的延迟几秒就行执行，其实问题很大。哪些脚本要先执行，哪些要后执行</p>
+
+<p>都是有顺序的。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;span class="stress"&gt;google.maps.event.addDomListener&lt;/span&gt;googleMap 提供的监听Dom元素的事件
+</code></pre>
+</div>
+
+<p>上代码：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre>   <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="nx">infowindow</span><span class="p">,</span><span class="s2">"domready"</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+     <span class="kd">var</span> <span class="nx">Cancel</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"Cancel"</span><span class="p">);</span>
+     <span class="kd">var</span> <span class="nx">Ok</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"Ok"</span><span class="p">);</span>
+     <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nx">Cancel</span><span class="p">,</span><span class="s2">"click"</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span><span class="nx">infowindow</span><span class="p">.</span><span class="nx">close</span><span class="p">();});</span>
+     <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nx">Ok</span><span class="p">,</span><span class="s2">"click"</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span><span class="nx">infowindow</span><span class="p">.</span><span class="nx">close</span><span class="p">();});</span>
+	<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>官方API：<a href="https://developers.google.com/maps/documentation/javascript/3.exp/reference?hl=zh-cn" target="_blank">https://developers.google.com/maps/documentation/javascript/3.exp/reference?hl=zh-cn</a></p>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/google">google</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-04-15-domready/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-04-09-overlay/" data-toggle="tooltip" data-placement="top" title="基于jquery简单的遮罩层overlay小插件">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-04-18-mapinit/" data-toggle="tooltip" data-placement="top" title="Google Map V3 javascript API 入门教程">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

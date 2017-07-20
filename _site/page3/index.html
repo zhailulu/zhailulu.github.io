@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Yrzhll's Blog - 前端工程师</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+  <meta name="description" content="越努力越幸运...">
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Yrzhll's Blog" />
+  
+
+   
+  <meta property="og:description" content="越努力越幸运...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page3/" />
+  <link rel="canonical" href="http://localhost:4000/page3/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="Yrzhll's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="越努力越幸运...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2014-03-07-marry/">
+	  <h2 class="post-title">八年抗战即将结束</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on March 7, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        2014年3月10号我和他终于要举办结婚仪式！
+
+用终于这两个字一点也不过分，将近八年时间。
+
+补充一句过来人的经验：恋爱还是不要谈的太久，真的坏处大于好处。不然到最后根本没有你想的那么浪漫。
+
+
+
+恋爱史：
+
+1.2005年5月20号晚上答应做他女朋友。（记不清是巧合，还是那天我故意的。）
+
+2.2008年他毕业，我升本。毕业分手高峰期，我们也没有人想过这个问题。
+
+3.2010年他读研，我毕业去上海工作。异地恋的开始
+
+4.2012年他毕业回合肥，我回合肥工作。
+
+5.2013年4月2号领结婚证，买房子。
+
+6.2014年3月10号结婚。
+
+QQ情侣上面显示我们到结婚前一天已相恋2851天, 希望我们以后的婚姻生活能够幸福快乐！！！
+
+
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/life">life</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-03-05-console/">
+	  <h2 class="post-title">使用console.time()计算js代码执行时间</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on March 5, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        firefox，chrome开发工具都提供了调试api，console.time就是其中一个工具
+console.time()  方法可用来计算 js 执行的时间。
+
+
+        
+        
+          <a href="/2014-03-05-console/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/js">js</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-02-26-globalfuntion/">
+	  <h2 class="post-title">JavaScript的全局函数</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 26, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        JavaScript 中包含以下 7 个全局函数，用于完成一些常用的功能（以后的章节中可能会用到）：escape( )、eval( )、isFinite( )、isNaN( )、parseFloat( )、parseInt( )、unescape( )。
+
+
+        
+        
+          <a href="/2014-02-26-globalfuntion/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/js">js</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-02-21-htmlstring/">
+	  <h2 class="post-title">揭示魔术：如何将HTML字符串正确地转换为一个DOM元素（翻译）</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 21, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        这看起来似乎是一个简单的任务。然而，事实并非如此。如果你经常使用现在几个流行的解决方案去解决这个问题的时候，你会发现其实存在很大的问题。
+
+比方说，我们有以下的HTML标记
+
+javascript&amp;lt;section&amp;gt;&amp;lt;a href=&quot;#&quot;&amp;gt;Link label&amp;lt;/a&amp;gt;&amp;lt;/section&amp;gt;
+
+如果你去搜索这个问题的时候会发现目前最流行的解决方案是使用创建一个新元素的innerHTML属性。
+   javascript
+    var notWorking = function(html) {
+     var el = document.createElement('div');
+     el.innerHTML = html;
+     return el.childNodes[0];
+    }
+    console.log(notWorking('&amp;lt;section&amp;gt;&amp;lt;a href=&quot;#&quot;&amp;gt;Link label&amp;lt;/a&amp;gt;&amp;lt;/section&amp;gt;'));
+  
+
+
+
+可以看到上面的运行结果完全是正确的，会得到一个包含着a的section DOM元素。这样看来确实很正常，也很简单。
+
+现在我们试试插入其他的HTML字符串
+
+javascriptconsole.log(notWorking('&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Text Here&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;'));
+
+而此时得到的结果：
+
+javascriptText Here
+
+咦。。。tr和td标签消失了，这样看来好像是不正确的。其实这才是浏览器正常的行为。我去查了有关该问题的相关资料
+
+2006年时候Eric Vasilik的一篇文章这样说的：
+
+
+  当通过设置元素的innerHTML属性时，HTML字符串要通过解析器才能运行的
+
+
+
+  当解析类似”&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Foo”前面不带”table”标签的字符串时，解析器会忽略相关的tr和td标签
+
+
+于是我意识到通过innerHTML设置的字符串不应该是混合的一系列标签，而是一个正确有效的DOM表达式。
+
+如果我加上table应该就能得到正确的结果了
+
+javascriptconsole.log(notWorking('&amp;lt;table&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Text Here&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;'));
+
+结果如下
+
+javascript&amp;lt;table&amp;gt;&amp;lt;tbody&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Text Here&amp;lt;/td&amp;gt;&amp;lt;/tbody&amp;gt;&amp;lt;/table&amp;gt;
+
+这就证明Eric Vasilik是正确的。我的方法类似于检查所传递的字符串然后自动添加正确的标签。不是返回第一个节点，而是返回一个正确的嵌套的节点。看起来有不少工作量啊。
+
+
+        
+        
+          <a href="/2014-02-21-htmlstring/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/html">html</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-02-18-law/">
+	  <h2 class="post-title">程序员的《权利法案》（转）</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 18, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+         1.每个程序员都应该有两个显示器
+
+
+        
+        
+          <a href="/2014-02-18-law/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/web">web</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page2">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page4">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

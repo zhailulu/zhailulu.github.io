@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>HTML5的离线缓存Application Cache</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="HTML5的离线缓存Application Cache" />
+  
+
+   
+  <meta property="og:description" content="前几天，老哥说他接一个项目要做用到HTML5的离线缓存。抽空研究了一下。自己没事弄了个小demo。 1.引用缓存文件 要启用某个应用的应用缓存，请在文档的 html 标记中添加 manifest 属性 &amp;lt;html manifest=&quot;example.manifest&quot;&amp;gt; &amp;lt;/html&amp;gt; 2.清单文件结构 javascript CACHE MANIFEST index.html stylesheet.css images/logo.png scripts/main.js 注意以下几点： a.CACHE MANIFEST 字符串应在第一行，且必不可少。 b.网站的缓存数据量不得超过 5 MB。不过，如果您要编写的是针对 Chrome 网上应用店的应用，可使用 unlimitedStorage 取消该限制。 c.如果清单文件或其中指定的资源无法下载，就无法进行整个缓存更新进程。在这种情况下，浏览器将继续使用原应用缓存。 哈哈，搞定了。简单吧 demo:http://yrzhll.com/example/cache/index.html 3.cache事件 ```javascript //第一个缓存清单被缓存后事件 appCache.addEventListener(‘cached’, handleCacheEvent, false); // 检查更新 appCache.addEventListener(‘checking’, handleCacheEvent, false); //下载资源 appCache.addEventListener(‘downloading’, handleCacheEvent, false); // 缓存出错 appCache.addEventListener(‘error’,...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-09-22-cache/" />
+  <link rel="canonical" href="http://localhost:4000/2013-09-22-cache/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="HTML5的离线缓存Application Cache" />
+  
+
+  
+  <meta name="twitter:description" content="前几天，老哥说他接一个项目要做用到HTML5的离线缓存。抽空研究了一下。自己没事弄了个小demo。 1.引用缓存文件 要启用某个应用的应用缓存，请在文档的 html 标记中添加 manifest 属性 &amp;lt;html manifest=&quot;example.manifest&quot;&amp;gt; &amp;lt;/html&amp;gt; 2.清单文件结构 javascript CACHE MANIFEST index.html stylesheet.css images/logo.png scripts/main.js 注意以下几点： a.CACHE MANIFEST 字符串应在第一行，且必不可少。 b.网站的缓存数据量不得超过 5 MB。不过，如果您要编写的是针对 Chrome 网上应用店的应用，可使用 unlimitedStorage 取消该限制。 c.如果清单文件或其中指定的资源无法下载，就无法进行整个缓存更新进程。在这种情况下，浏览器将继续使用原应用缓存。 哈哈，搞定了。简单吧 demo:http://yrzhll.com/example/cache/index.html 3.cache事件 ```javascript //第一个缓存清单被缓存后事件 appCache.addEventListener(‘cached’, handleCacheEvent, false); // 检查更新 appCache.addEventListener(‘checking’, handleCacheEvent, false); //下载资源 appCache.addEventListener(‘downloading’, handleCacheEvent, false); // 缓存出错 appCache.addEventListener(‘error’,...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>HTML5的离线缓存Application Cache</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on September 22, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>前几天，老哥说他接一个项目要做用到HTML5的离线缓存。抽空研究了一下。自己没事弄了个小demo。</p>
+
+<p>1.引用缓存文件
+要启用某个应用的应用缓存，请在文档的 html 标记中添加 manifest 属性</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">html</span> <span class="nx">manifest</span><span class="o">=</span><span class="s2">"example.manifest"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/html</span><span class="err">&gt;
+</span></code></pre>
+</div>
+
+<!--more-->
+
+<p>2.清单文件结构
+<code class="highlighter-rouge">javascript
+CACHE MANIFEST
+index.html
+stylesheet.css
+images/logo.png
+scripts/main.js
+</code></p>
+
+<p>注意以下几点：
+a.CACHE MANIFEST 字符串应在第一行，且必不可少。
+b.网站的缓存数据量不得超过 5 MB。不过，如果您要编写的是针对 Chrome 网上应用店的应用，可使用 unlimitedStorage 取消该限制。
+c.如果清单文件或其中指定的资源无法下载，就无法进行整个缓存更新进程。在这种情况下，浏览器将继续使用原应用缓存。</p>
+
+<p>哈哈，搞定了。简单吧
+demo:<a href="http://yrzhll.com/example/cache/index.html" target="_blank">http://yrzhll.com/example/cache/index.html</a></p>
+
+<p>3.cache事件
+```javascript
+//第一个缓存清单被缓存后事件
+appCache.addEventListener(‘cached’, handleCacheEvent, false);</p>
+
+<p>// 检查更新
+appCache.addEventListener(‘checking’, handleCacheEvent, false);</p>
+
+<p>//下载资源
+appCache.addEventListener(‘downloading’, handleCacheEvent, false);</p>
+
+<p>// 缓存出错
+appCache.addEventListener(‘error’, handleCacheError, false);</p>
+
+<p>// 缓存没有更新
+appCache.addEventListener(‘noupdate’, handleCacheEvent, false);</p>
+
+<p>// 解雇，如果清单文件返回404或410，导致应用程序缓存中被删除。
+appCache.addEventListener(‘obsolete’, handleCacheEvent, false);</p>
+
+<p>// 
+appCache.addEventListener(‘progress’, handleCacheEvent, false);</p>
+
+<p>// 准备更新
+appCache.addEventListener(‘updateready’, handleCacheEvent, false);
+```</p>
+
+<p>API : <a href="http://www.whatwg.org/specs/web-apps/current-work/#applicationcache" target="_blank">http://www.whatwg.org/specs/web-apps/current-work/#applicationcache</a></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/html">html</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-09-22-cache/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-09-11-auto/" data-toggle="tooltip" data-placement="top" title="margin:0px auto妙用">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-10-15-allchoice/" data-toggle="tooltip" data-placement="top" title="jquery'全选'简单code">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

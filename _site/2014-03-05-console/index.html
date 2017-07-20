@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>使用console.time()计算js代码执行时间</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="使用console.time()计算js代码执行时间" />
+  
+
+   
+  <meta property="og:description" content="firefox，chrome开发工具都提供了调试api，console.time就是其中一个工具 console.time() 方法可用来计算 js 执行的时间。 console.time('good'); var $page = $('#page'),option; for(var i=1;i&amp;lt;1000;i++){ option+=&quot;&amp;lt;option value=&quot;+i+&quot;&amp;gt;第 &quot;+i+&quot; 页&amp;lt;/option&amp;gt;&quot;; } //dom 操作一次 $page.append(option); console.timeEnd('good'); IE不支持，下面是兼容代码 ```javascript if(window.console &amp;amp;&amp;amp; typeof(window.console.time) == “undefined”) { console.time = function(name, reset){ if(!name) { return; } var time = new Date().getTime(); if(!console.timeCounters) { console.timeCounters = {}; } var key...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2014-03-05-console/" />
+  <link rel="canonical" href="http://localhost:4000/2014-03-05-console/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="使用console.time()计算js代码执行时间" />
+  
+
+  
+  <meta name="twitter:description" content="firefox，chrome开发工具都提供了调试api，console.time就是其中一个工具 console.time() 方法可用来计算 js 执行的时间。 console.time('good'); var $page = $('#page'),option; for(var i=1;i&amp;lt;1000;i++){ option+=&quot;&amp;lt;option value=&quot;+i+&quot;&amp;gt;第 &quot;+i+&quot; 页&amp;lt;/option&amp;gt;&quot;; } //dom 操作一次 $page.append(option); console.timeEnd('good'); IE不支持，下面是兼容代码 ```javascript if(window.console &amp;amp;&amp;amp; typeof(window.console.time) == “undefined”) { console.time = function(name, reset){ if(!name) { return; } var time = new Date().getTime(); if(!console.timeCounters) { console.timeCounters = {}; } var key...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>使用console.time()计算js代码执行时间</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on March 5, 2014</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>firefox，chrome开发工具都提供了调试api，console.time就是其中一个工具
+console.time()  方法可用来计算 js 执行的时间。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>    <span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">'good'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">$page</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#page'</span><span class="p">),</span><span class="nx">option</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">1000</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nx">option</span><span class="o">+=</span><span class="s2">"&lt;option value="</span><span class="o">+</span><span class="nx">i</span><span class="o">+</span><span class="s2">"&gt;第 "</span><span class="o">+</span><span class="nx">i</span><span class="o">+</span><span class="s2">" 页&lt;/option&gt;"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//dom 操作一次</span>
+    <span class="nx">$page</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">option</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">'good'</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<!-- more -->
+
+<p>IE不支持，下面是兼容代码
+```javascript
+if(window.console &amp;&amp; typeof(window.console.time) == “undefined”) {
+    console.time = function(name, reset){
+        if(!name) { return; }
+        var time = new Date().getTime();
+        if(!console.timeCounters) { console.timeCounters = {}; }
+        var key = “KEY” + name.toString();
+        if(!reset &amp;&amp; console.timeCounters[key]) { return; }
+            console.timeCounters[key] = time;
+        };</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>console.timeEnd = function(name){
+    var time = new Date().getTime();
+    if(!console.timeCounters) { return; }
+    var key = "KEY" + name.toString();
+    var timeCounter = console.timeCounters[key];
+    var diff;
+    if(timeCounter) {
+        diff = time - timeCounter;
+        var label = name + ": " + diff + "ms";
+        console.info(label);
+        delete console.timeCounters[key];
+    }
+    return diff;
+}; } ```javascript
+</code></pre>
+</div>
+
+<p>很方便，在优化性能很好的api</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/js">js</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2014-03-05-console/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2014-02-26-globalfuntion/" data-toggle="tooltip" data-placement="top" title="JavaScript的全局函数">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2014-03-07-marry/" data-toggle="tooltip" data-placement="top" title="八年抗战即将结束">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

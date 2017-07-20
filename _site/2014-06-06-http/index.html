@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>HTTP请求方法</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="HTTP请求方法" />
+  
+
+   
+  <meta property="og:description" content="最近京东图书做活动，满两百减一百，一冲动买了好多平常想买的又厚又贵的书。买了就要看啊，不然我的money好心疼！呜呜。。。
+
+其实是最近受打击了，心情也不好！哎！干程序员的女孩不容易啊！
+
+1）GET：请求响应
+
+2）HEAD：与GET相同的响应，只要求响应表头
+
+3）POST：发送数据给服务器处理，数据包含在HTTP信息正文中
+
+
+
+4）PUT：上传文件
+
+5）DELETE：删除文件
+
+6）TRACE：追踪收到的请求
+
+7）OPTIONS：返回服务器所支持的HTTP请求的方法
+
+8）CONNECT：将HTTP请求的连接转换成透明的TCP/IP通道
+
+平常一般的只用到get和post，其实后三种请求方法还是第一次看见。以前知道delete方法，但是以前的老大考虑我还是经验十分不足的丫头片子，所以不准我用delete。
+
+传给后台数据只准用get和post。
+
+现在好懒啊，不想解释了。如果有人要深究，就自己去搜资料吧！心情不好。。。。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2014-06-06-http/" />
+  <link rel="canonical" href="http://localhost:4000/2014-06-06-http/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="HTTP请求方法" />
+  
+
+  
+  <meta name="twitter:description" content="最近京东图书做活动，满两百减一百，一冲动买了好多平常想买的又厚又贵的书。买了就要看啊，不然我的money好心疼！呜呜。。。
+
+其实是最近受打击了，心情也不好！哎！干程序员的女孩不容易啊！
+
+1）GET：请求响应
+
+2）HEAD：与GET相同的响应，只要求响应表头
+
+3）POST：发送数据给服务器处理，数据包含在HTTP信息正文中
+
+
+
+4）PUT：上传文件
+
+5）DELETE：删除文件
+
+6）TRACE：追踪收到的请求
+
+7）OPTIONS：返回服务器所支持的HTTP请求的方法
+
+8）CONNECT：将HTTP请求的连接转换成透明的TCP/IP通道
+
+平常一般的只用到get和post，其实后三种请求方法还是第一次看见。以前知道delete方法，但是以前的老大考虑我还是经验十分不足的丫头片子，所以不准我用delete。
+
+传给后台数据只准用get和post。
+
+现在好懒啊，不想解释了。如果有人要深究，就自己去搜资料吧！心情不好。。。。
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>HTTP请求方法</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on June 6, 2014</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>最近京东图书做活动，满两百减一百，一冲动买了好多平常想买的又厚又贵的书。买了就要看啊，不然我的money好心疼！呜呜。。。</p>
+
+<p>其实是最近受打击了，心情也不好！哎！干程序员的女孩不容易啊！</p>
+
+<p>1）GET：请求响应</p>
+
+<p>2）HEAD：与GET相同的响应，只要求响应表头</p>
+
+<p>3）POST：发送数据给服务器处理，数据包含在HTTP信息正文中</p>
+
+<!-- more -->
+
+<p>4）PUT：上传文件</p>
+
+<p>5）DELETE：删除文件</p>
+
+<p>6）TRACE：追踪收到的请求</p>
+
+<p>7）OPTIONS：返回服务器所支持的HTTP请求的方法</p>
+
+<p>8）CONNECT：将HTTP请求的连接转换成透明的TCP/IP通道</p>
+
+<p>平常一般的只用到get和post，其实后三种请求方法还是第一次看见。以前知道delete方法，但是以前的老大考虑我还是经验十分不足的丫头片子，所以不准我用delete。</p>
+
+<p>传给后台数据只准用get和post。</p>
+
+<p>现在好懒啊，不想解释了。如果有人要深究，就自己去搜资料吧！心情不好。。。。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/web">web</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2014-06-06-http/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2014-05-14-php/" data-toggle="tooltip" data-placement="top" title="php有用的函数">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2014-06-24-git/" data-toggle="tooltip" data-placement="top" title="centos安装git">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

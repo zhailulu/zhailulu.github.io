@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Posts Tagged &ldquo;js&rdquo;</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Posts Tagged &ldquo;js&rdquo;" />
+  
+
+   
+  <meta property="og:description" content="Posts Tagged &amp;ldquo;js&amp;rdquo;: Ajax跨域请求数据神器 发表于 November 11, 2014 今天没事突然想起了本人还有一个博客，看到别人给我博客留言，又重新燃起我写博客的热情。 写啥呢？其实在公司不是很忙，也没啥可以发挥，但是俺们不能就这样透支以前的经验。没事自己看书学习。 最近比较火的当属慕课网，业界良心啊！终于不用自己苦苦自学，可以有大牛教你技术了。 前段时间看了一个有关jQuery mobile视频，里面大牛介绍了一个Ajax跨域请求数据神器。小女子佩服的五体投地啊！ 原来在上家公司接触到有关跨域请求数据的项目，之前的做法都是下载到本地服务器上，然后在请求。废话不说了。 API地址：http://www.corsproxy.com/ 调用方法： {% highlight javascript linenos %} $.get('http://www.corsproxy.com/en.wikipedia.org/wiki/Http',function(response){ document.body.innerHTML = response; }) {% endhighlight %} 在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。 小伙伴们在也不怕跨域的数据了！哦，今天是光棍节，跟俺没关系。但是还是要祝大家光棍节快乐！ [Read&amp;nbsp;More] 文章类别: js 5种你未必知道的JavaScript和CSS交互的方法（转） 发表于 April 3, 2014 这篇文章没有直接拷贝过来，直接提取重点简化过来，备用笔记！ 1.用JavaScript获取伪元素(pseudo-element)属性 ```javascript var color = window.getComputedStyle( document.querySelector('.element'), ':before' ).getPropertyValue('color'); //...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/tag/js/" />
+  <link rel="canonical" href="http://localhost:4000/tag/js/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="Posts Tagged &ldquo;js&rdquo;" />
+  
+
+  
+  <meta name="twitter:description" content="Posts Tagged &amp;ldquo;js&amp;rdquo;: Ajax跨域请求数据神器 发表于 November 11, 2014 今天没事突然想起了本人还有一个博客，看到别人给我博客留言，又重新燃起我写博客的热情。 写啥呢？其实在公司不是很忙，也没啥可以发挥，但是俺们不能就这样透支以前的经验。没事自己看书学习。 最近比较火的当属慕课网，业界良心啊！终于不用自己苦苦自学，可以有大牛教你技术了。 前段时间看了一个有关jQuery mobile视频，里面大牛介绍了一个Ajax跨域请求数据神器。小女子佩服的五体投地啊！ 原来在上家公司接触到有关跨域请求数据的项目，之前的做法都是下载到本地服务器上，然后在请求。废话不说了。 API地址：http://www.corsproxy.com/ 调用方法： {% highlight javascript linenos %} $.get('http://www.corsproxy.com/en.wikipedia.org/wiki/Http',function(response){ document.body.innerHTML = response; }) {% endhighlight %} 在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。 小伙伴们在也不怕跨域的数据了！哦，今天是光棍节，跟俺没关系。但是还是要祝大家光棍节快乐！ [Read&amp;nbsp;More] 文章类别: js 5种你未必知道的JavaScript和CSS交互的方法（转） 发表于 April 3, 2014 这篇文章没有直接拷贝过来，直接提取重点简化过来，备用笔记！ 1.用JavaScript获取伪元素(pseudo-element)属性 ```javascript var color = window.getComputedStyle( document.querySelector('.element'), ':before' ).getPropertyValue('color'); //...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <div class="intro-header"></div>
+
+<div role="main" class="container">
+  <h2 class="post_title">Posts Tagged &ldquo;js&rdquo;:</h2>
+
+<div class="posts-list">
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2014-11-11-ajax/">
+      <h3 class="post-title">Ajax跨域请求数据神器</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 November 11, 2014
+    </p>
+
+    <div class="post-entry">
+         今天没事突然想起了本人还有一个博客，看到别人给我博客留言，又重新燃起我写博客的热情。
+   
+   写啥呢？其实在公司不是很忙，也没啥可以发挥，但是俺们不能就这样透支以前的经验。没事自己看书学习。
+   
+   最近比较火的当属慕课网，业界良心啊！终于不用自己苦苦自学，可以有大牛教你技术了。
+   
+   前段时间看了一个有关jQuery mobile视频，里面大牛介绍了一个Ajax跨域请求数据神器。小女子佩服的五体投地啊！
+   
+   原来在上家公司接触到有关跨域请求数据的项目，之前的做法都是下载到本地服务器上，然后在请求。废话不说了。
+   
+   API地址：http://www.corsproxy.com/
+   
+   调用方法：
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://www.corsproxy.com/en.wikipedia.org/wiki/Http'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">response</span><span class="p">;</span>
+<span class="p">})</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+   
+   在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。
+   
+   小伙伴们在也不怕跨域的数据了！哦，今天是光棍节，跟俺没关系。但是还是要祝大家光棍节快乐！
+   
+
+      <a href="/2014-11-11-ajax/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2014-04-03-js/">
+      <h3 class="post-title">5种你未必知道的JavaScript和CSS交互的方法（转）</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 April 3, 2014
+    </p>
+
+    <div class="post-entry">
+      这篇文章没有直接拷贝过来，直接提取重点简化过来，备用笔记！ 1.用JavaScript获取伪元素(pseudo-element)属性 ```javascript var color = window.getComputedStyle( document.querySelector('.element'), ':before' ).getPropertyValue('color'); // Get the content value of .element:before var content = window.getComputedStyle( document.querySelector('.element'), ':before' ).getPropertyValue('content'); ``` 2.classList API--样式列表 ```javascript myDiv.classList.add('myCssClass'); // 添加class myDiv.classList.remove('myCssClass'); //删除class myDiv.classList.toggle('myCssClass'); //切换class ``` 3.直接对样式表进行添加和删除样式规则 ```javascript function addCSSRule(sheet, selector, rules, index) { if(sheet.insertRule) { sheet.insertRule(selector + &quot;{&quot; +...
+      <a href="/2014-04-03-js/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2014-03-18-air/">
+      <h3 class="post-title">飞机去哪了？</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 March 18, 2014
+    </p>
+
+    <div class="post-entry">
+      休婚假回公司第一天上班，就碰到测试机内存坏了。闲来无事，看倒腾讯首页关于飞机失踪的计时器。 挖出来代码一起分享 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="c1">//样式 .mhkjsl_mod{background:url(http://mat1.gtimg.com/www/images/qq2012/mhkjslBg20140310.jpg) no-repeat 0 0;height:75px;width:660px;position:relative;} .mhkjsl_mod b{color:#ff8400;font:18px/20px 'Microsoft YaHei';} .mhkjsl_mod .ljzt{position:absolute;z-index:9;top:0;left:0;width:660px;height:75px;} .mhkjsl_mod .ljzt:focus{outline:none} #mhkjslTimeNum{position:absolute;top:46px;_top:48px;left:213px;_left:218px;} #mhkjslTimeNum .day{margin-right:28px;_margin-right:32px;} #mhkjslTimeNum .xi{margin-right:43px;_margin-right:46px;} #mhkjslTimeNum .min{margin-right:26px;_margin-right:30px;} @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){ #mhkjslTimeNum{position:absolute;top:45px;left:218px;} #mhkjslTimeNum .day{margin-right:32px;}#mhkjslTimeNum .xi{margin-right:46px;}#mhkjslTimeNum .min{margin-right:30px;} } </span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 大牛的计时器代码 <figure class="highlight"><pre><code class="language-..." data-lang="..."> var obj=[],flag; typeof(obj) == &amp;quot;array&amp;quot; ? flag=true : flag=false console.log(flag); true //本人认为运行结果 false //真实运行结果 </code></pre></figure> 然后就没多想就把代码上线。之后没事闲看，才发现自己犯了错误认识 typeof这会返回一个javascript基本类型的实例的类型。Array实际上不是基本类型，所以typeof Array对象将返回Object， 代码如下： typeof {} === &quot;object&quot; //true typeof &quot;&quot; === &quot;string&quot; //true typeof [] === &quot;array&quot;; //false 当你对自己的对象的实例使用这个操作符时将会得到相同的结果（typeof = &quot;object&quot;）。 另外说明一点，”typeof null“将返回”object“，这个有点诡异。 那应该判断array类型呢。估计大家跟我想的一样。jquery里面肯定有封装好的函数jQuery.isArray(obj) 深究一下jQuery.isArray(obj)，打开jquery框架可以发现相关的代码有以下几段...
+      <a href="/2013-01-10-isarray/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-01-05-array/">
+      <h3 class="post-title">求数组中最大值，最小值</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 January 5, 2013
+    </p>
+
+    <div class="post-entry">
+      从网上找到的资料，加工了一下啊！ <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="kd">var</span> <span class="nx">Max</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">arr</span><span class="p">){</span> <span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="k">return</span> <span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;});</span> <span class="k">return</span> <span class="nx">r</span><span class="p">[</span><span class="nx">r</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="p">}</span> <span class="kd">var</span> <span class="nx">Min</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">arr</span><span class="p">){</span> <span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="k">return</span> <span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;});</span> <span class="k">return</span> <span class="nx">r</span><span class="p">[</span><span class="mi">0</span><span class="p">];}</span> <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 也可以封装成一个函数 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="kd">var</span> <span class="nx">getArrayMaxVal</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="nx">flag</span><span class="p">){</span> <span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="k">return</span> <span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;});</span> <span class="k">return</span> <span class="nx">flag</span><span class="o">===</span><span class="kc">true</span> <span class="p">?</span> <span class="nx">r</span><span class="p">[</span><span class="nx">r</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span> <span class="nx">r</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="p">}</span> <span class="nx">getArrayMaxVal</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="kc">true</span><span class="p">);</span><span class="c1">//max getArrayMaxVal([1,2,3,0],false);//min </span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 网上也有直接扩张Array对象方法， <figure class="highlight"><pre><code class="language-javascript..." data-lang="javascript...">function f(s,e){
+ var ret=[];
+ for(var i in s){
+ ret.push(e(s[i]));
+}
+ return ret;
+}
+window.onload=function(){
+ var a=[-1,1,1,-3,-3,-3,2,2,-2,3,-1,1];
+ var b=f(a,function(n){return n&amp;gt;0?n:0});
+ document.getElementsByTagName(&amp;quot;body&amp;quot;)[0].innerHTML=b;
+}
+ </code></pre></figure>
+
+ 仔细琢磨这段代码，你会发现javascript很震撼。最好动手试试
+ 
+ 观看demo
+ 
+ 函数的主要功能：过滤负数将其转换为0.
+ 具体细节自己琢磨，哈哈。
+      <a href="/2012-12-26-code/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-19-js/">
+      <h3 class="post-title">JS/JQuery中两个感叹号（!!）的作用</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 19, 2012
+    </p>
+
+    <div class="post-entry">
+       几个月前做项目中，本人用了！！两个感叹号。谁知道被同事用有点嘲笑的口气说没见过这种写法！我晕，你们没见过这种写法，只能说你们见识浅而已。
+ 果然是无知者无畏啊！
+
+ 
+ 
+ 当时的代码好像是
+ <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>   <span class="kd">var</span> <span class="nx">temp</span><span class="p">;</span>
+   <span class="k">if</span><span class="p">(</span><span class="o">!!</span><span class="nx">temp</span><span class="p">){</span><span class="k">return</span> <span class="kc">false</span><span class="p">;}</span><span class="k">else</span><span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;}</span>
+ <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+ 
+ 此时 temp会默认为undefined。
+ !temp ==&gt; true  !!temp==&gt;false
+ 
+ 这里的!!是表达式取反的取反
+ 
+ !!一般用来将后面的表达式强制转换为布尔类型的数据（boolean），也就是只能是true或者false;
+ 
+ 现在明白了吧。用两个感叹号！！目的就是让表达式只能转换成true/false
+ 
+ 题外话：
+ 
+ 孔子曰：“君子有三畏：畏天命，畏大人，畏圣人之言。小人不知天命而不畏也，狎大人，侮圣人之言。”——《论语·季氏篇第十六》
+ 
+ 以前看过一个朋友的个性签名写的挺好的，大概好像是这样写。
+ 
+   我在山顶，你在山下。你问我前面应该怎么走，我告诉你应该游，因为前面是一片大海。你说：屁，应该爬！
+   
+ 自勉一下！我觉的中国人的谦虚的传统还是很值得传承的！个人观点。
+   
+   
+ 
+ 
+      <a href="/2012-12-19-js/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-14-time/">
+      <h3 class="post-title">数字时钟（JavaScript ，JQuery）</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 14, 2012
+    </p>
+
+    <div class="post-entry">
+      废话不说，上代码
+
+
+
+```javascript
+
+function systemDate(){
+//获取系统时间
+var date=new Date();
+var month=date.getMonth()+1; //month默认0-11，所以要加1
+var minutes=date.getMinutes(),Min;
+var seconds=date.getSeconds(),updateTime;
+updateTime=60-seconds;
+minutes//显示数字时钟的容器
+```
+
+自己可以设置容器的样式，(*^__^*) 嘻嘻…… 附上项目里用的截图一张（注：里面没有显示星期） 
+
+截图如下：
+
+![Crepe](/images/blog/time.gif)
+      <a href="/2012-12-14-time/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-13-js/">
+      <h3 class="post-title">js动态调用css属性的小规律和特例</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 13, 2012
+    </p>
+
+    <div class="post-entry">
+        刚才看到一篇好的文章介绍js调用css属性，( ^_^ )不错嘛！免的自己忘记，总结到自己的博客里！(*^__^*) 嘻嘻……
+  
+  
+  
+1、对于没有中划线的css属性一般直接使用style.属性名即可。
+
+如：obj.style.margin，obj.style.width，obj.style.left，obj.style.position等。
+
+2、对于含有中划线的css属性，将每个中划线去掉并将每个中划线后的第一个字符换成大写即可。
+
+如：obj.style.marginTop，obj.style.borderLeftWidth，obj.style.zIndex，obj.style.fontFamily等。
+
+
+因为float是Javascript的保留字，那怎么在js中书写样式表中的float呢？
+
+我们不能直接使用obj.style.float来使用，这样操作是无效的。
+
+其正确的使用方法是为：IE:obj.style.styleFloat，其他浏览器Mozilla(gecko)，ff等用styleFloat:obj.style.cssFloat。
+
+给个例子让大家好理解：
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="err">测试</span><span class="mi">1</span>
+<span class="err">测试</span><span class="mi">2</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+      <a href="/2012-12-13-js/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

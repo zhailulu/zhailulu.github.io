@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>如何只用CSS做到完全居中(转)</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="如何只用CSS做到完全居中(转)" />
+  
+
+   
+  <meta property="og:description" content="之前介绍过元素居中，前段时间看了一个文章，介绍了完全居中。太帅了。牛人就是不一样啊，几句css就全部搞定。
+
+我们都知道 margin:0 auto; 的样式能让元素水平居中，而 margin: auto; 却不能做到垂直居中……直到现在。但是，请注意！想让元素绝对居中，只需要声明元素高度，并且附加以下样式，就可以做到：
+
+1
+2
+3
+4
+5  .Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+
+
+我并不是第一个发现这种方法的人（不过我还是敢把它叫做“完全居中”），它有可能是种非常普遍的技巧。但大多数介绍垂直居中的文章中并没有提到过这种方法。如果不是浏览这篇文章的评论，我甚至根本就不会发现这个办法。
+上面那篇文章的评论栏中，Simon提供了一个jsFiddle的链接，其他的方法相比之下就相形见绌了。（Priit也在评论栏中提到了同样的方法）。深入研究了一番之后，我又用某些关键词找到了记载这种方法的三个网站：站点一、站点二、站点三。
+以前从未用过这种方法的我想试试，看看这种”完全居中”的方法到底有多么神奇。
+ 好处：
+跨浏览器，兼容性好（无需hack，可兼顾IE8~IE10）
+
+无特殊标记，样式更精简
+
+自适应布局，可以使用百分比和最大最小高宽等样式
+
+居中时不考虑元素的padding值（也不需要使用box-sizing样式）
+
+布局块可以自由调节大小
+
+img的图像也可以使用
+
+同时注意：
+必须声明元素高度
+
+推荐设置overflow:auto;样式避免元素溢出，显示不正常的问题
+
+这种方法在Windows Phone上不起作用
+
+浏览器支持：Chrome、Firefox、Safari、Mobile Safari、IE8-10。 “完全居中”经测试可以完美地应用在最新版本的Chrome、Firefox、Safari、Mobile Safari中，甚至也可以运行在IE8~IE10上
+
+文章地址：http://blog.jobbole.com/46574/
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-10-17-allcenter/" />
+  <link rel="canonical" href="http://localhost:4000/2013-10-17-allcenter/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="如何只用CSS做到完全居中(转)" />
+  
+
+  
+  <meta name="twitter:description" content="之前介绍过元素居中，前段时间看了一个文章，介绍了完全居中。太帅了。牛人就是不一样啊，几句css就全部搞定。
+
+我们都知道 margin:0 auto; 的样式能让元素水平居中，而 margin: auto; 却不能做到垂直居中……直到现在。但是，请注意！想让元素绝对居中，只需要声明元素高度，并且附加以下样式，就可以做到：
+
+1
+2
+3
+4
+5  .Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+
+
+我并不是第一个发现这种方法的人（不过我还是敢把它叫做“完全居中”），它有可能是种非常普遍的技巧。但大多数介绍垂直居中的文章中并没有提到过这种方法。如果不是浏览这篇文章的评论，我甚至根本就不会发现这个办法。
+上面那篇文章的评论栏中，Simon提供了一个jsFiddle的链接，其他的方法相比之下就相形见绌了。（Priit也在评论栏中提到了同样的方法）。深入研究了一番之后，我又用某些关键词找到了记载这种方法的三个网站：站点一、站点二、站点三。
+以前从未用过这种方法的我想试试，看看这种”完全居中”的方法到底有多么神奇。
+ 好处：
+跨浏览器，兼容性好（无需hack，可兼顾IE8~IE10）
+
+无特殊标记，样式更精简
+
+自适应布局，可以使用百分比和最大最小高宽等样式
+
+居中时不考虑元素的padding值（也不需要使用box-sizing样式）
+
+布局块可以自由调节大小
+
+img的图像也可以使用
+
+同时注意：
+必须声明元素高度
+
+推荐设置overflow:auto;样式避免元素溢出，显示不正常的问题
+
+这种方法在Windows Phone上不起作用
+
+浏览器支持：Chrome、Firefox、Safari、Mobile Safari、IE8-10。 “完全居中”经测试可以完美地应用在最新版本的Chrome、Firefox、Safari、Mobile Safari中，甚至也可以运行在IE8~IE10上
+
+文章地址：http://blog.jobbole.com/46574/
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>如何只用CSS做到完全居中(转)</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on October 17, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>之前介绍过元素居中，前段时间看了一个文章，介绍了完全居中。<span class="stress">太帅了。牛人就是不一样啊，几句css就全部搞定。</span></p>
+
+<p>我们都知道 margin:0 auto; 的样式能让元素水平居中，而 margin: auto; 却不能做到垂直居中……直到现在。但是，请注意！想让元素绝对居中，只需要声明元素高度，并且附加以下样式，就可以做到：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>  <span class="p">.</span><span class="nx">Absolute</span><span class="o">-</span><span class="nx">Center</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="nx">auto</span><span class="p">;</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nx">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="nl">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="nl">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="nl">right</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<!-- more -->
+
+<p>我并不是第一个发现这种方法的人（不过我还是敢把它叫做“完全居中”），它有可能是种非常普遍的技巧。但大多数介绍垂直居中的文章中并没有提到过这种方法。如果不是浏览这篇文章的评论，我甚至根本就不会发现这个办法。
+上面那篇文章的评论栏中，Simon提供了一个jsFiddle的链接，其他的方法相比之下就相形见绌了。（Priit也在评论栏中提到了同样的方法）。深入研究了一番之后，我又用某些关键词找到了记载这种方法的三个网站：站点一、站点二、站点三。
+以前从未用过这种方法的我想试试，看看这种”完全居中”的方法到底有多么神奇。
+ 好处：
+跨浏览器，兼容性好（无需hack，可兼顾IE8~IE10）</p>
+
+<p>无特殊标记，样式更精简</p>
+
+<p>自适应布局，可以使用百分比和最大最小高宽等样式</p>
+
+<p>居中时不考虑元素的padding值（也不需要使用box-sizing样式）</p>
+
+<p>布局块可以自由调节大小</p>
+
+<p>img的图像也可以使用</p>
+
+<p>同时注意：
+必须声明元素高度</p>
+
+<p>推荐设置overflow:auto;样式避免元素溢出，显示不正常的问题</p>
+
+<p>这种方法在Windows Phone上不起作用</p>
+
+<p>浏览器支持：Chrome、Firefox、Safari、Mobile Safari、IE8-10。 “完全居中”经测试可以完美地应用在最新版本的Chrome、Firefox、Safari、Mobile Safari中，甚至也可以运行在IE8~IE10上</p>
+
+<p>文章地址：<a href="http://blog.jobbole.com/46574/" target="_blank">http://blog.jobbole.com/46574/</a></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/css">css</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-10-17-allcenter/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-10-15-allchoice/" data-toggle="tooltip" data-placement="top" title="jquery'全选'简单code">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-10-22-fonts/" data-toggle="tooltip" data-placement="top" title="Google Fonts API简介">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

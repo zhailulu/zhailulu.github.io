@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Google Map JS API v2要升级啦</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Google Map JS API v2要升级啦" />
+  
+
+   
+  <meta property="og:description" content="Google Map JS API v2要升级啦
+
+在做项目的时候发现公司的谷歌地图javascript版本是v2的，当时也没多想，后来想想还是建议领导升级吧！
+
+升级总该有个确切的理由，本人对v2不太了解。喜欢新鲜事物，有v3的我就不会关注v2的 总觉学旧的东西不需要花很多时间，旧的很快就会被淘汰的。
+
+还不如多花点时间学习新的事物，新的思维模式。
+
+
+
+跑题了，嘻嘻！想了一下，先查查这v2到底能用到什么时候，既然好久前就被废弃了，肯定会有寿命的！
+
+哈哈 升级理由： v2到底能用到什么时候？
+
+查了一下官方：
+
+结果如下：
+
+
+
+2010年5月19日被正式弃用谷歌地图的JavaScript API第2版。 原折旧期从2013年5月19日至2013年11月19日一直延续。截至本日，所有申请V2将提供一个特殊的，包裹版本的V3 API来代替。&amp;lt;/span&amp;gt;
+
+官方地址 
+   https://developers.google.com/maps/documentation/javascript/v2/
+
+友情建议：
+
+网页使用v2版本的还是升级到v3版本吧！
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-05-02-update/" />
+  <link rel="canonical" href="http://localhost:4000/2013-05-02-update/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="Google Map JS API v2要升级啦" />
+  
+
+  
+  <meta name="twitter:description" content="Google Map JS API v2要升级啦
+
+在做项目的时候发现公司的谷歌地图javascript版本是v2的，当时也没多想，后来想想还是建议领导升级吧！
+
+升级总该有个确切的理由，本人对v2不太了解。喜欢新鲜事物，有v3的我就不会关注v2的 总觉学旧的东西不需要花很多时间，旧的很快就会被淘汰的。
+
+还不如多花点时间学习新的事物，新的思维模式。
+
+
+
+跑题了，嘻嘻！想了一下，先查查这v2到底能用到什么时候，既然好久前就被废弃了，肯定会有寿命的！
+
+哈哈 升级理由： v2到底能用到什么时候？
+
+查了一下官方：
+
+结果如下：
+
+
+
+2010年5月19日被正式弃用谷歌地图的JavaScript API第2版。 原折旧期从2013年5月19日至2013年11月19日一直延续。截至本日，所有申请V2将提供一个特殊的，包裹版本的V3 API来代替。&amp;lt;/span&amp;gt;
+
+官方地址 
+   https://developers.google.com/maps/documentation/javascript/v2/
+
+友情建议：
+
+网页使用v2版本的还是升级到v3版本吧！
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Google Map JS API v2要升级啦</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on May 2, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>Google Map JS API v2要升级啦</p>
+
+<p>在做项目的时候发现公司的谷歌地图javascript版本是v2的，当时也没多想，后来想想还是建议领导升级吧！</p>
+
+<p>升级总该有个确切的理由，本人对v2不太了解。喜欢新鲜事物，有v3的我就不会关注v2的 总觉学旧的东西不需要花很多时间，旧的很快就会被淘汰的。</p>
+
+<p>还不如多花点时间学习新的事物，新的思维模式。</p>
+
+<p><!-- more--></p>
+
+<p>跑题了，嘻嘻！想了一下，先查查这v2到底能用到什么时候，既然好久前就被废弃了，肯定会有寿命的！</p>
+
+<p>哈哈 升级理由：<span class="stress"> v2到底能用到什么时候？</span></p>
+
+<p>查了一下官方：</p>
+
+<p>结果如下：</p>
+
+<p><img src="/images/blog/update.jpg" alt="Crepe" /></p>
+
+<p>2010年5月19日被正式弃用谷歌地图的JavaScript API第2版。<span class="stress"> 原折旧期从2013年5月19日至2013年11月19日</span>一直延续。截至本日，所有申请V2将提供一个特殊的，包裹版本的V3 API来代替。&lt;/span&gt;</p>
+
+<p>官方地址 
+   <a href="https://developers.google.com/maps/documentation/javascript/v2/" target="_blank">https://developers.google.com/maps/documentation/javascript/v2/</a></p>
+
+<p>友情建议：</p>
+
+<p>网页使用v2版本的还是升级到<span class="stress">v3版本</span>吧！</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/google">google</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-05-02-update/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-04-26-markerDistance/" data-toggle="tooltip" data-placement="top" title="Google Map V3 javascript计算两个marker之间的距离">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-05-22-trash/" data-toggle="tooltip" data-placement="top" title="CSS3呈现垃圾箱打开动画">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

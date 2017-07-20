@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>google earth加载KML/KMZ文件的三种方法</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="google earth加载KML/KMZ文件的三种方法" />
+  
+
+   
+  <meta property="og:description" content="最近在项目里用到了google earth技术，有关调用KML/KMZ的文件的方法。总结如下： KML 是一种开放标准的标记语言，用于在地理浏览器中显示地理数据。Google 地球插件可以用不同的方式导入 KML，以便显示地图项、航线和视图。该插件支持所有的 KML 2.2 标签和使用 gx 命名空间的 KML 的扩展。 导入 KML 有三种方法可将 KML 导入插件中。 1.KmlNetworkLink 从指定的网址载入 KML 或 KMZ 文件。然后可以使用 ge.getFeatures().appendChild() 将抓取的 KML 添加到插件，就和任何其他对象一样。 //全局变量 var link; //重新加载kml文件 if(typeof(networkLink)==&quot;object&quot;){ //重新加载 link.setHref(url); //第一次加载kml文件 }else{ link = ge.createLink(''); var href = url link.setHref(href); var networkLink = ge.createNetworkLink(''); networkLink.set(link,...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2012-12-04-earth/" />
+  <link rel="canonical" href="http://localhost:4000/2012-12-04-earth/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="google earth加载KML/KMZ文件的三种方法" />
+  
+
+  
+  <meta name="twitter:description" content="最近在项目里用到了google earth技术，有关调用KML/KMZ的文件的方法。总结如下： KML 是一种开放标准的标记语言，用于在地理浏览器中显示地理数据。Google 地球插件可以用不同的方式导入 KML，以便显示地图项、航线和视图。该插件支持所有的 KML 2.2 标签和使用 gx 命名空间的 KML 的扩展。 导入 KML 有三种方法可将 KML 导入插件中。 1.KmlNetworkLink 从指定的网址载入 KML 或 KMZ 文件。然后可以使用 ge.getFeatures().appendChild() 将抓取的 KML 添加到插件，就和任何其他对象一样。 //全局变量 var link; //重新加载kml文件 if(typeof(networkLink)==&quot;object&quot;){ //重新加载 link.setHref(url); //第一次加载kml文件 }else{ link = ge.createLink(''); var href = url link.setHref(href); var networkLink = ge.createNetworkLink(''); networkLink.set(link,...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>google earth加载KML/KMZ文件的三种方法</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on December 4, 2012</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>最近在项目里用到了google earth技术，有关调用KML/KMZ的文件的方法。总结如下：
+KML 是一种开放标准的标记语言，用于在地理浏览器中显示地理数据。Google 地球插件可以用不同的方式导入 KML，以便显示地图项、航线和视图。该插件支持所有的 KML 2.2 标签和使用 gx 命名空间的 KML 的扩展。</p>
+
+<p>导入 KML</p>
+
+<p>有三种方法可将 KML 导入插件中。</p>
+
+<!-- more -->
+
+<p>1.KmlNetworkLink 从指定的网址载入 KML 或 KMZ 文件。然后可以使用 ge.getFeatures().appendChild() 将抓取的 KML 添加到插件，就和任何其他对象一样。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code> <span class="c1">//全局变量</span>
+ <span class="kd">var</span> <span class="nx">link</span><span class="p">;</span>
+ <span class="c1">//重新加载kml文件</span>
+ <span class="k">if</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">networkLink</span><span class="p">)</span><span class="o">==</span><span class="s2">"object"</span><span class="p">){</span>
+	  <span class="c1">//重新加载</span>
+	  <span class="nx">link</span><span class="p">.</span><span class="nx">setHref</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+ <span class="c1">//第一次加载kml文件</span>
+ <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+	 <span class="nx">link</span> <span class="o">=</span> <span class="nx">ge</span><span class="p">.</span><span class="nx">createLink</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+     <span class="kd">var</span> <span class="nx">href</span> <span class="o">=</span> <span class="nx">url</span>
+     <span class="nx">link</span><span class="p">.</span><span class="nx">setHref</span><span class="p">(</span><span class="nx">href</span><span class="p">);</span>
+	 <span class="kd">var</span> <span class="nx">networkLink</span> <span class="o">=</span> <span class="nx">ge</span><span class="p">.</span><span class="nx">createNetworkLink</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+     <span class="nx">networkLink</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">link</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+     <span class="nx">ge</span><span class="p">.</span><span class="nx">getFeatures</span><span class="p">().</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">networkLink</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>2.fetchKml 也从网址载入 KML，但返回表示根 KML 地图项的 KmlFeature 对象。可以先访问并更新对象的 KML DOM，然后再将其附加到插件的 KML DOM。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">href</span> <span class="o">=</span><span class="s1">'http://code.google.com/'</span>
+           <span class="o">+</span> <span class="s1">'apis/earth/documentation/samples/kml_example.kml'</span><span class="p">;</span>
+
+  <span class="nx">google</span><span class="p">.</span><span class="nx">earth</span><span class="p">.</span><span class="nx">fetchKml</span><span class="p">(</span><span class="nx">ge</span><span class="p">,</span> <span class="nx">href</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">kmlObject</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">kmlObject</span><span class="p">)</span>
+         <span class="nx">ge</span><span class="p">.</span><span class="nx">getFeatures</span><span class="p">().</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">kmlObject</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre>
+</div>
+
+<p>3.parseKml 获取 KML 字符串，同样返回 KmlFeature 对象。和 fetchKml 一样，可以访问返回对象的 KML DOM。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">kmlString</span> <span class="o">=</span>   <span class="s2">"&lt;?xml version="</span><span class="mf">1.0</span><span class="s2">" encoding="</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span><span class="s2">"?&gt;
+&lt;kml xmlns="</span><span class="nx">http</span><span class="err">:</span><span class="c1">//www.opengis.net/kml/2.2"&gt;</span>
+<span class="o">&lt;</span><span class="nx">Document</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">Camera</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">longitude</span><span class="o">&gt;-</span><span class="mf">122.444633</span><span class="o">&lt;</span><span class="sr">/longitude</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">latitude</span><span class="o">&gt;</span><span class="mf">37.801899</span><span class="o">&lt;</span><span class="sr">/latitude</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">altitude</span><span class="o">&gt;</span><span class="mf">139.629438</span><span class="o">&lt;</span><span class="sr">/altitude</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">heading</span><span class="o">&gt;-</span><span class="mf">70.0</span><span class="o">&lt;</span><span class="sr">/heading</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">tilt</span><span class="o">&gt;</span><span class="mi">75</span><span class="o">&lt;</span><span class="sr">/tilt</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/Camera</span><span class="err">&gt;
+</span>
+  <span class="o">&lt;</span><span class="nx">Placemark</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span><span class="nx">Placemark</span> <span class="nx">from</span> <span class="nx">KML</span> <span class="nx">string</span><span class="o">&lt;</span><span class="sr">/name</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">Point</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">coordinates</span><span class="o">&gt;-</span><span class="mf">122.448425</span><span class="p">,</span><span class="mf">37.802907</span><span class="p">,</span><span class="mi">0</span><span class="o">&lt;</span><span class="sr">/coordinates</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/Point</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/Placemark</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="sr">/Document</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/kml&gt;"</span><span class="err">;
+</span>
+<span class="kd">var</span> <span class="nx">kmlObject</span> <span class="o">=</span> <span class="nx">ge</span><span class="p">.</span><span class="nx">parseKml</span><span class="p">(</span><span class="nx">kmlString</span><span class="p">);</span>
+<span class="nx">ge</span><span class="p">.</span><span class="nx">getFeatures</span><span class="p">().</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">kmlObject</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>补充一点：
+后两种方法如果想清除已经加载的KML/KMZ文件，将kmlObject设为全局变量</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">kmlObject</span><span class="o">=</span><span class="kc">null</span><span class="o">/</span><span class="nx">kmlObject</span><span class="o">=</span><span class="s2">""</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>第一种方法则重新设置href就可以了</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">link</span><span class="p">.</span><span class="nx">setHref</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>参考资料：<a href="https://developers.google.com/earth/documentation/kml?hl=zh-cn#parsekml" target="_blank">https://developers.google.com/earth/documentation/kml?hl=zh-cn#parsekml</a></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/google">google</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2012-12-04-earth/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2012-12-03-title/" data-toggle="tooltip" data-placement="top" title="第一篇octopress博文">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2012-12-05-css3/" data-toggle="tooltip" data-placement="top" title="一些CSS3的新特性IE兼容的方法收集（补充中）">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

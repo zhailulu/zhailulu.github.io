@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Linux的目录架构(转)</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Linux的目录架构(转)" />
+  
+
+   
+  <meta property="og:description" content="Linux的目录架构，并解释每个重要目录的含义。 /Root - 根分区 通常称为根分区。所有的文件和目录皆由此开始。只有root用户对此目录拥有写权限。 /bin - 用户可执行文件 此目录包含二进制可执行文件。在单用户模式下Linux使用此目录的命令。此目录包含所有用户的常用命令，如ls、ping、cp等。 /sbin - 系统可执行文件 此目录中的命令主要供系统管理员使用，以进行系统维护。例如，iptables、reboot、fdisk等。 /etc - 配置文件 包含所有应用程序的配置文件，也包含启动、关闭某个特定程序的脚本，例如，/etc/resolv.conf、/etc/logrotate.conf等。 /dev - 设备文件 包含设备文件。在Linux中，一切都被看做文件。终端设备、USB、磁盘等等都被看做文件，如/dev/usbmon0。 /proc - 进程信息 所有系统进程的信息都包含在/proc目录中。/proc目录并不是一个真正的文件系统，而是包含了运行中的进程信息。例如，/proc目录包含了进程信息。/proc目录也包含了系统资源信息，如/proc/uptime包含了最近一次启动至今的正常运行时间，/proc/cpuinfo包含了处理器信息等。 /var - 变量文件 /var是一个可增长的目录，包含变量文件。例如，/var/log（系统日志）、/var/lib （包文件） 、/var/mail（邮件）、/var/spool （打印队列）。 /usr - 用户程序 为用户应用程序存放可执行文件、源代码和文档。/usr/bin包含了用户可执行文件，如at、awk、cc等。/usr/sbin包含了系统管理员可执行文件，如cron、sshd、useradd等。/usr/local包含了用户编译源代码安装的应用程序，如/usr/local/apache2。 /home - 用户主目录 存放用户的私人文件。 /boot - 启动加载文件 Linux系统启动时需要加载的文件。Kernel initrd、grub等文件都存放在此。 /lib - 系统库文件 /bin和/sbin中的可执行文件需要/lib中库文件的支持。库文件通常以“ld”或“ld*.so”的形式命名，如ld-2.11.1.so。 /opt...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-07-18-mkdir/" />
+  <link rel="canonical" href="http://localhost:4000/2013-07-18-mkdir/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="Linux的目录架构(转)" />
+  
+
+  
+  <meta name="twitter:description" content="Linux的目录架构，并解释每个重要目录的含义。 /Root - 根分区 通常称为根分区。所有的文件和目录皆由此开始。只有root用户对此目录拥有写权限。 /bin - 用户可执行文件 此目录包含二进制可执行文件。在单用户模式下Linux使用此目录的命令。此目录包含所有用户的常用命令，如ls、ping、cp等。 /sbin - 系统可执行文件 此目录中的命令主要供系统管理员使用，以进行系统维护。例如，iptables、reboot、fdisk等。 /etc - 配置文件 包含所有应用程序的配置文件，也包含启动、关闭某个特定程序的脚本，例如，/etc/resolv.conf、/etc/logrotate.conf等。 /dev - 设备文件 包含设备文件。在Linux中，一切都被看做文件。终端设备、USB、磁盘等等都被看做文件，如/dev/usbmon0。 /proc - 进程信息 所有系统进程的信息都包含在/proc目录中。/proc目录并不是一个真正的文件系统，而是包含了运行中的进程信息。例如，/proc目录包含了进程信息。/proc目录也包含了系统资源信息，如/proc/uptime包含了最近一次启动至今的正常运行时间，/proc/cpuinfo包含了处理器信息等。 /var - 变量文件 /var是一个可增长的目录，包含变量文件。例如，/var/log（系统日志）、/var/lib （包文件） 、/var/mail（邮件）、/var/spool （打印队列）。 /usr - 用户程序 为用户应用程序存放可执行文件、源代码和文档。/usr/bin包含了用户可执行文件，如at、awk、cc等。/usr/sbin包含了系统管理员可执行文件，如cron、sshd、useradd等。/usr/local包含了用户编译源代码安装的应用程序，如/usr/local/apache2。 /home - 用户主目录 存放用户的私人文件。 /boot - 启动加载文件 Linux系统启动时需要加载的文件。Kernel initrd、grub等文件都存放在此。 /lib - 系统库文件 /bin和/sbin中的可执行文件需要/lib中库文件的支持。库文件通常以“ld”或“ld*.so”的形式命名，如ld-2.11.1.so。 /opt...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Linux的目录架构(转)</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on July 18, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>Linux的目录架构，并解释每个重要目录的含义。</p>
+
+<p><span class="stress">/Root - 根分区 </span></p>
+
+<p>通常称为根分区。所有的文件和目录皆由此开始。只有root用户对此目录拥有写权限。</p>
+
+<p><span class="stress">/bin - 用户可执行文件</span></p>
+
+<p>此目录包含二进制可执行文件。在单用户模式下Linux使用此目录的命令。此目录包含所有用户的常用命令，如ls、ping、cp等。</p>
+
+<p><span class="stress">/sbin - 系统可执行文件</span></p>
+
+<p>此目录中的命令主要供系统管理员使用，以进行系统维护。例如，iptables、reboot、fdisk等。</p>
+
+<!--more-->
+
+<p><span class="stress">/etc - 配置文件</span></p>
+
+<p>包含所有应用程序的配置文件，也包含启动、关闭某个特定程序的脚本，例如，/etc/resolv.conf、/etc/logrotate.conf等。</p>
+
+<p><span class="stress">/dev - 设备文件</span></p>
+
+<p>包含设备文件。在Linux中，一切都被看做文件。终端设备、USB、磁盘等等都被看做文件，如/dev/usbmon0。</p>
+
+<p><span class="stress">/proc - 进程信息</span></p>
+
+<p>所有系统进程的信息都包含在/proc目录中。/proc目录并不是一个真正的文件系统，而是包含了运行中的进程信息。例如，/proc目录包含了进程信息。/proc目录也包含了系统资源信息，如/proc/uptime包含了最近一次启动至今的正常运行时间，/proc/cpuinfo包含了处理器信息等。</p>
+
+<p><span class="stress">/var - 变量文件</span></p>
+
+<p>/var是一个可增长的目录，包含变量文件。例如，/var/log（系统日志）、/var/lib （包文件） 、/var/mail（邮件）、/var/spool （打印队列）。</p>
+
+<p><span class="stress">/usr - 用户程序</span></p>
+
+<p>为用户应用程序存放可执行文件、源代码和文档。/usr/bin包含了用户可执行文件，如at、awk、cc等。/usr/sbin包含了系统管理员可执行文件，如cron、sshd、useradd等。/usr/local包含了用户编译源代码安装的应用程序，如/usr/local/apache2。</p>
+
+<p><span class="stress">/home - 用户主目录</span></p>
+
+<p>存放用户的私人文件。</p>
+
+<p><span class="stress">/boot - 启动加载文件</span></p>
+
+<p>Linux系统启动时需要加载的文件。Kernel initrd、grub等文件都存放在此。</p>
+
+<p><span class="stress">/lib - 系统库文件</span></p>
+
+<p>/bin和/sbin中的可执行文件需要/lib中库文件的支持。库文件通常以“ld”或“ld*.so”的形式命名，如ld-2.11.1.so。</p>
+
+<p><span class="stress">/opt - 可选应用</span></p>
+
+<p>/opt用于安装独立软件商的可选应用。</p>
+
+<p><span class="stress">/mnt - 挂载目录</span></p>
+
+<p>挂载点，系统管理员可用于临时挂载文件系统。</p>
+
+<p><span class="stress">/media - 可移动媒体设备</span></p>
+
+<p>挂载可移动媒体设备，如/media/cdrom、/media/floppy等。</p>
+
+<p><span class="stress">/srv - 服务数据</span></p>
+
+<p>Srv表示服务，用于服务器的所有服务数据存储在此目录中。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/linux">linux</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-07-18-mkdir/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-07-10-ueditor/" data-toggle="tooltip" data-placement="top" title="推荐一个很好的富文本web编辑器UEditor">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-07-29-xingneng/" data-toggle="tooltip" data-placement="top" title="jquery简单的性能测试">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

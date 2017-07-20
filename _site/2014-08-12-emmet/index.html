@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>sublime text3安装Emmet</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="sublime text3安装Emmet" />
+  
+
+   
+  <meta property="og:description" content="最近在学习一些新东西的时候，发现一个挺好玩的东西。跟大家分享一下， 如果知道的话就忽略吧！ 现在sublime3里面有个插件叫Emmet，原名叫zenCoding。前端神插件。速成写Dom。 1.安装packages control 打开console控制台：view-&amp;gt;show console或者快捷键“ctrl + ` ”(esc下面那个键) import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2014-08-12-emmet/" />
+  <link rel="canonical" href="http://localhost:4000/2014-08-12-emmet/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="sublime text3安装Emmet" />
+  
+
+  
+  <meta name="twitter:description" content="最近在学习一些新东西的时候，发现一个挺好玩的东西。跟大家分享一下， 如果知道的话就忽略吧！ 现在sublime3里面有个插件叫Emmet，原名叫zenCoding。前端神插件。速成写Dom。 1.安装packages control 打开console控制台：view-&amp;gt;show console或者快捷键“ctrl + ` ”(esc下面那个键) import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>sublime text3安装Emmet</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on August 12, 2014</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>最近在学习一些新东西的时候，发现一个挺好玩的东西。跟大家分享一下，</p>
+
+<p>如果知道的话就忽略吧！</p>
+
+<p>现在sublime3里面有个插件叫Emmet，原名叫zenCoding。前端神插件。速成写Dom。</p>
+
+<!-- more -->
+
+<p>1.安装packages control</p>
+
+<p>打开console控制台：view-&gt;show console或者快捷键“ctrl + ` ”(esc下面那个键)</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kr">import</span> <span class="nx">urllib</span><span class="p">.</span><span class="nx">request</span><span class="p">,</span><span class="nx">os</span><span class="p">,</span><span class="nx">hashlib</span><span class="p">;</span> <span class="nx">h</span> <span class="o">=</span> <span class="s1">'7183a2d3e96f11eeadd761d777e62404'</span> <span class="o">+</span> <span class="s1">'e330c659d4bb41d3bdf022e94cab3cd0'</span><span class="p">;</span> <span class="nx">pf</span> <span class="o">=</span> <span class="s1">'Package Control.sublime-package'</span><span class="p">;</span> <span class="nx">ipp</span> <span class="o">=</span> <span class="nx">sublime</span><span class="p">.</span><span class="nx">installed_packages_path</span><span class="p">();</span> <span class="nx">urllib</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">install_opener</span><span class="p">(</span> <span class="nx">urllib</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">build_opener</span><span class="p">(</span> <span class="nx">urllib</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">ProxyHandler</span><span class="p">())</span> <span class="p">);</span> <span class="nx">by</span> <span class="o">=</span> <span class="nx">urllib</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">urlopen</span><span class="p">(</span> <span class="s1">'http://sublime.wbond.net/'</span> <span class="o">+</span> <span class="nx">pf</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">'%20'</span><span class="p">)).</span><span class="nx">read</span><span class="p">();</span> <span class="nx">dh</span> <span class="o">=</span> <span class="nx">hashlib</span><span class="p">.</span><span class="nx">sha256</span><span class="p">(</span><span class="nx">by</span><span class="p">).</span><span class="nx">hexdigest</span><span class="p">();</span> <span class="nx">print</span><span class="p">(</span><span class="s1">'Error validating download (got %s instead of %s), please try manual install'</span> <span class="o">%</span> <span class="p">(</span><span class="nx">dh</span><span class="p">,</span> <span class="nx">h</span><span class="p">))</span> <span class="k">if</span> <span class="nx">dh</span> <span class="o">!=</span> <span class="nx">h</span> <span class="k">else</span> <span class="nx">open</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span> <span class="nx">ipp</span><span class="p">,</span> <span class="nx">pf</span><span class="p">),</span> <span class="s1">'wb'</span> <span class="p">).</span><span class="nx">write</span><span class="p">(</span><span class="nx">by</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>回车即可</p>
+
+<p>2.安装Emmet
+打开packages control: preferences-&gt;packages control 或者快捷键ctrl+shift+p</p>
+
+<p>输入install  选中packages control:install  packages  打开安装面板</p>
+
+<p>输入emmet 选中安装即可！</p>
+
+<p>哈哈 可以用了 超神速！写法类似于jQuery选择器的写法，下面从网上找过了一个例子图 ctrl+e 快速生成DOM元素。</p>
+
+<p><img src="/images/blog/emmet.png" alt="Crepe" /></p>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/web">web</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+   <!--  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2014-08-12-emmet/"
+     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+     <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+     <span class="sr-only">LinkedIn</span>
+   </a> -->
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2014-07-02-xwindow/" data-toggle="tooltip" data-placement="top" title="centos安装xWindow">&larr; 上一篇</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2014-09-01-networkapi/" data-toggle="tooltip" data-placement="top" title="HTML5：Network Information API简介">下一篇 &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

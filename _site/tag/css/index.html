@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Posts Tagged &ldquo;css&rdquo;</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Posts Tagged &ldquo;css&rdquo;" />
+  
+
+   
+  <meta property="og:description" content="Posts Tagged &amp;ldquo;css&amp;rdquo;: chrome浏览器的默认样式 发表于 January 28, 2014 好久没写博客了，好像有一个月了吧！每天大大小小的烦人的事。也不知道写什么， 感觉最近没啥长进，也懒的写了。再没长进，估计就被淘汰了。发点小牢骚，说正题吧！ 之前在调样式的时候就发现chrome的一些默认样式，哎呀 真不知道chrome一些默认样式是福还是麻烦。 几乎每次都要取消chrome的一些默认样式，跟其他浏览器保持一致。有点烦人 随便举几个例子： 1.默认样式字体大小12px; 经常调chrome浏览器会发现chrome最小的字体只能是12px. {% highlight javascript linenos %} html{-webkit-text-size-adjust:none;}//取消chrome默认字体 {% endhighlight %} 2.input和textarea聚焦边框 {% highlight javascript linenos %} input,button,select,textarea{outline:none} textarea{resize:none} //取消textarea可拖动放大 {% endhighlight %} 经常遇见的好像也就是上面两个例子 网上搜到的chrome默认样式表 http://wenku.baidu.com/view/98395820aaea998fcc220ee2.html [Read&amp;nbsp;More] 文章类别: css Img src空属性的解决方法对比 发表于 November 8, 2013 今天早上服务器超载，让查问题。我一头雾水。后来牛逼的同事找出原因。...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/tag/css/" />
+  <link rel="canonical" href="http://localhost:4000/tag/css/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="Posts Tagged &ldquo;css&rdquo;" />
+  
+
+  
+  <meta name="twitter:description" content="Posts Tagged &amp;ldquo;css&amp;rdquo;: chrome浏览器的默认样式 发表于 January 28, 2014 好久没写博客了，好像有一个月了吧！每天大大小小的烦人的事。也不知道写什么， 感觉最近没啥长进，也懒的写了。再没长进，估计就被淘汰了。发点小牢骚，说正题吧！ 之前在调样式的时候就发现chrome的一些默认样式，哎呀 真不知道chrome一些默认样式是福还是麻烦。 几乎每次都要取消chrome的一些默认样式，跟其他浏览器保持一致。有点烦人 随便举几个例子： 1.默认样式字体大小12px; 经常调chrome浏览器会发现chrome最小的字体只能是12px. {% highlight javascript linenos %} html{-webkit-text-size-adjust:none;}//取消chrome默认字体 {% endhighlight %} 2.input和textarea聚焦边框 {% highlight javascript linenos %} input,button,select,textarea{outline:none} textarea{resize:none} //取消textarea可拖动放大 {% endhighlight %} 经常遇见的好像也就是上面两个例子 网上搜到的chrome默认样式表 http://wenku.baidu.com/view/98395820aaea998fcc220ee2.html [Read&amp;nbsp;More] 文章类别: css Img src空属性的解决方法对比 发表于 November 8, 2013 今天早上服务器超载，让查问题。我一头雾水。后来牛逼的同事找出原因。...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <div class="intro-header"></div>
+
+<div role="main" class="container">
+  <h2 class="post_title">Posts Tagged &ldquo;css&rdquo;:</h2>
+
+<div class="posts-list">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2014-01-28-chromedefault/">
+      <h3 class="post-title">chrome浏览器的默认样式</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 January 28, 2014
+    </p>
+
+    <div class="post-entry">
+      好久没写博客了，好像有一个月了吧！每天大大小小的烦人的事。也不知道写什么，
+  
+  感觉最近没啥长进，也懒的写了。再没长进，估计就被淘汰了。发点小牢骚，说正题吧！
+  
+  之前在调样式的时候就发现chrome的一些默认样式，哎呀 真不知道chrome一些默认样式是福还是麻烦。
+  
+  几乎每次都要取消chrome的一些默认样式，跟其他浏览器保持一致。有点烦人
+  
+  随便举几个例子：
+  
+  
+  
+  1.默认样式字体大小12px;
+   经常调chrome浏览器会发现chrome最小的字体只能是12px.
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>   
+<span class="nx">html</span><span class="p">{</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">text</span><span class="o">-</span><span class="nx">size</span><span class="o">-</span><span class="nx">adjust</span><span class="err">:</span><span class="nx">none</span><span class="p">;}</span><span class="c1">//取消chrome默认字体</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+  
+  2.input和textarea聚焦边框
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="nx">input</span><span class="p">,</span><span class="nx">button</span><span class="p">,</span><span class="nx">select</span><span class="p">,</span><span class="nx">textarea</span><span class="p">{</span><span class="nl">outline</span><span class="p">:</span><span class="nx">none</span><span class="p">}</span>
+<span class="nx">textarea</span><span class="p">{</span><span class="nl">resize</span><span class="p">:</span><span class="nx">none</span><span class="p">}</span>  <span class="c1">//取消textarea可拖动放大</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+  
+  经常遇见的好像也就是上面两个例子
+  
+  网上搜到的chrome默认样式表
+  
+  http://wenku.baidu.com/view/98395820aaea998fcc220ee2.html
+      <a href="/2014-01-28-chromedefault/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-11-08-imgsrc/">
+      <h3 class="post-title">Img src空属性的解决方法对比</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 November 8, 2013
+    </p>
+
+    <div class="post-entry">
+         今天早上服务器超载，让查问题。我一头雾水。后来牛逼的同事找出原因。
+   
+   原因： 登陆里面img标签里面的src是空属性，造成多请求一次当前目录。
+   
+   咦。。。本来页面东西就多，回头还多请求一次错误不存在地址。咦。。。。。后果不堪想象。夸张一下。。。。嘻嘻
+  
+   
+ 
+   我脑袋瓜子思路简单，空的属性没用就去掉呗，反正js会动态添加的。我直接给删掉，后来被同事改成了src=&quot;about:blank&quot;.
+   
+   也问了技术朋友，说加&quot;#&quot;,
+   
+   有什么区别啊！不懂，又不好意思问人。自己动手丰衣食足。自己上网下了工具fiddler的，自己弄了简单的demo测试一下。
+
+![Crepe](/images/blog/imgSrc/html.jpg)
+   
+1.Img Src设置为&quot;#&quot;
+
+![Crepe](/images/blog/imgSrc/ss.jpg)
+	
+   2.Img src=&quot;about:blank&quot;
+   
+![Crepe](/images/blog/imgSrc/blank.jpg)
+	
+   3.直接去掉，反正看着碍眼
+   
+![Crepe](/images/blog/imgSrc/blank.jpg)
+	
+   嘻嘻 结果很明白了。#不行，还是造成两次请求。后两种方法都可以。
+   
+   好像什么还有其他一些标签src为空也会造成类似的情况，最后不要有空属性。
+   
+   想起来了 之前好像object那次src为空也是这种情况，那时候还糊里糊涂的。笨蛋！
+   
+   主要是IE浏览器，讨厌的IE。chrome啊之类的高级浏览器都自动转换成about:blank了。所以没啥问题
+   
+      <a href="/2013-11-08-imgsrc/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-10-22-fonts/">
+      <h3 class="post-title">Google Fonts API简介</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 October 22, 2013
+    </p>
+
+    <div class="post-entry">
+         无意当中发现本人的博客模板引用了google的开源Fonts。
+  
+  上网搜了一下google Fonts的API使用文档。挺方便的，可惜基本上都是英文字体。
+  
+  官方Demo代码：
+  
+  
+  
+  
+  demo：http://www.yrzhll.com/example/fonts.html
+  
+  直接拷贝到文档，在浏览器里面运行一下就可以看见了。超简单，加个css的外联接就可以了。
+  
+  参考资料：
+    https://developers.google.com/fonts/docs/getting_started
+   
+    http://www.google.com/fonts
+  
+  
+  
+
+      <a href="/2013-10-22-fonts/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-10-17-allcenter/">
+      <h3 class="post-title">如何只用CSS做到完全居中(转)</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 October 17, 2013
+    </p>
+
+    <div class="post-entry">
+      之前介绍过元素居中，前段时间看了一个文章，介绍了完全居中。太帅了。牛人就是不一样啊，几句css就全部搞定。 我们都知道 margin:0 auto; 的样式能让元素水平居中，而 margin: auto; 却不能做到垂直居中……直到现在。但是，请注意！想让元素绝对居中，只需要声明元素高度，并且附加以下样式，就可以做到： <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="p">.</span><span class="nx">Absolute</span><span class="o">-</span><span class="nx">Center</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="nx">auto</span><span class="p">;</span> <span class="nl">position</span><span class="p">:</span> <span class="nx">absolute</span><span class="p">;</span> <span class="nl">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="nl">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="nl">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="nl">right</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span> <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 我并不是第一个发现这种方法的人（不过我还是敢把它叫做“完全居中”），它有可能是种非常普遍的技巧。但大多数介绍垂直居中的文章中并没有提到过这种方法。如果不是浏览这篇文章的评论，我甚至根本就不会发现这个办法。 上面那篇文章的评论栏中，Simon提供了一个jsFiddle的链接，其他的方法相比之下就相形见绌了。（Priit也在评论栏中提到了同样的方法）。深入研究了一番之后，我又用某些关键词找到了记载这种方法的三个网站：站点一、站点二、站点三。 以前从未用过这种方法的我想试试，看看这种”完全居中”的方法到底有多么神奇。 好处： 跨浏览器，兼容性好（无需hack，可兼顾IE8~IE10） 无特殊标记，样式更精简 自适应布局，可以使用百分比和最大最小高宽等样式 居中时不考虑元素的padding值（也不需要使用box-sizing样式） 布局块可以自由调节大小 img的图像也可以使用 同时注意： 必须声明元素高度 推荐设置overflow:auto;样式避免元素溢出，显示不正常的问题 这种方法在Windows Phone上不起作用 浏览器支持：Chrome、Firefox、Safari、Mobile Safari、IE8-10。 “完全居中”经测试可以完美地应用在最新版本的Chrome、Firefox、Safari、Mobile Safari中，甚至也可以运行在IE8~IE10上...
+      <a href="/2013-10-17-allcenter/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-09-11-auto/">
+      <h3 class="post-title">margin:0px auto妙用</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 September 11, 2013
+    </p>
+
+    <div class="post-entry">
+      在整理网页广告脚本的时候，发现元素居中定位，都是用的js计算得到的结果。
+
+其实元素居中定位很简单，用css就可以搞定。一些渲染的样式尽量用css搞定。
+
+1.居中的元素Dom
+```javascript
+
+```
+
+
+
+2.居中的元素css
+```javascript
+.container{width:100%;height:400px;}//整个网页居中
+.middle{width:500px;height:400px;margin:0px auto;}
+```
+
+嘻嘻，简单吧！这样middle元素就居中了。
+
+margin:0px auto代表对象上下间隔为0px，左右间隔根据对象宽度自适应
+
+margin;0px auto或margin:0 auto作用：常用于让DIV布局居中,起到让布局居中作用。
+      <a href="/2013-09-11-auto/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-06-27-borderradius/">
+      <h3 class="post-title">IE兼容CSS3圆角border-radius的方法</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 27, 2013
+    </p>
+
+    <div class="post-entry">
+       IE兼容CSS3圆角border-radius的方法
+ 
+ 优化网站js效果，网上看见一个很简单方便的兼容圆角的方法，记下来。
+ 
+ 和大家分享一下,知道的高手就当捧个过场。嘻嘻
+ 
+ 1.下载border-radius.htc
+ 
+ 
+ 
+ 2.CSS
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre>  <span class="p">.</span><span class="nx">radius</span><span class="p">{</span>
+	<span class="o">-</span><span class="nx">moz</span><span class="o">-</span><span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="err">:</span> <span class="mi">11</span><span class="nx">px</span><span class="p">;</span>
+	<span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="err">:</span> <span class="mi">11</span><span class="nx">px</span><span class="p">;</span>
+	<span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="err">:</span> <span class="mi">11</span><span class="nx">px</span><span class="p">;</span>
+	<span class="nl">behavior</span><span class="p">:</span> <span class="nx">url</span><span class="p">(</span><span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="p">.</span><span class="nx">htc</span><span class="p">);</span>
+ <span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+ 优点：
+
+一、最为方便让IE实现圆角；
+
+二、体积小，border-radius.htc才4.77kb，CSS里用到的代码也才一排。
+
+缺点：
+
+一、只能同时4角圆角，不能单独设置；
+
+二、div上可以正常使用，测试text文本框，会出现异常；
+
+三、CSS文件要和页面在同一目录下，否则无效
+      <a href="/2013-06-27-borderradius/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-06-08-waterfall/">
+      <h3 class="post-title">css布局的瀑布流</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 8, 2013
+    </p>
+
+    <div class="post-entry">
+       css布局的瀑布流
+   
+   公司的同事说网站的瀑布流加载好慢，让我优化一下。其实我也不知道从哪里下手，改别人写的代码真头疼！
+   
+   本职工作头疼也得干！呵呵
+   
+   发现公司的网站的瀑布流布局是利用position:absolute;然后通过动态计算top，left绝对定位。之前做过类似的效果，
+   
+   应该css就可以搞定的吧！ 不需要惊动javascript！改不好别人的代码，那就重新写一个。嘻嘻
+   
+   本人写的瀑布流主要以列为单位,所以动态加载的时候也是以列为单位。一下加载16个瀑布。
+   
+   
+   
+   上图：
+   ![Crepe](/images/blog/waterfall.jpg)
+   
+   demo地址： 代码看源文件
+
+   http://www.yrzhll.com/example/waterfall.html
+      <a href="/2013-06-08-waterfall/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-05-22-trash/">
+      <h3 class="post-title">CSS3呈现垃圾箱打开动画</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 May 22, 2013
+    </p>
+
+    <div class="post-entry">
+       CSS3呈现垃圾箱打开动画
+   
+   半个月没写博客了，最近有点忙。忙着改别人的代码。。。。
+   
+   今天在chrome浏览器想把一个扩展程序给打开的，发现了旁边一个删除动画的细节。就抽空花了点时间研究了一下，挺好玩的。
+   肯定是CSS3的效果
+ 
+   
+   
+   chrome扩展：chrome://extensions/
+   
+   ![Crepe](/images/blog/trash/close.jpg)
+   ![Crepe](/images/blog/trash/open.jpg)
+   
+   Demo:  http://www.yrzhll.com/example/trash.html
+      <a href="/2013-05-22-trash/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-04-01-clip/">
+      <h3 class="post-title">clip属性在图片切换中的简单应用</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 April 1, 2013
+    </p>
+
+    <div class="post-entry">
+      无意在CSS中发现这个clip属性,突发奇想看能不能应用图片切换中的左右切换的效果.呵呵，居然可以！
+
+ 基本语法（copy于其他网站博客）
+ 
+  clip : auto | rect ( number number number number )
+  
+ 取值：
+ 
+ auto	:　	默认值。对象无剪切
+ 
+ rect ( number number number number )	:　	依据上-右-下-左的顺序提供自对象左上角为(0,0)坐标计算的四个偏移数值，其中任一数值都可用 auto 替换，即此边不剪切
+ 
+  
+  
+  说明：
+  
+  检索或设置对象的可视区域。可视区域外的部分是透明的。
+  
+  此属性定义了绝对(absolute)定位对象可视区域的尺寸。必须将 position 属性的值设为 absolute ，此属性方可使用。
+  
+  自IE5开始，此属性在MAC平台上可用。所有主流浏览器都支持 clip 属性。
+  
+  对应的脚本特性为 clip 。
+  
+  CSS中的clip属性除了可以制作彩色文字外，还可以有效地裁切其他网页中的元素，比如图片。
+  
+  
+  需要注意的两点：
+  1.clip属性必须和定位属性postion一起使用才能生效。
+  
+  2.clip裁切的计算坐标都是以左上角即（0,0）点开始计算，如图三所示，这点不像padding和margin，它们两个的右边距和下边距是从最右边和最下边开始计算的。
+  
+
+  Demo:http://www.yrzhll.com/example/clip.html
+
+      <a href="/2013-04-01-clip/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-03-28-cursor/">
+      <h3 class="post-title">自定义鼠标样式--cursor</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 March 28, 2013
+    </p>
+
+    <div class="post-entry">
+         写正文之前总喜欢说几句废话，其实本人的博客上的问题一般都是在工作当中遇见的，为了避免忘记，还是写出来的好点！
+   
+   都是细节部分，虽然几乎没人看！就当自己的笔记，便于以后查找！嘻嘻。。。。。
+   
+   这个也是产品的一个要求，要求图片切换脚本，放在大图中会有一个放大镜的效果出来。
+   
+   脑子一转，放大镜，直接把鼠标样式换成放大镜的图片不就行了，之前大学的时候喜欢把自己的电脑鼠标换的花花绿绿的。
+   
+   css肯定也支持，上网搜了一下，整理如下：
+  
+   
+   
+   css通用写法：
+   <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">.</span><span class="nx">demo</span><span class="p">{</span><span class="nl">cursor</span><span class="p">:</span><span class="nx">url</span><span class="p">(</span><span class="s1">'路径'</span><span class="p">),</span><span class="nx">auto</span><span class="p">;}</span><span class="c1">//IE,FF,chrome浏览器都可以</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+   
+   注意的两点
+   
+   1.图标的格式--ico:最好是ico格式。本人用ico测了一下浏览器，没发现啥问题，图标的格式根据不同的浏览器来分：IE支持cur,ani,ico这三种格式，FF支持bmp,gif,jpg,cur,ico这几种格式，不支持ani格式，也不支持gif动画格式，因此来说一般将图片存为cur或ico格式比较好。
+   
+   2.图标的尺寸--32*32：
+   
+   最好是32*32的，不然其他的尺寸会导致浏览器渲染的图片大小不一致。
+   
+   简单把！其实从本人毕业到现在做项目总结了一个问题，再复杂的问题都是一个一个简单的点组成，一个一个慢慢突破就行了。
+   写代码 关键要思路清晰！
+   
+   Demo:http://localhost:4000/example/cursor.html
+
+      <a href="/2013-03-28-cursor/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-03-22-ie6fixed/">
+      <h3 class="post-title">解决IE6不支持position:fixed属性</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 March 22, 2013
+    </p>
+
+    <div class="post-entry">
+      最近在优化网站浮动广告时候遇见了IE6不支持position:fixed属性。上网收集了一下解决方案 比较好的方案就是利用css表达式进行解决 补充：CSS Expression （CSS 表达式），是一种使用动态设置 CSS 属性的方式，并且被 IE5 以上的版本所支持，但是 IE8 的标准模式已不再支持 CSS 表达式了 IE7和以上的浏览器都支持position:fixed； 之前写过一篇介绍过固定页脚的文字,那时候没在ie6下测试 方法一 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span><span class="o">!--</span><span class="p">[</span><span class="k">if</span> <span class="nx">IE</span> <span class="mi">6</span><span class="p">]</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">gt</span><span class="p">;</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">style</span> <span class="nx">type</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">text</span><span class="o">/</span><span class="nx">css</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">gt</span><span class="p">;</span> <span class="nx">html</span><span class="p">{</span><span class="nl">overflow</span><span class="p">:</span><span class="nx">hidden</span><span class="p">}</span><span class="nx">body</span><span class="p">{</span><span class="nl">height</span><span class="p">:</span><span class="mi">100</span><span class="o">%</span><span class="p">;</span><span class="nl">overflow</span><span class="p">:</span><span class="nx">auto</span><span class="p">;}</span> <span class="err">#</span><span class="nx">gs</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nx">absolute</span><span class="p">}</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span><span class="sr">/style&amp;amp;gt; &amp;amp;lt;!</span><span class="se">[</span><span class="sr">endif</span><span class="se">]</span><span class="sr">--&amp;amp;gt; </span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 优点:比较简单，方便！就针对IE6的hack 缺点：一个页面只能有一个元素是position：absolute 不然所有设置absolute的元素都会浮动 方法二 利用css表达式--固定底部 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">_position</span><span class="err">:</span><span class="nx">absolute</span><span class="p">;</span> <span class="nl">_bottom</span><span class="p">:</span><span class="nx">auto</span><span class="p">;</span> <span class="nl">_top</span><span class="p">:</span><span class="nx">expression</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollTop</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">clientHeight</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="o">-</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentStyle</span><span class="p">.</span><span class="nx">marginTop</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">||</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentStyle</span><span class="p">.</span><span class="nx">marginBottom</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">||</span><span class="mi">0</span><span class="p">)));</span> <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>...
+      <a href="/2013-03-22-ie6fixed/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-01-26-attr/">
+      <h3 class="post-title">CSS3属性选择器和伪类选择器</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 January 26, 2013
+    </p>
+
+    <div class="post-entry">
+      最近心情比较浮躁。好久都没有学习，今天把之前下的一本电子书打开，整理笔记。 1.完全匹配属性选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nx">id</span><span class="o">=</span><span class="nx">book</span><span class="p">]{</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 例如：id=&quot;book&quot; 2.部分匹配属性选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nx">id</span><span class="o">*=</span><span class="nx">book</span><span class="p">]{</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 例如：id=&quot;bookMy&quot; id=&quot;Mybook&quot; 3.首字符匹配属性选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nx">id</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="err">#</span><span class="mi">8869</span><span class="p">;</span><span class="o">=</span><span class="nx">book</span><span class="p">]{</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 例如：id=&quot;bookMy&quot; 4.尾字符匹配属性选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nx">id$</span><span class="o">=</span><span class="nx">book</span><span class="p">]{</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 例如：id=&quot;Mybook&quot; 5.:nth-child选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="nx">div</span><span class="err">:</span><span class="nx">nth</span><span class="o">-</span><span class="nx">child</span><span class="p">(</span><span class="mi">2</span><span class="p">){</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span> <span class="c1">//指定第二节点div</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> 6.:nth-last-child选择器 <figure class="highlight"><pre><code class="language-..." data-lang="...">html{-webkit-text-size-adjust:none;}/*chrome font-size&amp;lt;12px */ </code></pre></figure>
+
+即可解决此问题。(*^__^*) 嘻嘻……
+      <a href="/2012-12-12-font/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-11-wrap/">
+      <h3 class="post-title">CSS3 Transition 元素hover上变大的一系列效果</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 11, 2012
+    </p>
+
+    <div class="post-entry">
+      二话不说，先贴上代码，这个简单的动画我花了几分钟就写好了！(*^__^*) 嘻嘻……自恋一下啊 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="p">.</span><span class="nx">wrap</span><span class="p">{</span> <span class="nl">background</span><span class="p">:</span><span class="err">#</span><span class="nx">FFFFFF</span><span class="p">;</span> <span class="nl">width</span><span class="p">:</span><span class="mi">200</span><span class="nx">px</span><span class="p">;</span> <span class="nl">height</span><span class="p">:</span><span class="mi">50</span><span class="nx">px</span><span class="p">;</span> <span class="nl">border</span><span class="p">:</span><span class="mi">1</span><span class="nx">px</span> <span class="nx">solid</span> <span class="err">#</span><span class="nx">CCCCCC</span><span class="p">;</span> <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="err">:</span><span class="mi">4</span><span class="nx">px</span><span class="p">;</span> <span class="c1">//圆角 margin:50px auto 0px; -webkit-transition:all 1s 1 ease-in-out; //引用webkit的过渡效果语句 text-align:center; } .wrap:hover{ background:-webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#EEEEEE)); //背景线性渐变 -webkit-transform:scale(1.2); //规模变大为1.2倍 -webkit-box-shadow:2px 4px 6px #555555; //wrap阴影效果 } &amp;amp;lt;div class='wrap'&amp;amp;gt;&amp;amp;lt;/div&amp;amp;gt; </span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure> ![Crepe](/images/blog/wrap.png) 大家贴上代码试一下吧，记住用webkit内核的浏览器（chrome，safrai）.好用的话，记得顶一下，谢谢支持！O(∩_∩)O~...
+      <a href="/2012-12-11-wrap/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-10-focus/">
+      <h3 class="post-title">input focus的发光效果</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 10, 2012
+    </p>
+
+    <div class="post-entry">
+       在做项目时想做个input focus的效果，感觉很帅！上网搜集了一些资料，整理一下！加工成我的发光效果！哈哈 看着不错，跟大家分享一下啊！
+ 补充：chrome下input focus默认有个黄色的光影，如果不想要的话 可以在css样式中 添加一下
+ 
+ 
+ 
+ ```javascript
+   input：focus{outline:none;}
+ ```
+ 
+ 就可以去掉了！
+
+ 我的样式代码：
+```javascript
+input{
+border-radius:6px;
+border:1px solid #909090;
+-webkit-transition: box-shadow 0.30s ease-in-out;//只让box-shadow属性做过渡效果！
+-moz-transition:  box-shadow 0.30s ease-in-out;//firefox
+}
+input :focus{
+outline:none;
+border:#87C6F9 1px solid;
+box-shadow: 0 0 8px rgba(103, 166, 217, 1);
+}
+```
+
+哈哈，简单吧！用css3几句样式就可以搞定了，细节做足了吧！
+
+截图如下：
+![Crepe](/images/blog/focus.gif)
+      <a href="/2012-12-10-focus/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-05-css3/">
+      <h3 class="post-title">一些CSS3的新特性IE兼容的方法收集（补充中）</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 5, 2012
+    </p>
+
+    <div class="post-entry">
+      收集一下，以免以后忘记了！ 
+
+1.线性渐变
+
+```javascript
+background: -webkit-gradient(linear, left top, left bottom, from(#0d85bc), to(#0a73a4));/*webkit内核*/
+background: -moz-linear-gradient(top, #0d85bc, #0a73a4);/*firefox*/
+background: -o-linear-gradient(top, #0d85bc, #0a73a4);/*opera*/
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d85bc',endColorstr='#0a73a4');/*IE*/
+```
+
+
+2.transform:rotate (旋转)
+
+```javascript
+-webkit-transform: rotate(-180deg);  
+-moz-transform: rotate(-180deg);  
+-ms-transform: rotate(-180deg);  
+-o-transform: rotate(-180deg);  
+transform: rotate(-180deg);  
+filter: progid:DXImageTransform.Microsoft.Matrix( M11=-1, M12=1.2246063538223773e-16, M21=-1.2246063538223773e-16, M22=-1, sizingMethod='auto expand');  
+```
+
+3.透明度
+
+```javascript
+opacity：0.9；
+filter：alpha（opacity=90）；/*IE6-8*/
+```
+      <a href="/2012-12-05-css3/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

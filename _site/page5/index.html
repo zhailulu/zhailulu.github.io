@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Yrzhll's Blog - 前端工程师</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+  <meta name="description" content="越努力越幸运...">
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Yrzhll's Blog" />
+  
+
+   
+  <meta property="og:description" content="越努力越幸运...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page5/" />
+  <link rel="canonical" href="http://localhost:4000/page5/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="Yrzhll's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="越努力越幸运...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/js">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/css">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/html">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/github">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/life">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/linux">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/blog">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/tag/php">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/resource">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://zhailulu.github.io/aboutme">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2013-10-22-fonts/">
+	  <h2 class="post-title">Google Fonts API简介</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 22, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        无意当中发现本人的博客模板引用了google的开源Fonts。
+
+上网搜了一下google Fonts的API使用文档。挺方便的，可惜基本上都是英文字体。
+
+官方Demo代码：
+
+1
+2&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://fonts.googleapis.com/css?family=Tangerine&quot;&amp;gt;
+  
+
+
+
+
+demo：http://www.yrzhll.com/example/fonts.html
+
+直接拷贝到文档，在浏览器里面运行一下就可以看见了。超简单，加个css的外联接就可以了。
+
+参考资料：
+    https://developers.google.com/fonts/docs/getting_started
+
+ http://www.google.com/fonts
+
+
+        
+        
+          <a href="/2013-10-22-fonts/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/css">css</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2013-10-17-allcenter/">
+	  <h2 class="post-title">如何只用CSS做到完全居中(转)</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 17, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        之前介绍过元素居中，前段时间看了一个文章，介绍了完全居中。太帅了。牛人就是不一样啊，几句css就全部搞定。
+
+我们都知道 margin:0 auto; 的样式能让元素水平居中，而 margin: auto; 却不能做到垂直居中……直到现在。但是，请注意！想让元素绝对居中，只需要声明元素高度，并且附加以下样式，就可以做到：
+
+1
+2
+3
+4
+5  .Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+
+        
+        
+          <a href="/2013-10-17-allcenter/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/css">css</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2013-10-15-allchoice/">
+	  <h2 class="post-title">jquery'全选'简单code</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 15, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        十一大假过了一个星期了，好长时间没有写文章了。今天翻翻笔记。把之前整理网站上的jquery“全选”的脚本分享一下
+
+请大家多多指教。(嘻嘻，估计也没几个人看)
+
+
+        
+        
+          <a href="/2013-10-15-allchoice/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/js">js</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2013-09-22-cache/">
+	  <h2 class="post-title">HTML5的离线缓存Application Cache</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on September 22, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        前几天，老哥说他接一个项目要做用到HTML5的离线缓存。抽空研究了一下。自己没事弄了个小demo。
+
+1.引用缓存文件
+要启用某个应用的应用缓存，请在文档的 html 标记中添加 manifest 属性
+
+&amp;lt;html manifest=&quot;example.manifest&quot;&amp;gt;
+&amp;lt;/html&amp;gt;
+
+
+
+
+        
+        
+          <a href="/2013-09-22-cache/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/html">html</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2013-09-11-auto/">
+	  <h2 class="post-title">margin:0px auto妙用</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on September 11, 2013
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        在整理网页广告脚本的时候，发现元素居中定位，都是用的js计算得到的结果。
+
+
+        
+        
+          <a href="/2013-09-11-auto/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tag/css">css</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page4">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page6">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>
