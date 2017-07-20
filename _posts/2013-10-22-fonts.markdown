@@ -15,7 +15,7 @@ tags: css
   
   <!-- more -->
   
-  demo：<a href="http://www.yrzhll.com/example/fonts.html" target="_blank">http://www.yrzhll.com/example/fonts.html</a>
+  demo：<a href="http://www.yrzhll.top/example/fonts.html" target="_blank">http://www.yrzhll.top/example/fonts.html</a>
   
   直接拷贝到文档，在浏览器里面运行一下就可以看见了。超简单，加个css的外联接就可以了。
   

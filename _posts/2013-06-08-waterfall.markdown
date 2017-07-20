@@ -24,4 +24,4 @@ tags: css
    
    demo地址： 代码看源文件
 
-   <a href="http://www.yrzhll.com/example/waterfall.html" target="_blank">http://www.yrzhll.com/example/waterfall.html</a>
+   <a href="http://www.yrzhll.top/example/waterfall.html" target="_blank">http://www.yrzhll.top/example/waterfall.html</a>

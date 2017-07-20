@@ -10,7 +10,7 @@ tags: css
  
  和大家<span class="stress">分享</span>一下,知道的高手就当捧个过场。嘻嘻
  
- 1.下载<a href="http://yrzhll.com/example/border-radius.htc">border-radius.htc</a>
+ 1.下载<a href="http://yrzhll.top/example/border-radius.htc">border-radius.htc</a>
  
  <!-- more -->
  

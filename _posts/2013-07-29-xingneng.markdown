@@ -64,4 +64,4 @@ function test3(){
 三种不同的方法创建dom元素结果是一样的,但是性能却相差很大。第一种性能最差。数组合并最快。
 
 具体看demo
-<a href="http://yrzhll.com/example/performance.html">http://yrzhll.com/example/performance.html</a>
+<a href="http://yrzhll.top/example/performance.html">http://yrzhll.top/example/performance.html</a>

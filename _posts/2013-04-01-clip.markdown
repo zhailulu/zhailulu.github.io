@@ -37,4 +37,4 @@ tags: css
   2.clip裁切的计算坐标都是以左上角即（0,0）点开始计算，如图三所示，这点不像padding和margin，它们两个的右边距和下边距是从最右边和最下边开始计算的。
   
 
-  Demo:<a href="http://www.yrzhll.com/example/clip.html" target="_blank">http://www.yrzhll.com/example/clip.html</a>
+  Demo:<a href="http://www.yrzhll.top/example/clip.html" target="_blank">http://www.yrzhll.top/example/clip.html</a>

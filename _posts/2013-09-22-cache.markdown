@@ -31,7 +31,7 @@ b.网站的缓存数据量不得超过 5 MB。不过，如果您要编写的是�
 c.如果清单文件或其中指定的资源无法下载，就无法进行整个缓存更新进程。在这种情况下，浏览器将继续使用原应用缓存。
 
 哈哈，搞定了。简单吧
-demo:<a href="http://yrzhll.com/example/cache/index.html" target="_blank">http://yrzhll.com/example/cache/index.html</a>
+demo:<a href="http://yrzhll.top/example/cache/index.html" target="_blank">http://yrzhll.top/example/cache/index.html</a>
 
 3.cache事件
 ```javascript

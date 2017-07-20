@@ -18,4 +18,4 @@ tags: css
    ![Crepe](/images/blog/trash/close.jpg)
    ![Crepe](/images/blog/trash/open.jpg)
    
-   Demo:  <a href="http://www.yrzhll.com/example/trash.html" target="_blank">http://www.yrzhll.com/example/trash.html</a>
+   Demo:  <a href="http://www.yrzhll.top/example/trash.html" target="_blank">http://www.yrzhll.top/example/trash.html</a>

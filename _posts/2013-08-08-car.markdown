@@ -39,4 +39,4 @@ anim.addEventListener("webkitAnimationEnd", function(){}, false);
 
 手痒，突发奇想的练练手。写了一个简单的应用动画切换汽车的demo。
 
-Demo地址：<a href="http://yrzhll.com/example/car.html" target="_blank">http://yrzhll.com/example/car.html</a>
+Demo地址：<a href="http://yrzhll.top/example/car.html" target="_blank">http://yrzhll.top/example/car.html</a>
