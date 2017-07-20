@@ -1,0 +1,40 @@
+---
+layout: post
+title: "Google Map V3 绑定气泡窗口(infowindow)Dom事件方法"
+date: 2013-04-15 10:34
+tags: google
+---
+   Google Map V3 绑定气泡窗口(infowindow)Dom事件方法
+   
+   在调试功能模块时候，发现怎么用什么方法都无法在infowindow里面添加的div进行绑定事件处理。郁闷啊！上网搜了好多方法也没用，
+   
+   后来想想还是查了一下官方的API，发现了google.maps.InfoWindow下面的Events里面有个<span class="stress">domready</span>事件
+   
+   <!--more-->
+   
+   官方解释：
+   This event is fired when the <div> containing the InfoWindow's content is attached to the DOM. 
+   You may wish to monitor this event if you are building out your info window content dynamically.
+   
+   本人理解大概的意思就是InfoWindow里面动态添加的Dom元素完成后的回调函数。
+   
+   js是个单线程的引擎，只有等到DOM创建完成之后才能绑定事件，这样理解起来应该很简单了吧！
+   
+   看同事写的js代码，里面好多setTimeout之类的延迟 估计没弄清楚脚本执行的顺利 觉的延迟几秒就行执行，其实问题很大。哪些脚本要先执行，哪些要后执行
+   
+   都是有顺序的。
+    
+	<span class="stress">google.maps.event.addDomListener</span>googleMap 提供的监听Dom元素的事件
+   
+   上代码：
+{% highlight javascript linenos %}
+   google.maps.event.addListener(infowindow,"domready",function(){
+     var Cancel = document.getElementById("Cancel");
+     var Ok=document.getElementById("Ok");
+     google.maps.event.addDomListener(Cancel,"click",function(){infowindow.close();});
+     google.maps.event.addDomListener(Ok,"click",function(){infowindow.close();});
+	});
+{% endhighlight %}
+
+官方API：<a href="https://developers.google.com/maps/documentation/javascript/3.exp/reference?hl=zh-cn" target="_blank">https://developers.google.com/maps/documentation/javascript/3.exp/reference?hl=zh-cn</a>
+   

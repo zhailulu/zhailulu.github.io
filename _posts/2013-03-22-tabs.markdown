@@ -1,0 +1,24 @@
+---
+layout: post
+title: "jquery简单的Tabs选项卡"
+date: 2013-03-22 10:16
+tags: js
+---
+   协助市场部做专题，让本人帮忙写个简单的tabs脚本！嘿嘿，就用jquery写个把！
+   
+   之后又整理了一下，加点颜色效果！头部的Tab标题的border-top的颜色会随着内容的背景颜色做变化
+   
+   本人的Tab选项卡的<span class="stress">个数不受限制</span>，不过外面的容器的样式大小自己要足够大啊！
+   
+   观点:其实如果业务不需要那么复杂的组件效果，可以自己写一个<span class="stress">简单</span>的。不需要在加载那么多的小框架。多了也不好管理，里面的效果大部分都用不上
+   
+   不上代码了，下面是demo地址：
+   
+   <!-- more -->
+   
+   <a href="{{ site.url }}/example/tabs.html" target="_blank">{{ site.url }}/example/tabs.html</a>
+   
+   效果图
+   ![Crepe](/images/blog/tabs/tabs1.png 380 450)
+   ![Crepe](/images/blog/tabs/tabs2.png 380 450)
+   

@@ -1,0 +1,78 @@
+---
+layout: post
+title: "google earth 中有关浮动层的添加问题"
+date: 2012-12-06 13:55
+tags: [google]
+---
+  最近项目需要google earth有关的技术点，遇见了要在google earth上面添加浮动层的问题。怎么设置z-index也没发使得元素在earth上面显示，总是被压下去。
+  
+  补充：google map没有此类问题，设z-index就可以控制浮动层的位置。
+  
+  <!-- more -->
+  
+  查了好多资料，才发现也有其他人遇见。好像是google earth固有的“缺陷”。
+  
+  解决办法：
+  利用动态生成iframe讲图片添加进去并设置z-index。iframe-shim-for-google-earth
+  
+  经典代码阶段：
+
+ ```javascript
+   //本地的html按钮  
+  function createNativeHTMLButton(x, y, width, height,id) {  
+  // 创建浮动层  
+  var button = document.createElement("div");  
+  button.className="nxte";  
+  button.id=id;  
+  var ahref = document.createElement('a');  
+  ahref.href = '#';  
+  button.appendChild(ahref);  
+    
+  // create an IFRAME shim for the button  
+  var iframeShim = document.createElement('iframe');  
+  iframeShim.frameBorder = 0;  
+  iframeShim.id=id+"Iframe";  
+  iframeShim.scrolling = 'no';  
+  iframeShim.src = (navigator.userAgent.indexOf('MSIE 6') >= 0) ?  '' : 'javascript:void(0);';  
+  
+  // position the button and IFRAME shim  
+  var pluginRect = getElementRect(document.getElementById('earth'));  
+  button.style.position = iframeShim.style.position = 'absolute';  
+  button.style.left = iframeShim.style.left = (pluginRect.left + x) + 'px';  
+  button.style.top = iframeShim.style.top = (pluginRect.top + y) + 'px';  
+  button.style.width = iframeShim.style.width = width + 'px';  
+  button.style.height = iframeShim.style.height = height + 'px';  
+  // set up z-orders  
+  button.style.zIndex = 10;  
+  iframeShim.style.zIndex = button.style.zIndex - 1;  
+    
+  document.body.appendChild(button);  
+  document.body.appendChild(iframeShim);  
+   
+}  
+  
+/** 
+ * Helper function to get the rectangle for the given HTML element. 
+ */  
+function getElementRect(element) {  
+var left = element.offsetLeft;  
+var top = element.offsetTop;
+var p = element.offsetParent;  
+while (p && p != document.body.parentNode) {  
+if (isFinite(p.offsetLeft) && isFinite(p.offsetTop)) {  
+left += p.offsetLeft;  
+top += p.offsetTop;  
+}  
+p = p.offsetParent;  
+}  
+return{ left: left, top: top, width: element.offsetWidth, height: element.offsetHeight };  
+}  
+```
+ 
+ 引用:createNativeHTMLButton(left, top, 14, 49,"nxte");
+ 
+ 一个很好的demo：http://lineandpixel.com/blog/iframe-shim-for-google-earth
+ 
+ 补充：后来细想一下 估计不需要javascript动态生成，直接用html静态元素估计也可以。本人没有尝试。(*^__^*) 嘻嘻……
+ 
+![Crepe](/images/blog/float.jpg)

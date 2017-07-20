@@ -1,0 +1,23 @@
+---
+layout: post
+title: "第一篇octopress博文"
+date: 2012-12-03 14:51
+tags: [github, blog]
+---
+  最近狗血弄了一个多星期的octopress的博客，终于弄出样子了。稍后我会把笔记整理出来，供大家学习。
+  不过网上好多教程，可以搜到。反复多弄几遍就明白了。我就反复的删掉重建删掉重建。。。。。。
+  序言。。。。 嘻嘻…
+
+  <!-- more -->
+
+  本来想自己整理安装过程 后来看了网上好多教程都写的很全了。就找了几个比较好的供大家参考吧。
+
+  参考教程：
+
+   1.配置ssh keys教程：<a href="http://beiyuu.com/github-pages/"  target="_blank">http://beiyuu.com/github-pages/</a>
+
+   2.安装教程：<a href="http://www.cnblogs.com/sunwufan/archive/2012/10/16/2726225.html"  target="_blank">http://www.cnblogs.com/sunwufan/archive/2012/10/16/2726225.html</a>
+
+   3.git简易指南：<a href="http://rogerdudler.github.com/git-guide/index.zh.html"  target="_blank">http://rogerdudler.github.com/git-guide/index.zh.html</a>
+
+   ![Crepe](/images/fun/1.jpg)

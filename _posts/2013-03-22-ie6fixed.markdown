@@ -1,0 +1,45 @@
+---
+layout: post
+title: "解决IE6不支持position:fixed属性"
+date: 2013-03-22 09:49
+tags: css
+---
+   最近在优化网站浮动广告时候遇见了IE6不支持position:fixed属性。上网收集了一下解决方案
+   
+   比较好的方案就是利用<span class="stress">css表达式</span>进行解决
+   
+   补充：CSS Expression （CSS 表达式），是一种使用动态设置 CSS 属性的方式，并且被 IE5 以上的版本所支持，但是 IE8 的标准模式已不再支持 CSS 表达式了
+   
+   IE7和以上的浏览器都支持position:fixed；
+   
+   <!--more-->
+   
+   之前写过一篇介绍过固定页脚的文字,那时候没在ie6下测试
+    
+方法一
+{% highlight javascript linenos %}
+&lt;!--[if IE 6]&gt;
+&lt;style type="text/css"&gt;
+html{overflow:hidden}body{height:100%;overflow:auto;}
+#gs{position:absolute}
+&lt;/style&gt;
+&lt;![endif]--&gt;
+{% endhighlight %}
+
+优点:比较简单，方便！就针对IE6的hack
+
+缺点：一个页面<span class="stress">只能有一个元素</span>是position：absolute 不然所有设置absolute的元素都会浮动
+	
+方法二  利用css表达式--固定底部
+{% highlight javascript linenos %}
+_position:absolute;
+_bottom:auto;
+_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+{% endhighlight %}
+
+优点：很好的兼容ie6
+
+确定：css也比较耗性能，但是比用js写法要好一点
+	
+补充：解决ie6下振动bug
+{% highlight javascript linenos %}* html,* html body {background-image:url(about:blank);background-attachment:fixed;}{% endhighlight %}

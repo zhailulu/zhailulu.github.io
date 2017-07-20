@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Ajax跨域请求数据神器"
+date: 2014-11-11 15:13
+tags: js
+---
+   今天没事突然想起了本人还有一个博客，看到别人给我博客留言，又重新燃起我写博客的热情。
+   
+   写啥呢？其实在公司不是很忙，也没啥可以发挥，但是俺们不能就这样透支以前的经验。没事自己看书学习。
+   
+   最近比较火的当属<span class="stress">慕课网</span>，业界良心啊！终于不用自己苦苦自学，可以有大牛教你技术了。
+   
+   前段时间看了一个有关jQuery mobile视频，里面大牛介绍了一个Ajax跨域请求数据神器。小女子佩服的五体投地啊！
+   
+   原来在上家公司接触到有关跨域请求数据的项目，之前的做法都是下载到本地服务器上，然后在请求。废话不说了。
+   
+   API地址：<a href="http://www.corsproxy.com/">http://www.corsproxy.com/</a>
+   
+   调用方法：
+{% highlight javascript linenos %}
+$.get('http://www.corsproxy.com/en.wikipedia.org/wiki/Http',function(response){
+  document.body.innerHTML = response;
+})
+{% endhighlight %}
+   
+   在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。
+   
+   小伙伴们在也不怕跨域的数据了！哦，今天是光棍节，跟俺没关系。但是还是要<span class="stress">祝大家光棍节快乐</span>！
+   

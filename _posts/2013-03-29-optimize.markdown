@@ -1,0 +1,58 @@
+---
+layout: post
+title: "网站性能优化的34条黄金法则"
+date: 2013-03-29 14:17
+tags: web
+---
+  网站性能优化的34条黄金法则:
+  
+1. 尽量减少HTTP请求次数
+2. 减少DNS查找次数
+3. 避免跳转
+4. 可缓存的AJAX
+5. 推迟加载内容
+
+<!--more -->
+
+6. 预加载
+7. 减少DOM元素数量
+8. 根据域名划分页面内容
+9. 使iframe的数量最小
+10. 不要出现404错误
+11. 使用内容分发网络
+12. 为文件头指定Expires或Cache-Control
+13. Gzip压缩文件内容
+14. 配置ETag
+15. 尽早刷新输出缓冲
+16. 使用GET来完成AJAX请求
+ 当你仅仅获取数据时使用GET更加有意义（从语意上讲也是如此），相反，发送并在服务端保存数据时使用POST。
+17. 把样式表置于顶部
+18. 避免使用CSS表达式（Expression）
+19. 使用外部JavaScript和CSS
+20. 削减JavaScript和CSS
+21. 用<link>代替@import
+22. 避免使用滤镜
+  完全避免使用AlphaImageLoader的最好方法就是使用PNG8格式来代替，这种格式能在IE中很好地工作。如果你确实需要使用 AlphaImageLoader，请使用下划线_filter又使之对IE7以上版本的用户无效。
+23. 把脚本置于页面底部
+24. 剔除重复脚本
+25. 减少DOM访问
+26. 开发智能事件处理程序
+27. 减小Cookie体积
+28. 对于页面内容使用无coockie域名
+29. 优化图像
+30. 优化CSS Spirite
+	* 在Spirite中水平排列你的图片，垂直排列会稍稍增加文件大小；
+	* Spirite 中把颜色较近的组合在一起可以降低颜色数，理想状况是低于256色以便适用PNG8格式；
+	* 便于移动，不要在Spirite的图像中间留有较大空隙。这虽然不大会增加文件大小但对于用户代理来说它需要更少的内存来把图片解压为像素地图。100×100的图片为1万像素，而 1000×1000就是100万像素。
+31. 不要在HTML中缩放图像
+32. favicon.ico要小而且可缓存
+	* 文件尽量地小，最好小于1K
+	* 在适当的时候（也就是你不要打算再换 favicon.ico的时候，因为更换新文件时不能对它进行重命名）为它设置Expires文件头。你可以很安全地把Expires文件头设置为未来的几个月。你可以通过核对当前favicon.ico的上次编辑时间来作出判断。
+
+33. 保持单个内容小于25K
+34. 打包组件成复合文本
+
+
+转载 ：<a href="http://blog.csdn.net/alex86gbk/article/details/4438506" target="_blank">http://blog.csdn.net/alex86gbk/article/details/4438506</a>
+
+Yahoo原文地址：<a href="http://developer.yahoo.com/performance/rules.html" target="_blank">http://developer.yahoo.com/performance/rules.html</a>

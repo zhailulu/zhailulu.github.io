@@ -1,0 +1,36 @@
+---
+layout: post
+title: "input focus的发光效果"
+date: 2012-12-10 10:26
+tags: css
+---
+ 在做项目时想做个input focus的效果，感觉很帅！上网搜集了一些资料，整理一下！加工成我的发光效果！哈哈 看着不错，跟大家分享一下啊！
+ 补充：chrome下input focus默认有个黄色的光影，如果不想要的话 可以在css样式中 添加一下
+ 
+ <!-- more -->
+ 
+ ```javascript
+   input：focus{outline:none;}
+ ```
+ 
+ 就可以去掉了！
+
+ 我的样式代码：
+```javascript
+input{
+border-radius:6px;
+border:1px solid #909090;
+-webkit-transition: box-shadow 0.30s ease-in-out;//只让box-shadow属性做过渡效果！
+-moz-transition:  box-shadow 0.30s ease-in-out;//firefox
+}
+input :focus{
+outline:none;
+border:#87C6F9 1px solid;
+box-shadow: 0 0 8px rgba(103, 166, 217, 1);
+}
+```
+
+哈哈，简单吧！用css3几句样式就可以搞定了，细节做足了吧！
+
+截图如下：
+![Crepe](/images/blog/focus.gif)

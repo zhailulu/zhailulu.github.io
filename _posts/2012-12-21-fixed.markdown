@@ -1,0 +1,53 @@
+---
+layout: post
+title: "制作header和footer固定在页头和页脚的方法"
+date: 2012-12-21 13:59
+tags: css
+---
+ 之前在项目做过此效果，但是没有仔细的总结过。今天闲来没事，就做了小demo
+ 
+ <!-- more -->
+ 
+ 代码：
+ ```javascript
+ <!Doctype html>
+ <html>
+ <head>
+ <title>制作header和footer固定在页头和页脚的方法</title>
+ <style type="text/css">
+ *{margin:0px;padding:0px;}
+ .header{width:100%;height:50px;background:#2d2d2d;top:0px;position:fixed;z-index:2;}
+ .main{width:100%;background:#ff00ff;margin-top:50px;}
+ .main p{width:99%;height:300px;}
+ .footer{position:fixed;left:0px;bottom:0px;height:50px;width:100%;background:#2d2d2d;}
+ </style>
+ </head>
+ <body>
+ <div class="header"></div>
+ <div class="main">
+ <p>制作header和footer固定在页头和页脚的方法</p>
+ <p>制作header和footer固定在页头和页脚的方法</p>
+ <p>制作header和footer固定在页头和页脚的方法</p>
+ <p>制作header和footer固定在页头和页脚的方法</p>
+ </div>
+ <div class="footer"></div>
+ </body>
+ </html>
+```
+
+1.header固定在页头
+
+  <span class="stress">top:0px;</span>
+  
+  <span class="stress">position:fixed;</span>
+
+2.footer固定在页脚
+
+  <span class="stress">position:fixed;</span>
+  
+  <span class="stress">bottom:0px</span>
+
+补充一下 本demo中间的main部分是自适应高度的。嘻嘻
+
+Demo：
+ <a href="{{ site.url }}/example/fixed.html" target="_blank">{{ site.url }}/example/fixed.html</a>

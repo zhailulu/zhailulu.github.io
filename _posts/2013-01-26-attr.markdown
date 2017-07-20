@@ -1,0 +1,39 @@
+---
+layout: post
+title: "CSS3属性选择器和伪类选择器"
+date: 2013-01-26 13:07
+tags: css
+---
+   最近心情比较浮躁。好久都没有学习，今天把之前下的一本电子书打开，整理笔记。
+   
+   <!-- more -->
+
+   1.完全匹配属性选择器
+   {% highlight javascript linenos %}[id=book]{color:red}{% endhighlight %}
+   例如：id="book"
+   
+   2.部分匹配属性选择器
+   {% highlight javascript linenos %}[id*=book]{color:red}{% endhighlight %}
+   例如：id="bookMy" id="Mybook"
+   
+   3.首字符匹配属性选择器
+   {% highlight javascript linenos %}[id&#8869;=book]{color:red}{% endhighlight %}
+   例如：id="bookMy"
+   
+   4.尾字符匹配属性选择器
+   {% highlight javascript linenos %}[id$=book]{color:red}{% endhighlight %}
+   例如：id="Mybook"
+   
+   5.:nth-child选择器
+   {% highlight javascript linenos %}div:nth-child(2){color:red} //指定第二节点div{% endhighlight %}
+   
+   6.:nth-last-child选择器
+   {% highlight javascript linenos %}div:nth-last-child(2){color:red} //指定倒数第二节点div{% endhighlight %}
+   
+   7.:nth-child(even)选择器
+   {% highlight javascript linenos %}div:nth-child(even){color:red} //指定偶数个节点div{% endhighlight %}
+   
+   7.:nth-child(odd)选择器
+   {% highlight javascript linenos %}div:nth-child(odd){color:red} //指定奇数个节点div{% endhighlight %}
+   
+   哈哈 就先介绍这些吧 其实伪类选择器有好多来。以后再补充

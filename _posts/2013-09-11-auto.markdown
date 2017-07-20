@@ -1,0 +1,28 @@
+---
+layout: post
+title: "margin:0px auto妙用"
+date: 2013-09-11 11:18
+tags: css
+---
+在整理网页广告脚本的时候，发现元素居中定位，都是用的js计算得到的结果。
+
+其实元素居中定位很简单，用css就可以搞定。一些渲染的样式尽量用css搞定。
+
+1.居中的元素Dom
+```javascript
+<div class="container"><div class="middle"></div></div>
+```
+
+<!-- more -->
+
+2.居中的元素css
+```javascript
+.container{width:100%;height:400px;}//整个网页居中
+.middle{width:500px;height:400px;margin:0px auto;}
+```
+
+嘻嘻，简单吧！这样middle元素就居中了。
+
+margin:0px auto代表对象上下间隔为0px，左右间隔根据<span class="stress">对象宽度自适应</span>
+
+margin;0px auto或margin:0 auto作用：常用于让DIV布局居中,起到让布局居中作用。

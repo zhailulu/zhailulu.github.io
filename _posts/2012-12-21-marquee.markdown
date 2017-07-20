@@ -1,0 +1,34 @@
+---
+layout: post
+title: "介绍HTML中的marquee标签"
+date: 2012-12-21 11:40
+tags: html
+---
+  经常看见新闻网站一些滚动的文字，其实这些效果不需要javascript脚本。HTML有特定的标签做显示文字滚动的效果---marquee标签
+  
+  <!-- more -->
+  
+  文字从左到右：
+  
+  {% highlight javascript linenos %}
+  &lt;marquee direction="left" loop="-1" scrollamount='4' onmouseout="this.start()" onmouseover="this.stop()" id="news"&gt;我是从左到右的滚动文字&lt;/marquee&gt;
+  {% endhighlight %}
+  
+ 属性：
+  {% highlight javascript linenos %}
+   align：是设定活动字幕的位置，除了居左、居中、居右三种位置外，又增加靠上（top）和靠下（bottom）两种位置。 
+   Bgcolor：用于设定活动字幕的背景颜色，可以使用英文的单词也可以是十六进制数的。 
+   Direction：用于设定活动字幕的滚动方向是向左（left）、向右（right）、向上（up）、向下（down）。 
+   Behavior：用于设定滚动的方式，主要由三种方式：
+   behavior="scroll"表示由一端滚动到另一端；
+   behavior="slide":表示由一端快速滑动到另一端，且不再重复；
+   behavior="alternate"表示在两端之间来回滚动。 
+   Height：用于设定滚动字幕的高度。 
+   Width：则设定滚动字幕的宽度。 
+   Hspace和vspace：分别用于设定滚动字幕的左右边框和上下边框的宽度。 
+   Scrollamount：用于设定活动字幕的滚动距离。数值越小，滚动的速度就越快。 
+   scrolldelay：用于设定滚动两次之间的延迟时间，数值越小，间隔就越小。 
+   Loop：用于设定滚动的次数，当loop=-1表示一直滚动下去，直到页面更新。其中默认情况是向左滚动无限次，字幕高度是文本高度；滚动范围：水平滚动的宽度是当前位置的宽度；垂直滚动的高度是当前位置的高度。
+  {% endhighlight %}
+
+  简单吧！不需要javascript耗性能的做效果。滚动可以是文字，也可以是图片。

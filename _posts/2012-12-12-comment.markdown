@@ -1,0 +1,53 @@
+---
+layout: post
+title: "在octopress中添加多说的最近评论"
+date: 2012-12-12 11:48
+tags: blog
+---
+在自己博客里面侧边栏页面里面加了最近评论，方法如下：
+
+<!-- more -->
+
+1.在source/_includes/asides创建一个comment.html(文件名随便起，自己知道就行了)
+
+2.在comment.html中添加下段代码
+
+{% highlight javascript linenos %}
+<section>
+<h1>最近评论</h1>
+<ul class="ds-recent-comments" data-num-items="10">
+</ul>
+<!--多说js加载开始，一个页面只需要加载一次 -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"your_duoshuo_name"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';
+ds.async = true;ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!--多说js加载结束，一个页面只需要加载一次 -->
+</section>
+{% endhighlight %}
+ 
+ 3.打开_config.yml 将comment.html添加到
+ {% highlight javascript linenos %}
+  page_asides: [asides/nav.html, asides/category_list.html, asides/comment.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+ {% endhighlight %}
+ <span class="stress">asides/comment.html</span>
+ 
+ 补充；
+ 参数说明：
+ {% highlight javascript linenos %}
+ //以下参数均为可选参数
+ data-num-items="10"  //显示最新评论的条数
+ data-show-avatars="1"//是否显示头像，1：显示，0：不显示
+ data-show-time="1"//是否显示时间，1：显示，0：不显示
+ data-show-title="0"//是否显示标题，1：显示，0：不显示
+ data-show-admin="1"//是否显示管理员的评论，1：显示，0：不显示
+ data-excerpt-length="70"//最大显示评论汉字数
+ {% endhighlight %}
+ 
+ 参考资料：<a href="http://dev.duoshuo.com/threads/4ff28d95552860f21f000010" target="_blank">http://dev.duoshuo.com/threads/4ff28d95552860f21f000010</a>

@@ -1,0 +1,48 @@
+---
+layout: post
+title: "数字时钟（JavaScript ，JQuery）"
+date: 2012-12-14 11:00
+tags: js
+---
+废话不说，上代码
+
+<!-- more -->
+
+```javascript
+
+function systemDate(){
+//获取系统时间
+var date=new Date();
+var month=date.getMonth()+1; //month默认0-11，所以要加1
+var minutes=date.getMinutes(),Min;
+var seconds=date.getSeconds(),updateTime;
+updateTime=60-seconds;
+minutes<=9 ? Min="0"+minutes : Min=minutes;
+var week=date.getDay(),day;
+switch(week){
+case 1 : day="星期一";break;
+case 2 : day="星期二";break;
+case 3 : day="星期三";break;
+case 4 : day="星期四";break;
+case 5 : day="星期五";break;
+case 6 : day="星期六";break;
+case 7 : day="星期日";break;
+}
+var time=date.getFullYear()+"/"+month+"/"+date.getDate()+" "+date.getHours()+":"+Min+" "+day;
+$("#updateTime").text(time); //jquery 
+//var container=document.getElementById("updateTime");
+//container.innerText=time; //javascript;
+setTimeout('systemDate()',updateTime*1000);//定时请求时间
+}  
+```
+
+HTML
+```javascript
+  <div id="updateTime"></div>//显示数字时钟的容器
+```
+
+自己可以设置容器的样式，(*^__^*) 嘻嘻…… 附上项目里用的截图一张（注：里面没有显示星期） 
+
+截图如下：
+
+![Crepe](/images/blog/time.gif)

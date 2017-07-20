@@ -1,0 +1,33 @@
+---
+layout: post
+title: "CSS3 Transition 元素hover上变大的一系列效果"
+date: 2012-12-11 11:51
+tags: css
+---
+二话不说，先贴上代码，这个简单的动画我花了几分钟就写好了！(*^__^*) 嘻嘻……自恋一下啊
+
+<!-- more -->
+
+{% highlight javascript linenos %}
+ .wrap{  
+    background:#FFFFFF;  
+    width:200px;  
+    height:50px;  
+    border:1px solid #CCCCCC;  
+    border-radius:4px;  //圆角  
+    margin:50px auto 0px;  
+    -webkit-transition:all 1s 1 ease-in-out;  //引用webkit的过渡效果语句  
+    text-align:center;  
+}  
+ .wrap:hover{  
+     background:-webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#EEEEEE)); //背景线性渐变  
+    -webkit-transform:scale(1.2);  //规模变大为1.2倍  
+     -webkit-box-shadow:2px 4px 6px #555555;  //wrap阴影效果  
+   }  
+ 
+ &lt;div class='wrap'&gt;&lt;/div&gt;
+{% endhighlight %}
+
+![Crepe](/images/blog/wrap.png)
+
+大家贴上代码试一下吧，记住用webkit内核的浏览器（chrome，safrai）.好用的话，记得顶一下，谢谢支持！O(∩_∩)O~

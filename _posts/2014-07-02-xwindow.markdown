@@ -1,0 +1,43 @@
+---
+layout: post
+title: "centos安装xWindow"
+date: 2014-07-02 17:04
+tags: linux
+---
+想在linux里面用浏览器，上网查要装x-Window图形化界面，一般linux图形化界面有两种GHOME和KDE。
+
+高版本的系统就是省事，直接通过yum就能安装。(centos6.4 GHOME)
+
+1.安装x-window
+```javascript
+yum groupinstall 'X Window System' -y
+```
+
+<!-- more -->
+
+2.安装GNOME桌面环境
+```javascript
+yum groupinstall GNOME Desktop Environment  
+//yum groupinstall KDE  Desktop Environment
+```
+  
+3.安装中文语言
+```javascript
+yum --disablerepo=* --enablerepo=c6-media groupinstall "Chinese Support"
+```
+  
+4.启动x图形界面
+```javascript
+ startx
+```
+
+补充：
+卸载GNOME桌面环境
+```javascript
+yum groupinstall GNOME Desktop Environment
+//yum groupinstall KDE  Desktop Environment
+```
+
+图形界面与字符界面的切换:
+
+  字符界面： CTRL+ALT+F1-6     图形界面：CTRL+ALT+F7

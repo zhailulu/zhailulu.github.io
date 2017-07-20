@@ -1,0 +1,56 @@
+---
+layout: post
+title: "解决广告中的document.write"
+date: 2013-08-22 09:57
+tags: js
+---
+
+网站一般用的都是第三方的广告管理平台，而第三方的广告管理平台一般解决跨域的问题的方案：
+
+   1.iframe 2.script 3.document.write
+  
+  最让人头疼的就是document.write
+  
+  document.write的用法：<span class="stress">实时</span>的将javascript脚本执行到页面中。
+  
+  也就是这个<span class="stress">实时</span>导致执行脚本的时间会阻塞页面的渲染，只有等脚本执行完成后，页面才能执行渲染流程。
+  
+  这样就会增加空白页面的显示时间。
+  
+  查了一些资料，对于document.write目前最好的解决办法就是<span class="stress">重写document.write</span>
+  
+  <!-- more -->
+  
+```javascript
+var origin = document.write;//保存原生态的document.write函数
+document.write = function(code){
+//对code的一些操作
+}document.write = origin;//恢复原生态的document.write函数
+```
+  
+补充一点：
+```javascript
+//延迟执行的脚本
+<script type="text/javascript">/*code*/</script>
+```
+   
+   将type中的text/javascript 换成其他任意单词。例如：<span class="stress">text/controlJS </span>,
+   
+   这样浏览器就不会识别，也不会执行其中相应的代码。
+   
+   等到页面渲染完成后，在执行脚本
+   
+```javascript
+if (window.execScript) {
+  window.execScript(code);
+}else {
+  var fn = function() {
+    window.eval.call(window, code);
+  };
+  fn();
+}
+```
+
+这里的思路主要参考controlJS的思路。只是提炼自己需要的核心思路。供大家参考。
+
+写的比较简单，但是核心思路都在这里。要根据具体的网站具体分析。

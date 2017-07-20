@@ -1,0 +1,21 @@
+---
+layout: post
+title: "CSS3呈现垃圾箱打开动画"
+date: 2013-05-22 17:47
+tags: css
+---
+ CSS3呈现垃圾箱打开动画
+   
+   半个月没写博客了，最近有点忙。忙着改别人的代码。。。。
+   
+   今天在chrome浏览器想把一个扩展程序给打开的，发现了旁边一个删除动画的细节。就抽空花了点时间研究了一下，挺好玩的。
+   肯定是CSS3的效果
+ 
+   <!-- more -->
+   
+   chrome扩展：<a href="chrome://extensions/" target="_blank">chrome://extensions/</a>
+   
+   ![Crepe](/images/blog/trash/close.jpg)
+   ![Crepe](/images/blog/trash/open.jpg)
+   
+   Demo:  <a href="http://www.yrzhll.com/example/trash.html" target="_blank">http://www.yrzhll.com/example/trash.html</a>

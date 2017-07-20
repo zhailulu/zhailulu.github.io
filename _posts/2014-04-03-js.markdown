@@ -1,0 +1,68 @@
+---
+layout: post
+title: "5种你未必知道的JavaScript和CSS交互的方法（转）"
+date: 2014-04-03 11:52
+tags: js
+---
+这篇文章没有直接拷贝过来，直接提取重点简化过来，备用笔记！
+   
+1.用JavaScript获取伪元素(pseudo-element)属性
+```javascript
+var color = window.getComputedStyle(  
+   document.querySelector('.element'), ':before' 
+).getPropertyValue('color');  
+ 
+// Get the content value of .element:before  
+var content = window.getComputedStyle(  
+    document.querySelector('.element'), ':before' 
+).getPropertyValue('content');
+```
+
+<!-- more -->
+
+2.classList API--样式列表
+```javascript
+myDiv.classList.add('myCssClass'); // 添加class 
+myDiv.classList.remove('myCssClass'); //删除class  
+myDiv.classList.toggle('myCssClass'); //切换class 
+```
+
+3.直接对样式表进行添加和删除样式规则
+```javascript
+function addCSSRule(sheet, selector, rules, index) {  
+    if(sheet.insertRule) {  
+        sheet.insertRule(selector + "{" + rules + "}", index);  
+    }  
+    else {  
+        sheet.addRule(selector, rules, index);  
+    }  
+}  
+ 
+// Use it!  
+addCSSRule(document.styleSheets[0], "header", "float: left");
+```
+
+4.加载CSS文件
+  延迟加载图片、JSON、脚本等是用来加快页面显示速度的好方法。我们可以使用curl.js等这样JavaScript加载器来延迟加载这些外部资源，可你知道CSS样式表也可以延迟加载吗，而且在加载成功后回调函数会给予通知
+```javascript
+curl([ 
+"namespace/MyWidget",
+"css!namespace/resources/MyWidget.css" 
+],
+function(MyWidget){  
+ // 你可以对MyWidget进行操作  
+ // 这里没有对这个CSS文件引用，因为不需要;  
+// 我们只需要它已经加载到页面上了  
+}
+}); 
+```
+  
+5.CSS鼠标指针事件
+```javascript
+.disabled { pointer-events: none; } 
+```
+pointer-events属性设置none时，能有效的阻止禁止这个元素，也禁止了这个元素上的任何JavaScript事件或回调函数！
+
+点击这个元素，你会发现任何你放置在这个元素上的监听器都不会触发任何事件。一个神奇的功能，真的——你不在需要为了防止某个事件会被触发而去检查某个css类是否存在。
+
+原文地址：<a href="http://developer.51cto.com/art/201404/434872.htm" target="_blank">http://developer.51cto.com/art/201404/434872.htm</a>

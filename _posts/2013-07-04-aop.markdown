@@ -1,0 +1,228 @@
+---
+layout: post
+title: "用AOP改善javascript代码(转)"
+date: 2013-07-04 11:39
+tags: js
+---
+Aop又叫面向切面编程，用过spring的同学肯定对它非常熟悉，而在js中，AOP是一个被严重忽视的技术点，这篇就通过下面这几个小例子，来说说AOP在js中的妙用.
+```javascript
+Function.prototype.before = function(func){
+   var _self = this;
+   return function(){
+      if(func.apply(this, arguments) === false){
+         return false;
+      }
+      return _self.apply(this, arguments);
+   }
+ }
+
+ Function.prototype.after = function( func ){
+    var _self = this;
+
+    return function(){
+      var ret = _self.apply(this, arguments);
+      
+      if(ret === false){
+         return false;
+      }
+      
+      func.apply(this, arguments);
+      return ret;
+    }
+ }
+```
+
+<!-- more -->
+
+1. 防止window.onload被二次覆盖.
+```javascript
+window.onload = function(){
+   alert(1);
+ }
+
+window.onload = (window.onload || function(){} ).before(function(){
+  alert(2);
+}); 
+```
+2. 无侵入的统计代码.
+
+ 本身跟逻辑没有任何关联的统计代码要被硬插进函数里, 这点相信很多搞过上报的同学都很不爽. 比如下面这段代码, 用来统计一个创建1000个节点的函数在用户的电脑上要花费多少时间.
+```javascript
+//没用aop
+var append_doms = function(){
+var d = +new Date;//业务无关联的代码
+for(var i=0; i<1000;i++){
+ var div = document.createElement('div');
+ document.body.appendChild(div);
+}
+user_log(+new Date - d, "append_doms");//业务无关联的代码
+}
+//aop
+var log_time = function(func, func_name){
+  return func = (function(){
+    var d;
+    return func.before(function(){
+  d = +new Date;
+  }).after(function(){
+    user_log(+ new Date - d, func_name);
+  });
+  })();
+}
+
+var append_doms = function(){
+for(var i=0; i<1000;i++){
+  var div = document.createElement('div');
+  document.body.appendChild(div);
+}
+}
+append_doms = log_time(append_doms, 'append_doms');
+```
+
+3. 分离表单请求和校验.
+
+我们在提交表单之前经常会做一些校验工作，来确定表单是不是应该正常提交. 最糟糕的写法是把验证的逻辑都放在send函数里面.
+```javascript
+var send = function(){
+ var value = input.value;
+ if(value.length === ''){
+   return false;
+ }else if(value.length>=30){
+   return fasle;
+ }else{
+   form.submit();
+ }
+}
+```
+
+而更好的方式是把所有的校验规则用策略模式放到一个集合里，返回false或者true来决定是否通过验证. 这样可以随意的选择和更换校验规则.
+
+```javascript
+var validata_rules = {
+  not_empty: function(value){
+    return value.length !== '';
+  },
+  max_Length: function(value){
+    return value.length > length;
+  }
+}
+
+var validata = function(){
+  for(var i in validata_rules){
+    if(validata_rules[i].apply(this, arguments) === false){
+	  return false;
+	}
+  }
+}
+
+var send = function(value){
+   if(validata(value)===false){
+     return;
+   }
+  form.send();
+}
+
+//更好的方法 即插即用
+var send = function(value){
+  form.send();
+}
+send = send.before(validata);
+```
+4. 给ajax请求动态添加参数.
+第一个例子里window.onload是用的after后置装饰, 这里是用before前置装饰. 在ajax请求之前动态添加一些参数.
+我们遇到过很多跨域的请求, jsonp和iframe都是很常用的方式. 之前在我们的项目里，用参数retype=jsonp表示是jsonp请求, retype=iframe表示是iframe请求. 除此之外这2个请求的参数没有任何区别. 那么可以用before把retype参数动态装饰进去.
+
+先定义一个ajax请求的代理函数.
+```javascript
+var send = function(type, param){
+  console.dir(param);
+  Ajax[type].send(param);
+};
+```
+这个函数里面没有逻辑处理和分支语句，它也不关心自己是jsonp请求还是iframe请求. 它只负责发送数据, 是一个单一职责的好函数.
+接下来在发送请求前放置一个before装饰器.
+```javascript
+send = send.before(function(type,param){
+  param.retype = type;
+});
+//send
+send('jsonp',{uin:520521086});
+```
+
+5. 职责链模式.
+职责链模式在js中典型的应用场景是事件冒泡. 将所有子节点和父节点连成一条链，并沿着这条链传递事件，直到有一个节点能够处理它为止. 职责链模式是消除过多的if else语句的神器.
+拿最近做的一个需求来举例, 有个文件上传的功能, 提供了控件，html5, flash, 表单上传这4种上传方式. 根据它们的优先级以及浏览器支持情况来判断当前支持哪种上传方式. 在我进行改造之前，它的伪代码大概是这样:
+```javascript
+if(support_plugin){
+  upload_obj = plugin;
+}else if(support_html5){
+  upload_obj = html5;
+}else if(support_flash){
+  upload_obj = flash;
+}else{
+  upload_obj = form;
+}
+```
+当然实际的代码远不只这么多，其中还包括了各种控件初始化，容错等情况。有天我需要屏蔽掉flash控件，看起来是很简单的需求，但难度实际跟在心脏旁边拆掉一根毛线血管类似.
+
+如果试试职责链模式呢, 看看事情将变得多简单:
+
+第一步先改写之前的after函数，使得返回一个对象时阻断职责链的传递，而返回null时继续传递请求。
+```javascript
+Function.prototype.after = function(func){
+  var _self = this;
+  return function(){
+    var ret=_self.apply(this,arguments);
+	if(ret){
+	  return ret;
+	}
+	return func.apply(this, arguments);
+  }
+}
+```
+接下来把每种控件的创建方式都包裹在各自的函数中, 确保没有逻辑交叉和相互污染
+```javascript
+ var get_plugin = function(){
+  try{
+    return new ActiveObject("TX....")
+  }catch(e){
+    return null;
+  }
+  var get_html5 = function(){
+    .....
+  }
+  .....
+ }
+```
+最后用职责链把它们串起来:
+```javascript
+var upload_obj = get_plugin.after(get_html5).after(get_flash).......
+```
+
+6. 组合代替继承.
+很多时候我们在设计程序的时候，会遇到使用组合还是继承的问题. 通常来讲, 使用组合更灵活轻巧. 还是拿之前文件上传来举例.
+
+我定义了一个超类Upload, 衍生出4个子类.
+
+Plugin_Upload, Html5_Upload, Flash_Upload以及Form_Upload.
+
+第一种做法是Plugin_Upload继承Upload, 然后重写它的start_upload方法.
+```javascript
+Plugin_Upload.interface('states.start_upload',function(){
+  this.superClass.states.start_upload.apply(this, arguments);
+  this.upload_plugin.FileSign(this.local_id);
+})
+```
+用更轻的组合方式, 可以直接给原来的start_upload函数装饰上扫描功能, 甚至不需要衍生一个额外的子类
+```javascript
+var plugin_upload = Upload.getInstance();
+
+plugin_upload.start_upload = plugin_upload.start_upload.after(function(){
+  this.upload_plugin.FileSign(this.local_id);
+});
+```
+有些同学不喜欢扩展Function的原型, 替代方法是给before和after多增加一个参数, 或者像jquery和underscore一样包装一层.
+
+读后感：文章不错，就私自转过来了。本人只看懂60%，估计还要多看几遍才能明白。牛人就是不一样啊！
+
+原文：<a href="http://www.alloyteam.com/2013/05/javascript-code-with-aop-improvement/#prettyPhoto">http://www.alloyteam.com/2013/05/javascript-code-with-aop-improvement/#prettyPhoto</a>
+

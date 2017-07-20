@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Google Map JS API v2要升级啦"
+date: 2013-05-02 15:25
+tags: google
+---
+ Google Map JS API v2要升级啦
+   
+   在做项目的时候发现公司的谷歌地图javascript版本是v2的，当时也没多想，后来想想还是建议领导升级吧！
+   
+   升级总该有个确切的理由，本人对v2不太了解。喜欢新鲜事物，有v3的我就不会关注v2的 总觉学旧的东西不需要花很多时间，旧的很快就会被淘汰的。
+   
+   还不如多花点时间学习新的事物，新的思维模式。
+   
+   <!-- more-->
+   
+   跑题了，嘻嘻！想了一下，先查查这v2到底能用到什么时候，既然好久前就被废弃了，肯定会有寿命的！
+   
+   哈哈 升级理由：<span class="stress"> v2到底能用到什么时候？</span>
+   
+   查了一下官方：
+   
+   结果如下：
+   
+   ![Crepe](/images/blog/update.jpg)
+   
+   2010年5月19日被正式弃用谷歌地图的JavaScript API第2版。<span class="stress"> 原折旧期从2013年5月19日至2013年11月19日</span>一直延续。截至本日，所有申请V2将提供一个特殊的，包裹版本的V3 API来代替。</span>
+   
+   官方地址 
+   <a href="https://developers.google.com/maps/documentation/javascript/v2/" target="_blank">https://developers.google.com/maps/documentation/javascript/v2/</a>
+   
+   友情建议：
+   
+   网页使用v2版本的还是升级到<span class="stress">v3版本</span>吧！

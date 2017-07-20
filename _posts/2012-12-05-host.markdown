@@ -1,0 +1,36 @@
+---
+layout: post
+title: "添加google earth服务器host"
+date: 2012-12-05 10:03
+tags: [google]
+---
+项目里坑爹的要用google earth技术，明知道国内对google的产品政策。还要用这技术开发，本人调试费好大的功夫才调出来。谁知道又说不稳定 要换成google map。我可没功夫陪他们玩。闲话少说。。。。。
+
+<!--more-->
+
+上网搜了有没有解决google earth不稳定的方法，网上基本上方法都是在host里面加上googleEarth的服务器。
+
+方法如下：
+1.打开C:\Windows\System32\drivers\etc 找到host文件添加下面两句
+
+```javascript
+72.14.203.101 www.panoramio.com //google earth照片库
+74.125.39.99 kh.google.com
+```
+
+上面是本人用的host，加上要好点。如果不行 就上网搜其他的google earth服务器。网上有好多。
+例如:
+
+```javascript
+203.208.46.30 kh.google.com
+```
+
+2.如果host不允许你保存，说明你没有修改系统文件的权限。可以将用户换成administrator.
+或者右击host选择属性-----安全----编辑 选择当前登陆用户将“读写权限”加入。保存，就可以修改了。
+
+![Crepe](/images/blog/host.png)
+
+最好补充一点：
+
+设计产品之前，最好先研究好有关需求是否合理，能不能做出理想的状态。像google earth这么不稳定的技术最好不要用，为要为了炫而丢了产品的实用性。偷鸡不成蚀把米。
+不介意用google earth技术。等到若干年后 google earth在国内稳定了。政策开发了。大家在用这技术吧，其他说实话 确实很炫！

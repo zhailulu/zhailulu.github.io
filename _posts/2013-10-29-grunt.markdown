@@ -1,0 +1,84 @@
+---
+layout: post
+title: "初试Grunt js项目构建工具"
+date: 2013-10-29 15:53
+tags: web
+---
+初试grunt项目构建工具
+   
+看别人的博客，无意发现了grunt。就尝试在VMWare虚拟机上centos(linux)环境搭建了简单的项目。
+   
+1.安装nodeJS和npm环境.
+
+具体步骤省略。
+
+2.grunt有两个版本(服务器端版本-grunt和客户端版本-grunt cli) 安装客户端版本
+{% highlight javascript linenos %}
+npm install -g grunt-cli //安装grunt cli
+npm uninstall -g grunt //卸载服务器版本grunt
+{% endhighlight %}
+  
+<!-- more -->
+
+3.项目根目录下创建package.json文件
+{% highlight javascript linenos %}
+ //package.json
+{
+"name": "work", //项目名字
+"version": "1.0.0",
+"devDependencies": {
+"grunt-contrib-uglify": "~0.2.0" //压缩js工具
+ }
+}
+{% endhighlight %}
+	
+4.项目根目录执行命令
+{% highlight javascript linenos %}
+npm install  //安装工具包
+{% endhighlight %}
+
+5.创建src 和build文件，在src里面创建一个test.js
+{% highlight javascript linenos %}
+(function($){
+ var str = "hello grunt!";
+ alert(str);
+})(jQuery)
+{% endhighlight %}
+
+6.项目根目录下创建一个Gruntfile.js
+{% highlight javascript linenos %}
+module.exports = function(grunt){
+// 项目配置
+grunt.initConfig({
+  pkg: grunt.file.readJSON('package.json'),
+   uglify: {
+   options: {
+      banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+   },
+  build: {
+     src: 'src/test.js',
+      dest: 'build/test.min.js'
+    }               
+}
+});
+
+// 加载提供"uglify"任务的插件
+grunt.loadNpmTasks('grunt-contrib-uglify');
+
+// 默认任务
+grunt.registerTask('default', ['uglify']);
+}
+{% endhighlight %}
+
+7.执行命令
+{% highlight javascript linenos %}grunt{% endhighlight %}
+	
+哈哈 一个简单的压缩js就搭建好了。build是执行任务后生成的压缩文件。
+	
+参考资料
+1.<a href="http://www.gruntjs.org/article/getting_started.html">http://www.gruntjs.org/article/getting_started.html</a>
+
+2.<a href="http://www.36ria.com/6192">http://www.36ria.com/6192</a>
+
+   
+  

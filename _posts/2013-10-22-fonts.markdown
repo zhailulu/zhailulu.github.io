@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Google Fonts API简介"
+date: 2013-10-22 11:36
+tags: css
+---
+   无意当中发现本人的博客模板引用了google的开源Fonts。
+  
+  上网搜了一下google Fonts的API使用文档。挺方便的，<span class="stress">可惜基本上都是英文字体</span>。
+  
+  官方Demo代码：
+  {% highlight javascript linenos %}
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+  {% endhighlight %}
+  
+  <!-- more -->
+  
+  demo：<a href="http://www.yrzhll.com/example/fonts.html" target="_blank">http://www.yrzhll.com/example/fonts.html</a>
+  
+  直接拷贝到文档，在浏览器里面运行一下就可以看见了。超简单，加个css的外联接就可以了。
+  
+  参考资料：
+   <a href="https://developers.google.com/fonts/docs/getting_started" target="_blank"> https://developers.google.com/fonts/docs/getting_started</a>
+   
+   <a href="http://www.google.com/fonts" target="_blank"> http://www.google.com/fonts</a>
+  
+  
+  

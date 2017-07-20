@@ -1,0 +1,39 @@
+---
+layout: post
+title: "JS/JQuery中两个感叹号（!!）的作用"
+date: 2012-12-19 15:51
+tags: js
+---
+ 几个月前做项目中，本人用了！！两个感叹号。谁知道被同事用有点嘲笑的口气说没见过这种写法！我晕，你们没见过这种写法，只能说你们见识浅而已。
+ 果然是无知者无畏啊！
+
+ <!-- more -->
+ 
+ 当时的代码好像是
+ {% highlight javascript linenos %}
+   var temp;
+   if(!!temp){return false;}else{ return true;}
+ {% endhighlight %}
+ 
+ 此时 temp会默认为<span class="stress">undefined</span>。
+ !temp ==> true  !!temp==>false
+ 
+ 这里的!!是表达式取反的取反
+ 
+ !!一般用来将后面的表达式强制转换为<span class="stress">布尔类型</span>的数据（boolean），也就是只能是true或者false;
+ 
+ 现在明白了吧。用两个感叹号！！目的就是让表达式只能转换成<span class="stress">true/false</span>
+ 
+ 题外话：
+ 
+ 孔子曰：“君子有三畏：畏天命，畏大人，畏圣人之言。小人不知天命而不畏也，狎大人，侮圣人之言。”——《论语·季氏篇第十六》
+ 
+ 以前看过一个朋友的个性签名写的挺好的，大概好像是这样写。
+ 
+   我在山顶，你在山下。你问我前面应该怎么走，我告诉你应该游，因为前面是一片大海。你说：屁，应该爬！
+   
+ <span class="stress">自勉一下！</span>我觉的中国人的<span class="stress">谦虚</span>的传统还是很值得传承的！个人观点。
+   
+   
+ 
+ 

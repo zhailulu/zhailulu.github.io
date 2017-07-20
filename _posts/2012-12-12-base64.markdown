@@ -1,0 +1,21 @@
+---
+layout: post
+title: "图片转换成Base64编码集成到html文件"
+date: 2012-12-12 11:15
+tags: html
+---
+1.在线打开Base64的编码器将图片编码成Base64
+例如：我在网上用的图像编码器Base64的地址：http://www.vgot.net/test/image2base64.php
+
+<!-- more -->
+
+2.将需要编码的图片编码成 Base64 代码。
+
+3.在html文件图片所在的src=""中添加<span class="stress">data:image/jpg;base64</span>,（注：这里是jpg格式，你可以改写成你编码图片的类型）
+
+
+4.将你编码的Base64代码复制到image/jpg;base64,的后面，然后用浏览器运行即可。
+
+补充：浏览器必须支持base64编码。
+
+![Crepe](/images/fun/2.jpg)

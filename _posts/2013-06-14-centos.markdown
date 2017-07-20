@@ -1,0 +1,72 @@
+---
+layout: post
+title: "vmware9安装centos和nginx所遇见的问题及解决方法"
+date: 2013-06-14 15:21
+tags: linux
+---
+  vmware9安装centos和nginx所遇见的问题及解决方法
+  
+1.安装centos64位问题
+   安装完后打开电源，出现下面的弹窗文字
+   
+ ```javascript
+ You have configured this virtual machine to use a 64-bit guest operating system.  However, 64-bit operation is not possible. This host is VT-capable, but VT is disabled.
+This is usually because VT has been disabled in the BIOS/firmware settings or the host has not been power-cycled since changing this setting. Please:
+(1) Verify that the BIOS/firmware settings enable VT and disable ‘trusted execution.’
+(2) Power-cycle the host, if either of these BIOS/firmware settings have been changed.
+(3) Power-cycle the host, if you have not done so since installing VMware Workstation.
+(4) Update the host’s BIOS/firmware to the latest version.
+For more detailed information, see http://vmware.com/info?id=152.
+  ```
+  
+  <!-- more -->
+  
+ 中文翻译：
+ 
+   您已经配置此虚拟机使用64位客户操作系统。然而，64位操作系统不可用。此主机具有虚拟化支持能力的，但虚拟化技术被禁用。
+这通常是因为虚拟化技术已经在BIOS /固件设置或禁用或主机没有权限改变此设置。 请：
+
+（1） 验证 BIOS/固件设置 VT 启用和禁用 'trusted execution.'
+
+（2） 如果更改了这些 BIOS/固件设置 重新启动主机电源。
+
+（3） 安装 VMware Workstation，重新启动主机.
+
+（4） 更新到最新版本的 BIOS/固件。
+
+更多详细信息请参阅 http://vmware.com/info?id=152 。
+
+  解决方案：确认window是64位的。进入BIOS检查cpu配置是否打开虚拟技术支持
+  
+  <span class="stress">del/f2 进入BIOS  cpu configure ---将虚拟技术off---on</span>
+  
+2.安装nginx问题
+
+  a.  ./configure error c compiler cc is not found
+  
+   原因：没有安装gcc报错
+   
+   解决方法：
+  ```javascript
+yum -y install gcc
+yum -y install gcc-c++
+yum install make
+   ```
+   
+   b.  ./configure: error: the HTTP rewrite module requires the PCRE library.
+   
+  原因：安装pcre-devel与openssl-devel解决问题
+  
+  解决方法：
+  ```javascript
+yum -y install pcre-devel openssl openssl-devel
+./configure --prefix=/usr/local/nginx
+make
+make install
+```
+
+嘻嘻 后面如果在遇见问题，在补充。做个备份，免得脑子不中用，老是忘记！我想我以后会不会得老年痴呆症。。。。
+
+哎
+
+记性不好哇！

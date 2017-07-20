@@ -1,0 +1,42 @@
+---
+layout: post
+title: "chrome下CSS3 Animation监控事件"
+date: 2013-08-08 16:44
+tags: js
+---
+对于CSS3动画的监控事件了解 应该是刚工作的一年。那时候研究公司的有关HTML5新产品demo应用的。
+   
+只针对webkit内核浏览器，其他内核浏览器应该也有。估计只是写法不一样而已
+   
+补充一点；
+
+Chrome 28是Google用Blink替代Webkit之后的第一个浏览器版本，用户可到chrome://version/查看自己的Blink ID。
+测试了一下，也支持。
+   
+1.动画开始事件<span class="stress">webkitAnimationStart</span>
+```javascript
+var anim = document.getElementById("anim");
+anim.addEventListener("webkitAnimationStart", function(){},false);
+```
+
+<!-- more -->
+
+2.动画执行过程事件<span class="stress">webkitAnimationIteration</span>
+```javascript
+var anim = document.getElementById("anim");
+anim.addEventListener("webkitAnimationIteration", function(){}, false);
+```
+
+2.动画结束过程事件<span class="stress">webkitAnimationEnd</span>
+```javascript
+var anim = document.getElementById("anim");
+anim.addEventListener("webkitAnimationEnd", function(){}, false);
+```
+
+第一个参数是监控事件的名称，第二个参数是回调函数，第三个是事件的响应顺序(false--冒泡，true--捕获)
+
+这些都是原生态监控事件。感兴趣的可以自己在深入研究一下。
+
+手痒，突发奇想的练练手。写了一个简单的应用动画切换汽车的demo。
+
+Demo地址：<a href="http://yrzhll.com/example/car.html" target="_blank">http://yrzhll.com/example/car.html</a>

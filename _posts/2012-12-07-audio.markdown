@@ -1,0 +1,24 @@
+---
+layout: post
+title: "HTML5带语音的搜索框"
+date: 2012-12-07 10:17
+tags: [html]
+---
+在网上看见别人总结的带语音的搜索框，觉的又神奇又简单方便，收了！嘿嘿
+
+<!-- more -->
+
+在你的网页里面加上一句简单的代码就可以了
+{% highlight javascript linenos %}
+ &lt;input type="text" placeholder="输入 回车搜索" autofocus x-webkit-speech&gt;
+{% endhighlight %}
+简短的几个代码就能实现原本多行JS才能实现的完美交互效果，这就是HTML5略窥一点的赞！
+
+placeholder是为了设置初始值，并且这个初始值的颜色为灰色，当input的内容变动时，这个值就消失，它的职责就是给人一种亲和力的指示，十分有爱。
+
+autofocus，顾名思义：自动聚焦，当进入当前页面时，这个input会自动获取焦点，而你可以在打开页面后直接输入东西进行搜索。当autofocus出现两次以上的时候，浏览器会选择最后一个带有autofocus属性的input聚焦。
+
+x-webkit-speech，这个大概不必多解释了，<span class="stress">webkit核的浏览器</span>（如Chrome）特有的语音识别工具，给input装上也是再好不过的了，话说Google也给自己的搜索框装上这个工具。
+
+![Crepe](/images/blog/audio.jpg)
+

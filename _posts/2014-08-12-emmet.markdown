@@ -1,0 +1,36 @@
+---
+layout: post
+title: "sublime text3安装Emmet"
+date: 2014-08-12 09:57
+tags: web
+---
+最近在学习一些新东西的时候，发现一个挺好玩的东西。跟大家分享一下，
+  
+如果知道的话就忽略吧！
+   
+现在sublime3里面有个插件叫Emmet，原名叫zenCoding。前端神插件。速成写Dom。
+
+<!-- more -->
+
+1.安装packages control
+
+打开console控制台：view->show console或者快捷键“ctrl + ` ”(esc下面那个键)
+
+```javascript
+	import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+```
+
+回车即可
+
+2.安装Emmet
+打开packages control: preferences->packages control 或者快捷键ctrl+shift+p
+
+输入install  选中packages control:install  packages  打开安装面板
+
+输入emmet 选中安装即可！
+
+哈哈 可以用了 超神速！写法类似于jQuery选择器的写法，下面从网上找过了一个例子图 ctrl+e 快速生成DOM元素。
+
+ ![Crepe](/images/blog/emmet.png)
+
+   

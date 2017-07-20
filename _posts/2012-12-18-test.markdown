@@ -1,0 +1,62 @@
+---
+layout: post
+title: "推荐测试浏览器支持HTML5和CSS3在线网站"
+date: 2012-12-18 10:20
+tags: [css, html]
+---
+整理笔记，发现一年前自己研究HTML5/CSS3的笔记。发现自己做的笔记，其实这几个网站，估计大家经常用。还是啰嗦一下吧
+
+<!-- more -->
+
+1.HTML5
+
+  地址：<a href="http://www.html5test.com/" target="_blank">http://www.html5test.com/</a>
+  
+ ![Crepe](/images/blog/test/test1.jpg)
+
+2.CSS3
+
+  地址：<a href="http://modernizr.github.com/Modernizr/test/" target="_blank">http://modernizr.github.com/Modernizr/test/ </a>
+  
+  ![Crepe](/images/blog/test/test2.jpg)
+  
+3.touch
+
+  地址：<a href="http://modernizr.github.com/Modernizr/touch.html" target="_blank">http://modernizr.github.com/Modernizr/touch.html</a>
+  
+  ![Crepe](/images/blog/test/test3.jpg)
+
+4.HTML5/CSS3
+
+  地址：<a href="http://www.findmebyip.com/litmus/" target="_blank">http://www.findmebyip.com/litmus/ </a>
+  
+  ![Crepe](/images/blog/test/test4.jpg)
+  
+5.HTML5/CSS3
+
+  地址：<a href="http://caniuse.com/" target="_blank">http://caniuse.com/</a>
+
+  ![Crepe](/images/blog/test/test5.jpg)
+  
+6.Mobile HTML5
+
+  地址：<a href="http://mobilehtml5.org/" target="_blank">http://mobilehtml5.org/</a>
+  
+  ![Crepe](/images/blog/test/test6.jpg)
+
+7.HTML5/CSS3
+
+  地址：<a href="http://html5readiness.com/" target="_blank">http://html5readiness.com/</a>
+  
+  ![Crepe](/images/blog/test/test7.jpg)
+
+8.HTML5/CSS3
+
+  地址：<a href="http://fmbip.com/" target="_blank">http://fmbip.com/</a>
+  
+  ![Crepe](/images/blog/test/test8.jpg)
+  
+这样的网站现在很多，前两个用的最多。
+
+  
+  

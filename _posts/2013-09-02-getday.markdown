@@ -1,0 +1,76 @@
+---
+layout: post
+title: "‘星期几’不同脚本写法"
+date: 2013-09-02 15:19
+tags: js
+---
+这篇文章是总结《 WEB前端研发工程师编程能力成长之路》文章。一直觉的这篇文章写的很好。
+
+1.第一种写法
+```javascript
+var str = "";
+var week = new Date().getDay();
+if (week == 0) {
+        str = "今天是星期日";
+} else if (week == 1) {
+        str = "今天是星期一";
+} else if (week == 2) {
+        str = "今天是星期二";
+} else if (week == 3) {
+        str = "今天是星期三";
+} else if (week == 4) {
+        str = "今天是星期四";
+} else if (week == 5) {
+        str = "今天是星期五";
+} else if (week == 6) {
+        str = "今天是星期六";
+}
+```
+
+<!-- more -->
+
+或者
+```javascript
+var str1 = "今天是星期";
+var week = new Date().getDay();
+switch (week) {
+        case 0 :
+                str1 += "日";
+                break;
+        case 1 :
+                str1 += "一";
+                break;
+        case 2 :
+                str1 += "二";
+                break;
+        case 3 :
+                str1 += "三";
+                break;
+        case 4 :
+                str1 += "四";
+                break;
+        case 5 :
+                str1 += "五";
+                break;
+        case 6 :
+                str1 += "六";
+                break;
+}
+alert(str);
+alert(str1);
+```
+
+2.第二种写法：
+```javascript
+var a = new Array("日", "一", "二", "三", "四", "五", "六");
+var week = new Date().getDay();
+var str = "今天是星期"+ a[week];
+alert(str);
+```
+
+3.第三种写法：
+```javascript
+var str = "今天是星期" + "日一二三四五六".charAt(new Date().getDay());
+```
+
+我的去啊！第三种写法，你让本人以前写的代码<span class="stress">情何以堪</span>啊！没脸见人！最后一句话就可以写出来了！

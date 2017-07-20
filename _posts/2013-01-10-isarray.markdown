@@ -1,0 +1,64 @@
+---
+layout: post
+title: "javascript判断array类型杂记"
+date: 2013-01-10 10:44
+tags: js
+---
+  前天同事说台风有bug,我赶紧查原因。发现原来是判断array类型犯了个错误。上网搜搜，整理成笔记
+  
+  <!--more-->
+  
+错误代码：
+{% highlight javascript linenos %}
+  var obj=[],flag;
+  typeof(obj) == "array" ? flag=true : flag=false
+  console.log(flag);
+  
+  true //本人认为运行结果
+  false //真实运行结果  
+{% endhighlight %}
+
+然后就没多想就把代码上线。之后没事闲看，才发现自己犯了错误认识
+
+<p class="stress">typeof这会返回一个javascript基本类型的实例的类型。Array实际上不是基本类型，所以typeof Array对象将返回Object，</p>
+代码如下：  
+typeof {} === "object"  //true
+
+typeof "" === "string"   //true
+
+typeof [] === "array";  //false
+
+当你对自己的对象的实例使用这个操作符时将会得到相同的结果（typeof = "object"）。
+
+另外说明一点，”typeof null“将返回”object“，这个有点诡异。
+
+那应该判断array类型呢。估计大家跟我想的一样。jquery里面肯定有封装好的函数<span class="stress">jQuery.isArray(obj)</span>
+
+深究一下jQuery.isArray(obj)，打开jquery框架可以发现相关的代码有以下几段
+{% highlight javascript linenos %}
+isArray: Array.isArray || function( obj ){ return jQuery.type(obj) === "array";}
+
+type: function( obj ){ return obj == null ?String( obj ) :class2type[ core_toString.call(obj) ] || "object";}
+
+core_toString = Object.prototype.toString
+
+jQuery.each("Boolean Number String Function Array Date RegExp Object".split(" "), function(i, name){
+class2type[ "[object " + name + "]" ] = name.toLowerCase();
+});
+
+{% endhighlight %}
+
+具体解释 上网一搜能搜到好多这里就不解释了。
+
+不过本人又发现网友说ext3里面有更好的封装方法，也很简单。本人简单测试了一下是正确的
+
+{% highlight javascript linenos %}
+isArray : function(v){return Object.prototype.toString.call(obj) === '[object Array]';}
+{% endhighlight %}
+{% highlight javascript linenos %}
+[object Array]、[object String]、[object Function]、[object Object]、[object RegExp]、[object Number]、[object Date]、[object Boolean]
+{% endhighlight %}
+
+上述的类型都可以这样验证
+
+

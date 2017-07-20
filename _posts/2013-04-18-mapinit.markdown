@@ -1,0 +1,71 @@
+---
+layout: post
+title: "Google Map V3 javascript API 入门教程"
+date: 2013-04-18 15:03
+tags:  google
+---
+ Google Map V3 javascript API 入门教程
+   
+   昨天加了个google map开发群，发现好多人都做这方面的开发，国内教程不多。Google Map 的API有很多类型的。
+   
+   本人做web开发的，所有研究的是javascript API。整理一个入门简单的教程。
+   
+   V2的版本已经停用了。现在是V3版本的，我觉的最大的好处就是不用申请密钥了！哈哈，很方便啊！
+   
+   一个外部的script 就可以加载了！
+   
+   <!-- more -->
+   
+   1.文档声明一定要是HTML5
+   ```javascript
+   <!DOCTYPE html>
+   ```
+   
+   2.加载外部script链接，也可以是异步加载的
+   ```javascript
+   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+   ```
+   
+   说明：网址的 sensor 参数（必须添加）用于表示应用是否会使用 GPS 定位器等传感器来确定用户的位置
+   
+   异步加载：
+   ```javascript
+   function loadScript() {
+   var script = document.createElement("script");
+   script.type = "text/javascript";
+   script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+   document.body.appendChild(script);}window.onload = loadScript;
+   ```
+   
+   3.加载地图的DOM元素
+   ```javascript
+   <div id="map_canvas" style="width: 500px; height: 500px;"></div>
+   ```
+   
+   4.加载地图
+   ```javascript
+   function initialize() {
+   //定义地图的参数
+   var mapOptions = {
+   zoom: 8,//缩放比例
+   center: new google.maps.LatLng(-34.397, 150.644),//地图中心经纬度
+   mapTypeId: google.maps.MapTypeId.ROADMAP  //显示地图类型
+   } 
+   //创建地图的实例
+   var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+   }
+   window.onload=function(){initialize();}
+   ```
+	
+	系统支持以下地图类型：
+	
+	ROADMAP，用于显示 Google 地图的默认、普通 2D 图块。
+	
+	SATELLITE，用于显示拍摄的图块。
+	
+	HYBRID，用于同时显示拍摄的图块和重要地图项（道路、城市名）的图块图层。
+	
+	TERRAIN，用于显示自然地形图块，其中包含海拔和水体地图项（山脉、河流等）。
+	
+官方教程：<a href="https://developers.google.com/maps/documentation/javascript/tutorial?hl=zh-cn" target="_blank">https://developers.google.com/maps/documentation/javascript/tutorial?hl=zh-cn</a>
+   

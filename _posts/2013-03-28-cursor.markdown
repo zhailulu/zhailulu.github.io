@@ -1,0 +1,33 @@
+---
+layout: post
+title: "自定义鼠标样式--cursor"
+date: 2013-03-28 09:10
+tags: css
+---
+   写正文之前总喜欢说几句废话，其实本人的博客上的问题一般都是在工作当中遇见的，为了避免忘记，还是写出来的好点！
+   
+   都是细节部分，虽然几乎没人看！就当自己的笔记，便于以后查找！嘻嘻。。。。。
+   
+   这个也是产品的一个要求，要求图片切换脚本，放在大图中会有一个放大镜的效果出来。
+   
+   脑子一转，放大镜，直接把鼠标样式换成放大镜的图片不就行了，之前大学的时候喜欢把自己的电脑鼠标换的花花绿绿的。
+   
+   css肯定也支持，上网搜了一下，整理如下：
+  
+   <!-- more -->
+   
+   css通用写法：
+   {% highlight javascript linenos %}.demo{cursor:url('路径'),auto;}//IE,FF,chrome浏览器都可以{% endhighlight %}
+   
+   注意的两点
+   
+   1.图标的格式--ico:最好是<span class="stress">ico</span>格式。本人用ico测了一下浏览器，没发现啥问题，图标的格式根据不同的浏览器来分：IE支持cur,ani,ico这三种格式，FF支持bmp,gif,jpg,cur,ico这几种格式，不支持ani格式，也不支持gif动画格式，因此来说一般将图片存为cur或ico格式比较好。
+   
+   2.图标的尺寸--32*32：
+   
+   最好是<span class="stress">32*32</span>的，不然其他的尺寸会导致浏览器渲染的图片大小不一致。
+   
+   简单把！其实从本人毕业到现在做项目总结了一个问题，再<span class="stress">复杂</span>的问题都是一个一个<span class="stress">简单</span>的点组成，一个一个慢慢突破就行了。
+   写代码 关键要<span class="stress">思路清晰</span>！
+   
+   Demo:<a href="{{ site.url }}/example/cursor.html" target="_blank">{{ site.url }}/example/cursor.html</a>

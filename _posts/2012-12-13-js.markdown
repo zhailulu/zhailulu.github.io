@@ -1,0 +1,30 @@
+---
+layout: post
+title: "js动态调用css属性的小规律和特例"
+date: 2012-12-13 14:09
+tags: js
+---
+  刚才看到一篇好的文章介绍js调用css属性，( ^_^ )不错嘛！免的自己忘记，总结到自己的博客里！(*^__^*) 嘻嘻……
+  
+  <!-- more -->
+  
+1、对于没有中划线的css属性一般直接使用<span class="stress">style.属性名</span>即可。
+
+如：obj.style.margin，obj.style.width，obj.style.left，obj.style.position等。
+
+2、对于含有中划线的css属性，将每个中划线去掉并<span class="stress">将每个中划线后的第一个字符换成大写</span>即可。
+
+如：obj.style.marginTop，obj.style.borderLeftWidth，obj.style.zIndex，obj.style.fontFamily等。
+
+
+因为float是Javascript的保留字，那怎么在js中书写样式表中的float呢？
+
+我们不能直接使用obj.style.float来使用，这样操作是无效的。
+
+其正确的使用方法是为：IE:obj.style.styleFloat，其他浏览器Mozilla(gecko)，ff等用styleFloat:obj.style.cssFloat。
+
+给个例子让大家好理解：
+{% highlight javascript linenos %}
+<div onclick="alert(this.style.float);this.style.float='left';alert(this.style.float);">测试1</div>
+<div onclick="alert(this.style.float);if(this.style.cssFloat){this.style.cssFloat='left';}else{this.style.styleFloat='left';}alert(this.style.float);">测试2</div>
+{% endhighlight %}

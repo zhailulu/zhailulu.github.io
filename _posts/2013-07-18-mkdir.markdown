@@ -1,0 +1,69 @@
+---
+layout: post
+title: "Linux的目录架构(转)"
+date: 2013-07-18 09:14
+tags: linux
+---
+Linux的目录架构，并解释每个重要目录的含义。
+
+<span class="stress">/Root - 根分区 </span>
+
+通常称为根分区。所有的文件和目录皆由此开始。只有root用户对此目录拥有写权限。
+
+<span class="stress">/bin - 用户可执行文件</span>
+
+此目录包含二进制可执行文件。在单用户模式下Linux使用此目录的命令。此目录包含所有用户的常用命令，如ls、ping、cp等。
+
+<span class="stress">/sbin - 系统可执行文件</span>
+
+此目录中的命令主要供系统管理员使用，以进行系统维护。例如，iptables、reboot、fdisk等。
+
+<!--more-->
+
+<span class="stress">/etc - 配置文件</span>
+
+包含所有应用程序的配置文件，也包含启动、关闭某个特定程序的脚本，例如，/etc/resolv.conf、/etc/logrotate.conf等。
+
+<span class="stress">/dev - 设备文件</span>
+
+包含设备文件。在Linux中，一切都被看做文件。终端设备、USB、磁盘等等都被看做文件，如/dev/usbmon0。
+
+<span class="stress">/proc - 进程信息</span>
+
+所有系统进程的信息都包含在/proc目录中。/proc目录并不是一个真正的文件系统，而是包含了运行中的进程信息。例如，/proc目录包含了进程信息。/proc目录也包含了系统资源信息，如/proc/uptime包含了最近一次启动至今的正常运行时间，/proc/cpuinfo包含了处理器信息等。
+
+<span class="stress">/var - 变量文件</span>
+
+/var是一个可增长的目录，包含变量文件。例如，/var/log（系统日志）、/var/lib （包文件） 、/var/mail（邮件）、/var/spool （打印队列）。
+
+<span class="stress">/usr - 用户程序</span>
+
+为用户应用程序存放可执行文件、源代码和文档。/usr/bin包含了用户可执行文件，如at、awk、cc等。/usr/sbin包含了系统管理员可执行文件，如cron、sshd、useradd等。/usr/local包含了用户编译源代码安装的应用程序，如/usr/local/apache2。
+
+<span class="stress">/home - 用户主目录</span>
+
+存放用户的私人文件。
+
+<span class="stress">/boot - 启动加载文件</span>
+
+Linux系统启动时需要加载的文件。Kernel initrd、grub等文件都存放在此。
+
+<span class="stress">/lib - 系统库文件</span>
+
+/bin和/sbin中的可执行文件需要/lib中库文件的支持。库文件通常以“ld”或“ld*.so”的形式命名，如ld-2.11.1.so。
+
+<span class="stress">/opt - 可选应用</span>
+
+/opt用于安装独立软件商的可选应用。
+
+<span class="stress">/mnt - 挂载目录</span>
+
+挂载点，系统管理员可用于临时挂载文件系统。
+
+<span class="stress">/media - 可移动媒体设备</span>
+
+挂载可移动媒体设备，如/media/cdrom、/media/floppy等。
+
+<span class="stress">/srv - 服务数据</span>
+
+Srv表示服务，用于服务器的所有服务数据存储在此目录中。

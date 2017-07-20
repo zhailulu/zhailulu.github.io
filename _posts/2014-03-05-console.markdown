@@ -1,0 +1,52 @@
+---
+layout: post
+title: "使用console.time()计算js代码执行时间"
+date: 2014-03-05 10:26
+tags: js
+---
+firefox，chrome开发工具都提供了调试api，console.time就是其中一个工具
+console.time()  方法可用来计算 js 执行的时间。
+
+```javascript
+    console.time('good');
+    var $page = $('#page'),option;
+    for(var i=1;i<1000;i++){
+        option+="<option value="+i+">第 "+i+" 页</option>";
+    }
+    //dom 操作一次
+    $page.append(option);
+	console.timeEnd('good');
+```
+
+<!-- more -->
+
+IE不支持，下面是兼容代码
+```javascript
+if(window.console && typeof(window.console.time) == "undefined") {
+    console.time = function(name, reset){
+        if(!name) { return; }
+        var time = new Date().getTime();
+        if(!console.timeCounters) { console.timeCounters = {}; }
+        var key = "KEY" + name.toString();
+        if(!reset && console.timeCounters[key]) { return; }
+            console.timeCounters[key] = time;
+        };
+
+    console.timeEnd = function(name){
+        var time = new Date().getTime();
+        if(!console.timeCounters) { return; }
+        var key = "KEY" + name.toString();
+        var timeCounter = console.timeCounters[key];
+        var diff;
+        if(timeCounter) {
+            diff = time - timeCounter;
+            var label = name + ": " + diff + "ms";
+            console.info(label);
+            delete console.timeCounters[key];
+        }
+        return diff;
+    };
+}
+```javascript
+
+很方便，在优化性能很好的api

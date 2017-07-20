@@ -1,0 +1,22 @@
+---
+layout: post
+title: "基于jquery简单的遮罩层overlay小插件"
+date: 2013-04-09 15:17
+tags: js
+---
+   基于jquery简单的遮罩层overlay小插件
+   
+   上网看见一网友用js写了一个简单的小插件，自己没动手写过。于是打算练练手，用jquery写一个！嘻嘻
+   
+   写的不好，不要见怪。花了大概两个小时。有bug可有留言告诉我！
+   
+   效果图：
+   
+   <!-- more -->
+   
+   ![Crepe](/images/blog/overlay.jpg)
+   
+   Demo:
+   
+   <a href="http://www.yrzhll.com/example/overlay.html" target="_blank">http://www.yrzhll.com/example/overlay.html</a>
+   

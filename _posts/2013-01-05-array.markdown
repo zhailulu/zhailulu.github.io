@@ -1,0 +1,51 @@
+---
+layout: post
+title: "求数组中最大值，最小值"
+date: 2013-01-05 09:46
+tags: js
+---
+  从网上找到的资料，加工了一下啊！
+  
+  <!-- more -->
+  
+{% highlight javascript linenos %}
+var Max=function(arr){
+var r=arr.sort(function(a,b){return a-b;});
+return r[r.length-1];
+}
+var Min=function(arr){
+var r=arr.sort(function(a,b){return a-b;});
+return r[0];}
+{% endhighlight %}
+
+也可以封装成一个函数
+{% highlight javascript linenos %}
+var getArrayMaxVal=function(arr,flag){
+var r=arr.sort(function(a,b){return a-b;});
+return flag===true ? r[r.length-1]: r[0];
+}
+getArrayMaxVal([1,2,3,0],true);//max
+getArrayMaxVal([1,2,3,0],false);//min
+{% endhighlight %}
+  
+网上也有直接扩张Array对象方法，
+{% highlight javascript linenos %}
+Array.prototype.Max=function(){ 
+var r=arr.sort(function(a,b){return a-b;});
+return r[r.length-1];
+}
+Array.prototype.Min=function(){
+var r=arr.sort(function(a,b){return a-b;});
+return r[0];
+} 
+[0,1,3,4,-2].Max()
+[0,1,3,4,-2].Min()
+{% endhighlight %}
+
+还有更牛逼的写法
+{% highlight javascript linenos %}
+ Array.prototype.max = function(){return Math.max.apply({},this);}
+ Array.prototype.min = function(){return Math.min.apply({},this);}  
+{% endhighlight %}
+ 
+优秀的程序猿是用<span class="stress">最少的代码</span>写出相同的功能

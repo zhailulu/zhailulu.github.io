@@ -1,0 +1,64 @@
+---
+layout: post
+title: "HTML5的离线缓存Application Cache"
+date: 2013-09-22 17:09
+tags: html
+---
+前几天，老哥说他接一个项目要做用到HTML5的离线缓存。抽空研究了一下。自己没事弄了个小demo。
+  
+1.引用缓存文件
+要启用某个应用的应用缓存，请在文档的 html 标记中添加 manifest 属性
+	
+```javascript
+<html manifest="example.manifest">
+</html>
+```
+
+<!--more-->
+
+  2.清单文件结构
+```javascript
+CACHE MANIFEST
+index.html
+stylesheet.css
+images/logo.png
+scripts/main.js
+```
+
+注意以下几点：
+a.CACHE MANIFEST 字符串应在第一行，且必不可少。
+b.网站的缓存数据量不得超过 5 MB。不过，如果您要编写的是针对 Chrome 网上应用店的应用，可使用 unlimitedStorage 取消该限制。
+c.如果清单文件或其中指定的资源无法下载，就无法进行整个缓存更新进程。在这种情况下，浏览器将继续使用原应用缓存。
+
+哈哈，搞定了。简单吧
+demo:<a href="http://yrzhll.com/example/cache/index.html" target="_blank">http://yrzhll.com/example/cache/index.html</a>
+
+3.cache事件
+```javascript
+//第一个缓存清单被缓存后事件
+appCache.addEventListener('cached', handleCacheEvent, false);
+
+// 检查更新
+appCache.addEventListener('checking', handleCacheEvent, false);
+
+//下载资源
+appCache.addEventListener('downloading', handleCacheEvent, false);
+
+
+// 缓存出错
+appCache.addEventListener('error', handleCacheError, false);
+
+// 缓存没有更新
+appCache.addEventListener('noupdate', handleCacheEvent, false);
+
+// 解雇，如果清单文件返回404或410，导致应用程序缓存中被删除。
+appCache.addEventListener('obsolete', handleCacheEvent, false);
+
+// 
+appCache.addEventListener('progress', handleCacheEvent, false);
+
+// 准备更新
+appCache.addEventListener('updateready', handleCacheEvent, false);
+```
+
+API : <a href="http://www.whatwg.org/specs/web-apps/current-work/#applicationcache" target="_blank">http://www.whatwg.org/specs/web-apps/current-work/#applicationcache</a>

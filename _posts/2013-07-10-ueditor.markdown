@@ -1,0 +1,87 @@
+---
+layout: post
+title: "推荐一个很好的富文本web编辑器UEditor"
+date: 2013-07-10 14:53
+tags: js
+---
+  前天产品提了一个编辑器的bug，本人找是找到了问题的症结，就是不好改。框架是压缩兼混淆后的代码。查一下，好多年前的框架。。。
+   
+   咨询了一个同事有关旧框架的事情，他也建议我升级编辑器并帮忙帮我找了UEditor。嘻嘻。。。。
+   
+   不错，开源，文档也很好用。由百度web前端研发部开发。<span class="stress">符合中国国情</span>，ie6也支持的不错！
+   
+   官方地址：<a href="http://ueditor.baidu.com/website/index.html">http://ueditor.baidu.com/website/index.html</a>
+   
+   <!-- more -->
+  
+  1.部署方法(php版本)
+   
+   a.下载项目需要的版本源码，以php为例
+   
+   b.文本编辑框所放的位置
+```javascript
+	<div>
+	<script type="text/plain" id="myEditor" name="myContent">
+	//默认文字内容或修改的内容
+	</script>
+	</div>
+```
+
+c.加载框架脚本
+
+```javascript
+<script type="text/javascript">
+window.UEDITOR_HOME_URL = "ueditor/"; //一定要放在最前面
+</script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+<script type="text/javascript">
+UE.getEditor('myEditor', {
+    initialFrameWidth:600,//初始化宽度
+    initialFrameHeight:540,//初始化高度
+    toolbars:[["source","|","undo","redo","|","bold","italic","underline"],["paragraph","fontfamily","fontsize","|","inserttable","deletet
+able","mergeright""],["searchreplace","|","insertimage","emotion"]]//自定义工具栏 三行
+
+});
+</script>
+//$_POST['myContent'] 上传内容到服务器
+```
+	
+编辑框初始化完成。
+	
+2.配置上传图片路径
+
+ a.修改imageUp.php
+```javascript
+$config = array(
+   "savePath" => ($path == "1" ? "../../../../uploads/news/images/": "upload1/"),
+   "maxSize" => 1000, //单位KB
+   "allowFiles" => array(".gif", ".png", ".jpg", ".jpeg", ".bmp")
+   );
+```
+
+b.修改dialogs /image/image.html
+```javascript
+    <div class="saveDir"gt;
+    <var id="lang_savePath" ></var><select id="savePath">
+    <option value="1>uploads</option>
+    <!--option value="2">upload1</option-->
+    </select>
+    </div>
+```
+
+c.修改getRemoteImage.php
+```javascript
+ //远程抓取图片配置
+ $config = array(
+   "savePath" => '../../../../uploads/news/images/'.$userId ,            //保存路径
+   "allowFiles" => array( ".gif" , ".png" , ".jpg" , ".jpeg" , ".bmp" ) , //文件允许格式
+   "maxSize" => 3000                    //文件大小限制，单位KB
+   );
+```
+
+基本功能也就完成。一般上传不了图片，大部分都是路径配置的不对。
+	
+补充一点：
+	
+如果想非全屏下显示滚动条：ueditor.config.js里面找到autoHeightEnabled 设置为false

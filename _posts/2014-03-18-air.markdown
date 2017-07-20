@@ -1,0 +1,106 @@
+---
+layout: post
+title: "飞机去哪了？"
+date: 2014-03-18 15:11
+tags: js
+---
+   休婚假回公司第一天上班，就碰到测试机内存坏了。闲来无事，看倒腾讯首页关于飞机失踪的计时器。
+   
+   挖出来代码一起分享
+   
+{% highlight javascript linenos %}
+//样式
+.mhkjsl_mod{background:url(http://mat1.gtimg.com/www/images/qq2012/mhkjslBg20140310.jpg) no-repeat 0 0;height:75px;width:660px;position:relative;}
+.mhkjsl_mod b{color:#ff8400;font:18px/20px 'Microsoft YaHei';}
+.mhkjsl_mod .ljzt{position:absolute;z-index:9;top:0;left:0;width:660px;height:75px;}
+.mhkjsl_mod .ljzt:focus{outline:none}
+#mhkjslTimeNum{position:absolute;top:46px;_top:48px;left:213px;_left:218px;}
+#mhkjslTimeNum .day{margin-right:28px;_margin-right:32px;}
+#mhkjslTimeNum .xi{margin-right:43px;_margin-right:46px;}
+#mhkjslTimeNum .min{margin-right:26px;_margin-right:30px;}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+#mhkjslTimeNum{position:absolute;top:45px;left:218px;}
+#mhkjslTimeNum .day{margin-right:32px;}#mhkjslTimeNum .xi{margin-right:46px;}#mhkjslTimeNum .min{margin-right:30px;}
+}
+{% endhighlight %}
+
+<!-- more -->
+
+大牛的计时器代码
+{% highlight javascript linenos %}
+
+	/**
+	 * @author  jianminlu
+	 * @update  2014-03-10 10:14
+	 * @name    {Function}  countDown
+	 * @param   {Object}
+	 *      @domId      {String}    domID
+	 *      @startTime  {String}    2015/1/30 年/月/日 时:分:秒
+	 *      @endTime    {String     2014/1/30 年/月/日 时:分:秒
+	 *      @flag       {Boolean}   true / false
+	 */
+	(function(W, D){
+	    var countDown = W['countDown'] = function(o){
+	        return new _countDown(o);
+	    },
+	    _countDown = function(o){
+	        this.endTime = o.endTime;
+	        this.startTime = o.startTime;;
+	        this.dom = D.getElementById(o.domId);
+	        this.i = 0;
+	        this.flag = o.flag;
+	        this.init();
+	    };
+	    _countDown.prototype = {
+	        auto: function(){
+	            var _this = this;
+	            setTimeout(function(){
+	                _this.init(_this.endTime, _this.domId);
+	            }, 1000);
+	        },
+	        ten: function(t){
+	            if(t < 10){
+	                t = "0" + t;
+	            }
+	            return t;
+	        },
+	        init: function(){
+	            var _this = this,
+	                time = 0;
+	            _this.i ++;
+	
+	            if(_this.flag){
+	                time = (new Date(_this.endTime).getTime() - new Date(_this.startTime).getTime() + 1000 * _this.i) / 1000 
+	            }else{
+	                time = (new Date(_this.endTime).getTime() - new Date(_this.startTime).getTime() - 1000 * _this.i) / 1000 
+	            }
+	            var day = _this.ten(Math.floor(time / (60 * 60 * 24))),
+	                hour = _this.ten(Math.floor(time /(60 * 60)) - day * 24),
+	                minute = _this.ten(Math.floor(time /60) - (day * 24 * 60) - (hour * 60)),
+	                second = _this.ten(Math.floor(time) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60));
+	
+	            _this.dom.innerHTML = "<b class='day'>" + day + "</b><b class='xi'>" + hour + "</b><b class='min'>" + minute + "</b><b class='sou'>" + second + "</b>";
+	            _this.auto();
+	        }
+	    }
+	})(window, document);			
+	// SSI时间格式 
+	var date=new Date(), month=date.getMonth()+1, minutes=date.getMinutes(),Min,seconds=date.getSeconds();
+	minutes<=9 ? Min="0"+minutes : Min=minutes;
+	var endTime=date.getFullYear()+"/"+month+"/"+date.getDate()+" "+date.getHours()+":"+Min;
+	countDown({
+	    domId: "mhkjslTimeNum",                     // 绑定dom
+	    startTime: '2014/3/8 1:20:00',              // 结束时间 年/月/日 时:分:秒
+	    endTime: endTime,   // 结束时间 年/月/日 时:分:秒
+	    flag: true                                  // 是否为正计时 true 正计时 false 倒计时
+	});
+	
+{% endhighlight %}
+   
+显示效果地址：
+
+<a href="http://zhailulu.github.io/example/air.html">http://zhailulu.github.io/example/air.html</a>
+  
+
+   
+    

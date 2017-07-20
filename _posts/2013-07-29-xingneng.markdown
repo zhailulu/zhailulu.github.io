@@ -1,0 +1,67 @@
+---
+layout: post
+title: "jquery简单的性能测试"
+date: 2013-07-29 11:05
+tags: js
+---
+jquery简单的性能测试
+
+不同的写法，虽然结果一样，但是性能会差很多的。
+
+最近自己总结了一个简单的小例子
+
+最简单的性能测试函数
+```javascript
+function test(fn, id) {
+    var s, d;
+    // 记录执行的起始时间
+    s = new Date().getTime();
+    // 执行待测试的方法
+    fn();
+    // 记录执行的结束时间
+    d = new Date().getTime();
+    // 输出待测试方法所运行的结果和耗时
+    $("#"+id).text( '耗时：' + (d-s) + 'ms' );
+}
+```
+
+方法一: 动态创建Dom元素
+```javascript
+function test1(){
+  for(var i=0;i<10;i++){
+   var dom = createDom();
+   $(dom).appendTo($("#test1"));
+  } 
+}
+```
+
+<!-- more -->
+
+方法二: 动态创建Dom元素
+```javascript
+function test2(){
+  var dom;
+  for(var i=0;i<10;i++){
+   dom += createDom();
+  }
+  $(dom).appendTo($("#test2"));
+ 
+}
+```
+
+方法三: 动态创建Dom元素
+```javascript
+function test3(){
+  var dom = [];
+  for(var i=0;i<10;i++){
+   dom[i]= createDom();
+  }
+  $(dom.join("")).appendTo($("#test3"));
+
+}
+```
+
+三种不同的方法创建dom元素结果是一样的,但是性能却相差很大。第一种性能最差。数组合并最快。
+
+具体看demo
+<a href="http://yrzhll.com/example/performance.html">http://yrzhll.com/example/performance.html</a>

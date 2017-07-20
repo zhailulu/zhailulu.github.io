@@ -1,0 +1,42 @@
+---
+layout: post
+title: "Img src空属性的解决方法对比"
+date: 2013-11-08 11:19
+tags: css
+---
+   今天早上服务器超载，让查问题。我一头雾水。后来牛逼的同事找出原因。
+   
+   原因： 登陆里面img标签里面的src是空属性，造成多请求一次当前目录。
+   
+   咦。。。本来页面东西就多，回头还多请求一次错误不存在地址。咦。。。。。后果不堪想象。夸张一下。。。。嘻嘻
+  
+   <!-- more -->
+ 
+   我脑袋瓜子思路简单，空的属性没用就去掉呗，反正js会动态添加的。我直接给删掉，后来被同事改成了src="about:blank".
+   
+   也问了技术朋友，说加"#",
+   
+   有什么区别啊！不懂，又不好意思问人。自己动手丰衣食足。自己上网下了工具fiddler的，自己弄了简单的demo测试一下。
+
+![Crepe](/images/blog/imgSrc/html.jpg)
+   
+1.Img Src设置为"#"
+
+![Crepe](/images/blog/imgSrc/ss.jpg)
+	
+   2.Img src="about:blank"
+   
+![Crepe](/images/blog/imgSrc/blank.jpg)
+	
+   3.直接去掉，反正看着碍眼
+   
+![Crepe](/images/blog/imgSrc/blank.jpg)
+	
+   嘻嘻 结果很明白了。#不行，还是造成两次请求。后两种方法都可以。
+   
+   好像什么还有其他一些标签src为空也会造成类似的情况，最后不要有空属性。
+   
+   想起来了 之前好像object那次src为空也是这种情况，那时候还糊里糊涂的。笨蛋！
+   
+   主要是IE浏览器，讨厌的IE。chrome啊之类的高级浏览器都自动转换成about:blank了。所以没啥问题
+   

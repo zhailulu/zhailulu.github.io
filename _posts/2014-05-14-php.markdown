@@ -1,0 +1,141 @@
+---
+layout: post
+title: "php有用的函数"
+date: 2014-05-14 10:50
+tags: php
+---
+公司人手不够，让我学php。在网上看见的，总结的笔记.
+
+```javascript
+<?php
+
+ //PHP允许你定义一个默认参数的函数
+ function foo($arg1 = '', $arg2 = ''){
+    echo "arg1: $arg1\n";
+    echo "arg2: $arg2\n";
+}
+
+foo('hello','world');
+foo();
+
+//PHP还允许你定义一个完全任意的参数的函数
+function foo2(){
+
+    // 取得所有的传入参数的数组 
+    $args = func_get_args();
+
+    foreach ($args as $k => $v) {
+        echo "arg".($k+1).": $v\n";
+    }
+
+}
+
+foo2();
+
+foo2('hello');
+
+foo2('hello', 'world', 'again');
+
+
+//取得所有的后缀为PHP的文件 
+$files = glob('*.php');
+
+print_r($files);
+
+$files = glob('*.{php,txt}', GLOB_BRACE);
+
+print_r($files);
+
+//获取文件的绝对地址
+$files = glob('web/images/l*.gif');
+
+$files = array_map('realpath',$files);
+
+print_r($files);
+
+//获取内存使用情况
+echo "Initial: ".memory_get_usage()." bytes \n";
+
+//使用内存的峰值
+echo "Peak: ".memory_get_peak_usage()." bytes \n";
+
+print_r(getrusage());
+
+//基于以微秒计的当前时间，生成一个唯一的 ID 一般用md5()
+echo uniqid();
+
+//加前缀生成唯一的ID
+echo uniqid('foo_');
+
+
+//序列化
+$myvar = array(
+    'hello',
+    42,
+    array(1,'two'),
+    'apple'
+);
+
+$string = serialize($myvar);
+
+echo $string;
+
+//反序列化
+$newvar = unserialize($string);
+
+print_r($newvar);
+
+
+//压缩和解压缩字符串
+$string =
+"Lorem ipsum dolor sit amet, consectetur 
+adipiscing elit. Nunc ut elit id mi ultricies 
+adipiscing. Nulla facilisi. Praesent pulvinar, 
+sapien vel feugiat vestibulum, nulla dui pretium orci, 
+non ultricies elit lacus quis ante. Lorem ipsum dolor 
+sit amet, consectetur adipiscing elit. Aliquam 
+pretium ullamcorper urna quis iaculis. Etiam ac massa 
+sed turpis tempor luctus. Curabitur sed nibh eu elit 
+mollis congue. Praesent ipsum diam, consectetur vitae 
+ornare a, aliquam a nunc. In id magna pellentesque 
+tellus posuere adipiscing. Sed non mi metus, at lacinia 
+augue. Sed magna nisi, ornare in mollis in, mollis 
+sed nunc. Etiam at justo in leo congue mollis. 
+Nullam in neque eget metus hendrerit scelerisque 
+eu non enim. Ut malesuada lacus eu nulla bibendum 
+id euismod urna sodales. ";
+
+$compressed = gzcompress($string);
+
+echo "Original size: ". strlen($string)."\n";
+/* 输出原始大小 
+Original size: 800 
+*/
+
+echo "Compressed size: ". strlen($compressed)."\n";
+
+// 解压缩 
+$original = gzuncompress($compressed);
+
+
+//注册停止函数*register_shutdown_function()，可以让你在整个脚本停时前运行代码
+
+$start_time = microtime(true);
+
+register_shutdown_function('my_shutdown');
+
+function my_shutdown() {
+    global $start_time;
+
+    echo "execution took: ".
+            (microtime(true) - $start_time).
+            " seconds.";
+}
+
+my_shutdown();
+?>
+```
+
+拷贝运行一下就能看见结果拉!!!
+
+原文地址：<a href="http://developer.51cto.com/art/201307/402781.htm" target="_blank">http://developer.51cto.com/art/201307/402781.htm</a>

@@ -1,0 +1,47 @@
+---
+layout: post
+title: "googleMap中虚线的绘制方法"
+date: 2012-12-25 09:53
+tags: google
+---
+  在做项目中碰到要绘制预测路径，这种一般都是用虚线绘制。查了好久没弄出来，后来在一同事的推荐发现了googleMap的一个官方网站有这种绘制demo，总结一下供大家借鉴
+  
+  <!-- more -->
+  
+  代码供上
+```javascript
+function drawPrePath(array,color){
+  
+  var sorrow={
+  path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW //arrow
+  };
+  var lineSymbol = {
+  path: 'M 0,-1 0,1',
+  strokeOpacity: 1,
+  scale: 3
+  };
+  var pathCoord = [
+  new google.maps.LatLng(37.772323, -122.214897),new google.maps.LatLng(21.291982, -157.821856),
+  new google.maps.LatLng(-18.142599, 178.431),new google.maps.LatLng(-27.46758, 153.027892)
+  ];
+  path = new google.maps.Polyline({
+  path: pathCoord ,
+  strokeColor:"#2d2d2d",
+  strokeOpacity: 0,
+  strokeWeight: 2,
+  icons:[{icon:lineSymbol,offset: '0',repeat: '20px'}],
+  map:map
+  });
+  path.setMap(map);
+}
+```
+
+重点代码：
+
+ ```javascript
+  var lineSymbol = {path: 'M 0,-1 0,1',strokeOpacity: 1,scale: 3};
+ ```
+ 
+关键在于'M 0,-1 0,1' 其实这是<a href="http://www.w3school.com.cn/svg/" target="_blank">SVG</a>的绘制路径的写法,具体什么意思我还解释不清楚。嘻嘻 自己学svg教程吧！
+
+![Crepe](/images/blog/map.jpg)

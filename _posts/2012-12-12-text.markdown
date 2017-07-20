@@ -1,0 +1,63 @@
+---
+layout: post
+title: "常用的CSS3文字特效(转)"
+date: 2012-12-12 14:09
+tags: css
+---
+在调自己博客header标题时 搜到这篇文章 很好 收藏了！！！
+
+<!-- more -->
+
+PS：请使用支持CSS3的浏览器，如Chrome、Firefox3.5+、Safari4+、Opera
+
+文字阴影 text-shadow
+text-shadow是最为简单及常用的效果，而且有很多变换，这里列举一些有代表性的：
+
+1.普通：
+ ```javascript
+ .text-shadow{ text-shadow:1px 1px 2px #2c5103; color:#60ad0d; }
+ ```
+ <div style="height:40px;line-height:40px;text-shadow:1px 1px 2px #2c5103;font-size:36px;color:#60ad0d;">Here is some text effect</div>
+
+2.3D：
+ ```javascript
+ .text-shadow{ text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);
+color:#fff; background:#3699f6; }
+ ```
+ <div style="height:40px;line-height:40px;text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);
+color:#fff; background:#3699f6; font-size:36px; ">Here is some text effect</div>
+
+3.外发光
+ ```javascript
+ .text-shadow{ text-shadow:0 0 20px #ff6600; color:#fff; background:#333; }
+ ```
+ <div style="height:40px;line-height:40px;text-shadow:0 0 20px #ff6600; color:#fff; background:#333;font-size:36px;">Here is some text effect</div>
+
+4.模糊
+```javascript
+ .text-shadow{ text-shadow:0 0 5px #fff; color:transparent; background:#333;}
+```
+<div style=" height:40px;line-height:40px;text-shadow:0 0 5px #fff; color:transparent; background:#333;font-size:36px;">Here is some text effect</div>
+ 
+5.凹痕
+```javascript
+ .text-shadow{ text-shadow: 0 1px 1px #FFF; color: #717171; background:#d3d3d3;}
+```
+<div style="height:40px;line-height:40px;text-shadow: 0 1px 1px #FFF; color: #717171; background:#d3d3d3;font-size:36px;">Here is some text effect</div>
+
+6.浮雕
+```javascript
+ .text-shadow{text-shadow: -1px -1px #fff, 1px 1px #333; color: #CCC; background:#d3d3d3;}
+```
+<div style="height:40px;line-height:40px;text-shadow: -1px -1px #fff, 1px 1px #333; color: #CCC; background:#d3d3d3;font-size:36px;}">Here is some text effect</div>
+
+7.内阴影
+```javascript
+ .text-shadow{background: #666; -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; text-shadow:rgba(255,255,255,0.5) 0px 3px 3px;}
+```
+<div style="height:40px;line-height:40px;background: #666; font-size:36px;-webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; text-shadow:rgba(255,255,255,0.5) 0px 3px 3px;}">Here is some text effect</div>
+
+
+
+转载博客地址：
+  <a href="http://www.iinterest.net/2011/06/25/css3-text-effect/" target="_blank">http://www.iinterest.net/2011/06/25/css3-text-effect/</a>

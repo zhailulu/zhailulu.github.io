@@ -1,0 +1,33 @@
+---
+layout: post
+title: "HTML5--Hidden属性"
+date: 2012-12-14 10:36
+tags: html
+---
+HTML5 hidden属性是个boolean属性。所有HTML元素可以设置hidden属性，可设置值true或false，当设置为true时浏览器将不渲染该元素。
+当设置为false则渲染该元素。相比之前用的display：none/block要方便快捷多了。
+ 
+<!-- more -->
+ 例如
+{% highlight javascript linenos %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title><title>
+</head>
+<div class="show">
+<p>显示文字显示文字显示文字</p>
+</div>
+<div class="hidden" hidden>
+<p>隐藏文字隐藏文字隐藏文字</p>
+</div>
+</html> 
+{% endhighlight %}
+
+javascript调用方法
+{% highlight javascript linenos %}
+document.getElementById(‘show').hidden = true;//隐藏该元素
+document.getElementById('hidden').hidden = false;//显示该元素
+{% endhighlight %}
+ 

@@ -1,0 +1,40 @@
+---
+layout: post
+title: "clip属性在图片切换中的简单应用"
+date: 2013-04-01 09:44
+tags: css
+---
+无意在CSS中发现这个clip属性,突发奇想看能不能应用图片切换中的左右切换的效果.呵呵，居然可以！
+
+ 基本语法（copy于其他网站博客）
+ 
+  clip : auto | rect ( number number number number )
+  
+ 取值：
+ 
+ auto	:　	默认值。对象无剪切
+ 
+ rect ( number number number number )	:　	依据<span class="stress">上-右-下-左</span>的顺序提供自对象左上角为(0,0)坐标计算的四个偏移数值，其中任一数值都可用 auto 替换，即此边不剪切
+ 
+  <!--more -->
+  
+  说明：
+  
+  检索或设置对象的可视区域。可视区域外的部分是透明的。
+  
+  此属性定义了绝对(absolute)定位对象可视区域的尺寸。必须将<span class="stress"> position 属性的值设为 absolute</span> ，此属性方可使用。
+  
+  自IE5开始，此属性在MAC平台上可用。<span class="stress">所有主流浏览器都支持 clip 属性</span>。
+  
+  对应的脚本特性为 clip 。
+  
+  CSS中的clip属性除了可以制作彩色文字外，还可以有效地裁切其他网页中的元素，比如图片。
+  
+  
+  需要注意的两点：
+  1.clip属性必须和定位属性postion一起使用才能生效。
+  
+  2.clip裁切的计算坐标都是以左上角即（0,0）点开始计算，如图三所示，这点不像padding和margin，它们两个的右边距和下边距是从最右边和最下边开始计算的。
+  
+
+  Demo:<a href="http://www.yrzhll.com/example/clip.html" target="_blank">http://www.yrzhll.com/example/clip.html</a>
