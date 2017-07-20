@@ -7,7 +7,7 @@ body {
   font-size: 18px;
   color: #404040;
   position: relative;
-  background: #FFF;
+  background: #262C33 url("../images/background.png");
 }
 p {
   line-height: 1.5;
@@ -281,7 +281,7 @@ img {
 
 footer {
   padding: 30px 0;
-  background: #F5F5F5;
+  background: #fff;
   border-top: 1px #EAEAEA solid;
   margin-top: 50px;
   font-size: 14px;
