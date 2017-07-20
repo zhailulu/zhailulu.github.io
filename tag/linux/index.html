@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Posts Tagged &ldquo;linux&rdquo;</title>
+
+  <meta name="author" content="zhailulu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Posts Tagged &ldquo;linux&rdquo;" />
+  
+
+   
+  <meta property="og:description" content="Posts Tagged &amp;ldquo;linux&amp;rdquo;: vim去掉bom头方法 发表于 October 30, 2014 一个多月没写博客了吧！懒得写+不知道写啥+没心情写！呵呵，不好笑！ 1.Bom头简介 类似WINDOWS自带的记事本等软件，在保存一个以UTF-8编码的文件时，会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即BOM）。它是一串隐藏的字符，用于让记事本等编辑器识别这个文件是否以UTF-8编码。对于一般的文件，这样并不会产生什么麻烦。 2.php中的BOM头 对于 PHP来说，BOM是个大麻烦。 　　PHP并不会忽略BOM，所以在读取、包含或者引用这些文件时，会把BOM作为该文件开头正文的一部分。根据嵌入式语言的特点，这串字符将被直接执行（显示）出来。由此造成即使页面的 top padding 设置为0，也无法让整个网页紧贴浏览器顶部，因为在html一开头有这3个字符呢！ 3.解决方法 呵呵，上网搜了一下，其实很简单。 {% highlight javascript linenos %} :set nobomb //去掉bom头 :set bomb //加上bom头 {% endhighlight %} [Read&amp;nbsp;More] 文章类别: linux centos安装xWindow 发表于 July 2, 2014 想在linux里面用浏览器，上网查要装x-Window图形化界面，一般linux图形化界面有两种GHOME和KDE。 高版本的系统就是省事，直接通过yum就能安装。(centos6.4 GHOME) 1.安装x-window ```javascript yum...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/tag/linux/" />
+  <link rel="canonical" href="http://localhost:4000/tag/linux/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/my.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
+  
+  <meta name="twitter:title" content="Posts Tagged &ldquo;linux&rdquo;" />
+  
+
+  
+  <meta name="twitter:description" content="Posts Tagged &amp;ldquo;linux&amp;rdquo;: vim去掉bom头方法 发表于 October 30, 2014 一个多月没写博客了吧！懒得写+不知道写啥+没心情写！呵呵，不好笑！ 1.Bom头简介 类似WINDOWS自带的记事本等软件，在保存一个以UTF-8编码的文件时，会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即BOM）。它是一串隐藏的字符，用于让记事本等编辑器识别这个文件是否以UTF-8编码。对于一般的文件，这样并不会产生什么麻烦。 2.php中的BOM头 对于 PHP来说，BOM是个大麻烦。 　　PHP并不会忽略BOM，所以在读取、包含或者引用这些文件时，会把BOM作为该文件开头正文的一部分。根据嵌入式语言的特点，这串字符将被直接执行（显示）出来。由此造成即使页面的 top padding 设置为0，也无法让整个网页紧贴浏览器顶部，因为在html一开头有这3个字符呢！ 3.解决方法 呵呵，上网搜了一下，其实很简单。 {% highlight javascript linenos %} :set nobomb //去掉bom头 :set bomb //加上bom头 {% endhighlight %} [Read&amp;nbsp;More] 文章类别: linux centos安装xWindow 发表于 July 2, 2014 想在linux里面用浏览器，上网查要装x-Window图形化界面，一般linux图形化界面有两种GHOME和KDE。 高版本的系统就是省事，直接通过yum就能安装。(centos6.4 GHOME) 1.安装x-window ```javascript yum...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/my.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Yrzhll's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://yrzhll.top/">主页</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">文章</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/js/">js</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/css/">css</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/github/">github</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/life/">life</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/linux/">linux</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/blog/">blog</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/php/">php</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/php/">web</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/php/">other</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://yrzhll.top/resource/">资源</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://yrzhll.top/aboutme/">关于</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/my.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <div class="intro-header"></div>
+
+<div role="main" class="container">
+  <h2 class="post_title">Posts Tagged &ldquo;linux&rdquo;:</h2>
+
+<div class="posts-list">
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2014-10-30-bom/">
+      <h3 class="post-title">vim去掉bom头方法</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 October 30, 2014
+    </p>
+
+    <div class="post-entry">
+      一个多月没写博客了吧！懒得写+不知道写啥+没心情写！呵呵，不好笑！
+  
+1.Bom头简介
+   类似WINDOWS自带的记事本等软件，在保存一个以UTF-8编码的文件时，会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即BOM）。它是一串隐藏的字符，用于让记事本等编辑器识别这个文件是否以UTF-8编码。对于一般的文件，这样并不会产生什么麻烦。
+
+2.php中的BOM头
+    对于 PHP来说，BOM是个大麻烦。
+　　PHP并不会忽略BOM，所以在读取、包含或者引用这些文件时，会把BOM作为该文件开头正文的一部分。根据嵌入式语言的特点，这串字符将被直接执行（显示）出来。由此造成即使页面的 top padding 设置为0，也无法让整个网页紧贴浏览器顶部，因为在html一开头有这3个字符呢！
+3.解决方法
+呵呵，上网搜了一下，其实很简单。
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="err">:</span><span class="nx">set</span> <span class="nx">nobomb</span> <span class="c1">//去掉bom头</span>
+<span class="err">:</span><span class="nx">set</span> <span class="nx">bomb</span> <span class="c1">//加上bom头</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+      <a href="/2014-10-30-bom/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/linux/">linux</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2014-07-02-xwindow/">
+      <h3 class="post-title">centos安装xWindow</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 July 2, 2014
+    </p>
+
+    <div class="post-entry">
+      想在linux里面用浏览器，上网查要装x-Window图形化界面，一般linux图形化界面有两种GHOME和KDE。 高版本的系统就是省事，直接通过yum就能安装。(centos6.4 GHOME) 1.安装x-window ```javascript yum groupinstall 'X Window System' -y ``` 2.安装GNOME桌面环境 ```javascript yum groupinstall GNOME Desktop Environment //yum groupinstall KDE Desktop Environment ``` 3.安装中文语言 ```javascript yum --disablerepo=* --enablerepo=c6-media groupinstall &quot;Chinese Support&quot; ``` 4.启动x图形界面 ```javascript startx ``` 补充： 卸载GNOME桌面环境 ```javascript yum groupinstall GNOME Desktop Environment //yum groupinstall KDE Desktop...
+      <a href="/2014-07-02-xwindow/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/linux/">linux</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2014-06-24-git/">
+      <h3 class="post-title">centos安装git</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 24, 2014
+    </p>
+
+    <div class="post-entry">
+      想在虚拟机上搭个框架的开发环境，好久没碰centos了。里面的network不知道怎么搞的，没法连上网。 弄了一天多还没弄好，实在受不了。全部重装，重装了好多次终于正常。目前公司喜欢用git分布式的版本控制工具。先装这个 1.编译基础环境环境 ```javascript yum -y install gcc make ``` 2.安装依赖的包 ```javascript yum install -y curl curl-devel zlib-devel openssl-devel perl perl-devel cpio expat-devel gettext-devel ``` 3.下载最新的git包 ```javascript wget http://www.codemonkey.org.uk/projects/git-snapshots/git/git-latest.tar.xz xz -d git-latest.tar.xz //压缩包是两层压缩，外面是xz压缩方式，里层是tar压缩方式 tar -xvf git-latest.tar cd git-2014-06-24 autoconf ./configure make &amp;&amp; make install ``` 4.检查下安装的版本 ```javascript git --version ```...
+      <a href="/2014-06-24-git/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/linux/">linux</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-07-18-mkdir/">
+      <h3 class="post-title">Linux的目录架构(转)</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 July 18, 2013
+    </p>
+
+    <div class="post-entry">
+      Linux的目录架构，并解释每个重要目录的含义。 /Root - 根分区 通常称为根分区。所有的文件和目录皆由此开始。只有root用户对此目录拥有写权限。 /bin - 用户可执行文件 此目录包含二进制可执行文件。在单用户模式下Linux使用此目录的命令。此目录包含所有用户的常用命令，如ls、ping、cp等。 /sbin - 系统可执行文件 此目录中的命令主要供系统管理员使用，以进行系统维护。例如，iptables、reboot、fdisk等。 /etc - 配置文件 包含所有应用程序的配置文件，也包含启动、关闭某个特定程序的脚本，例如，/etc/resolv.conf、/etc/logrotate.conf等。 /dev - 设备文件 包含设备文件。在Linux中，一切都被看做文件。终端设备、USB、磁盘等等都被看做文件，如/dev/usbmon0。 /proc - 进程信息 所有系统进程的信息都包含在/proc目录中。/proc目录并不是一个真正的文件系统，而是包含了运行中的进程信息。例如，/proc目录包含了进程信息。/proc目录也包含了系统资源信息，如/proc/uptime包含了最近一次启动至今的正常运行时间，/proc/cpuinfo包含了处理器信息等。 /var - 变量文件 /var是一个可增长的目录，包含变量文件。例如，/var/log（系统日志）、/var/lib （包文件） 、/var/mail（邮件）、/var/spool （打印队列）。 /usr - 用户程序 为用户应用程序存放可执行文件、源代码和文档。/usr/bin包含了用户可执行文件，如at、awk、cc等。/usr/sbin包含了系统管理员可执行文件，如cron、sshd、useradd等。/usr/local包含了用户编译源代码安装的应用程序，如/usr/local/apache2。 /home - 用户主目录 存放用户的私人文件。 /boot - 启动加载文件 Linux系统启动时需要加载的文件。Kernel initrd、grub等文件都存放在此。 /lib - 系统库文件 /bin和/sbin中的可执行文件需要/lib中库文件的支持。库文件通常以“ld”或“ld*.so”的形式命名，如ld-2.11.1.so。 /opt...
+      <a href="/2013-07-18-mkdir/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/linux/">linux</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-07-02-centosnetwork/">
+      <h3 class="post-title">CentOS minimal 设置网络</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 July 2, 2013
+    </p>
+
+    <div class="post-entry">
+      CentOS minimal 设置网络
+
+安装CentOS6.4 minimal 默认是没有连接网络的。
+
+方法：
+
+1.
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">sysconfig</span><span class="o">/</span><span class="nx">network</span><span class="o">-</span><span class="nx">script</span><span class="o">/</span><span class="nx">ifcfg</span><span class="o">-</span><span class="nx">eth0</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+
+2.编辑文件 如下内容
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre> <span class="nx">ONBOOT</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">yes</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span>  
+
+ <span class="nx">MM_Controlled</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">no</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span>  
+
+ <span class="nx">BOOTPROTO</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">dhcp</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span>  <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+3.重启网络
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">service</span> <span class="nx">network</span> <span class="nx">restart</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+      <a href="/2013-07-02-centosnetwork/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/linux/">linux</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-06-14-centos/">
+      <h3 class="post-title">vmware9安装centos和nginx所遇见的问题及解决方法</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 14, 2013
+    </p>
+
+    <div class="post-entry">
+      vmware9安装centos和nginx所遇见的问题及解决方法 1.安装centos64位问题 安装完后打开电源，出现下面的弹窗文字 ```javascript You have configured this virtual machine to use a 64-bit guest operating system. However, 64-bit operation is not possible. This host is VT-capable, but VT is disabled. This is usually because VT has been disabled in the BIOS/firmware settings or the host has not been power-cycled...
+      <a href="/2013-06-14-centos/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/linux/">linux</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/yourname" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+		  
+          <li>
+            <a href="mailto:zhailulu123@126.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  zhailulu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">yrzhll.top/</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>
