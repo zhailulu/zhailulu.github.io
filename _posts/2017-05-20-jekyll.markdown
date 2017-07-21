@@ -2,13 +2,13 @@
 layout: post
 title: "博客全新改版"
 date: 2017-05-20 17:44
-tags: js
+tags: blog
 ---
    最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！
 
 1.搭建博客环境
    安装ruby rubygems git环境，使用安装工具
-   
+
    railsinstaller: <a href="http://railsinstaller.org/en">http://railsinstaller.org/en</a>
 
    rubygems: <a href="https://rubygems.org/pages/download">https://rubygems.org/pages/download</a>
