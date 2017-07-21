@@ -1,0 +1,78 @@
+---
+layout: post
+title: "博客全新改版"
+date: 2017-05-20 17:44
+tags: js
+---
+   最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！
+
+1.搭建博客环境
+   安装ruby rubygems git环境，使用安装工具
+   
+   railsinstaller: <a href="http://railsinstaller.org/en">http://railsinstaller.org/en</a>
+
+   rubygems: <a href="https://rubygems.org/pages/download">https://rubygems.org/pages/download</a>
+
+2.打开git命令面板 生成ssh key 文件
+
+~~~
+  cd ~/.ssh
+  ssh-keygen -t rsa -C "***" //***是指github账号
+~~~
+
+一般生成的新的key文件 在C盘中用户文件夹有个.ssh 里面有id_rsa 把里面的密钥拷贝粘贴到github设置里ssh里
+
+~~~javascript
+ssh -T git@github.com //测试一下连接github
+git config --global user.name "username"
+git config --global user.email "username@126.com" //github账号
+ruby -v //查看ruby安装是否成功
+gem update --system
+gem install rubygems-update
+rubygems -v
+gem install bundler
+gem install jekyll
+~~~
+
+安装成功后，博客选用的beautiful-jekyll模板
+
+~~~javascript
+ git clone https://github.com/daattali/beautiful-jekyll.git
+ cd beautiful-jekyll
+ bundle install
+ bundle exec jekyll serve //启动本地博客 http://localhost:4000/
+~~~
+
+上传代码到github上
+
+~~~javascript
+ //删掉.git文件夹
+git init
+git add .
+git commit -m "first commit"
+git remote add origin git@github.com:username/username.github.io.git
+git push origin master
+~~~
+
+哈哈哈 可以用http://username.github.io访问了
+
+也可以连接自己域名上 步骤如下
+
+1.域名解析
+  创建A CNAME
+~~~javascript
+  A  @  默认  192.30.252.153
+  A  @  默认  192.30.252.154
+  CNAME  www  默认  username.github.io
+~~~
+
+2.在博客当前目录下创建一个CNAME文件里面填写上你要跳转的域名即可
+3.github里username.github.io里面setting 里option有Custom domain 填写上你的域名即可
+
+注意：
+jeklly模板里默认标签不开放，如果开放tag，那么要在_config.yml里将tag设为true 
+
+上传代码要把_site中生成的tag文件夹拷贝到当前文件夹根目录下上传至github里
+
+创建新文章 需要将时间设置为前一天
+这个问题是由于jekyll 3（github目前的jekyll版本）默认对于认定为"未来"的post，是不生成的，详情可以参考<a href="http://jekyllrb.com/docs/upgrading/2-to-3/#future-posts">Future posts - Jekyll</a>
