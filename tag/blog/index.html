@@ -56,7 +56,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;blog&amp;rdquo;: octopress配置404页面 发表于 December 18, 2012 octopress里面没有自带404页面，如果发生404错误的话。默认是会连接到github上的404页面 为了提高用户体验性，当然不能少了404页面了！网上搜了一下，目前弄了个简单的页面 在octopress下source文件夹里创建一个404.html，与index.html同级 {% highlight javascript linenos %} --- layout: page title: Sorry，404错误！你要访问的网页不存在! footer: false --- 看看下面有木有你要找的东东？ for post in site.posts limit: 10' //引用时，单引号去掉 'include archive_post.html' //引用时，单引号去掉 ; endfor ; {% endhighlight %} 将上面的代码贴进404.html即可。简单吧 测试地址：http://127.0.0.1:4000/404.html [Read&amp;nbsp;More] 文章类别: blog 在octopress中添加多说的最近评论 发表于 December 12, 2012...">
+  <meta property="og:description" content="目录为 &amp;ldquo;blog&amp;rdquo;: 增加腾讯公益404页面 发表于 June 1, 2017 一直超喜欢腾讯公益的404页面，既可以优化用户体验，又可以为公益帮一个小小的忙！ 希望有博客的大牛小牛们，都能把腾讯公益404页面加进去，很简单的。。。 ![Crepe](/images/blog/qq.png) 将上面图中里脚本加到你的404页面即可，哈哈哈。直接贴代码，该页面就自动执行脚本，只好截图了！ 今天是儿童节，希望天下所有的儿童都快乐幸福的生活在父母的身边！！！ 今天也是我科目一考了100分，给自己儿童节的礼物！！！ [Read&amp;nbsp;More] 文章类别: blog 博客全新改版 发表于 May 20, 2017 最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！ 1.搭建博客环境 安装ruby rubygems git环境，使用安装工具 railsinstaller: http://railsinstaller.org/en rubygems: https://rubygems.org/pages/download 2.打开git命令面板 生成ssh key 文件 ~~~ cd ~/.ssh ssh-keygen -t rsa -C &amp;quot;***&amp;quot; //***是指github账号 ~~~ 一般生成的新的key文件 在C盘中用户文件夹有个.ssh 里面有id_rsa 把里面的密钥拷贝粘贴到github设置里ssh里 ~~~javascript ssh...">
   
 
 
@@ -82,7 +82,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;blog&amp;rdquo;: octopress配置404页面 发表于 December 18, 2012 octopress里面没有自带404页面，如果发生404错误的话。默认是会连接到github上的404页面 为了提高用户体验性，当然不能少了404页面了！网上搜了一下，目前弄了个简单的页面 在octopress下source文件夹里创建一个404.html，与index.html同级 {% highlight javascript linenos %} --- layout: page title: Sorry，404错误！你要访问的网页不存在! footer: false --- 看看下面有木有你要找的东东？ for post in site.posts limit: 10' //引用时，单引号去掉 'include archive_post.html' //引用时，单引号去掉 ; endfor ; {% endhighlight %} 将上面的代码贴进404.html即可。简单吧 测试地址：http://127.0.0.1:4000/404.html [Read&amp;nbsp;More] 文章类别: blog 在octopress中添加多说的最近评论 发表于 December 12, 2012...">
+  <meta name="twitter:description" content="目录为 &amp;ldquo;blog&amp;rdquo;: 增加腾讯公益404页面 发表于 June 1, 2017 一直超喜欢腾讯公益的404页面，既可以优化用户体验，又可以为公益帮一个小小的忙！ 希望有博客的大牛小牛们，都能把腾讯公益404页面加进去，很简单的。。。 ![Crepe](/images/blog/qq.png) 将上面图中里脚本加到你的404页面即可，哈哈哈。直接贴代码，该页面就自动执行脚本，只好截图了！ 今天是儿童节，希望天下所有的儿童都快乐幸福的生活在父母的身边！！！ 今天也是我科目一考了100分，给自己儿童节的礼物！！！ [Read&amp;nbsp;More] 文章类别: blog 博客全新改版 发表于 May 20, 2017 最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！ 1.搭建博客环境 安装ruby rubygems git环境，使用安装工具 railsinstaller: http://railsinstaller.org/en rubygems: https://rubygems.org/pages/download 2.打开git命令面板 生成ssh key 文件 ~~~ cd ~/.ssh ssh-keygen -t rsa -C &amp;quot;***&amp;quot; //***是指github账号 ~~~ 一般生成的新的key文件 在C盘中用户文件夹有个.ssh 里面有id_rsa 把里面的密钥拷贝粘贴到github设置里ssh里 ~~~javascript ssh...">
   
 
   
@@ -309,6 +309,68 @@
 <div class="posts-list">
   
   
+  
+  <article class="post-preview">
+    <a href="/2017-06-01-qq/">
+      <h3 class="post-title">增加腾讯公益404页面</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 1, 2017
+    </p>
+
+    <div class="post-entry">
+        一直超喜欢腾讯公益的404页面，既可以优化用户体验，又可以为公益帮一个小小的忙！
+
+  希望有博客的大牛小牛们，都能把腾讯公益404页面加进去，很简单的。。。
+
+  ![Crepe](/images/blog/qq.png)
+
+  将上面图中里脚本加到你的404页面即可，哈哈哈。直接贴代码，该页面就自动执行脚本，只好截图了！
+
+  今天是儿童节，希望天下所有的儿童都快乐幸福的生活在父母的身边！！！
+
+  今天也是我科目一考了100分，给自己儿童节的礼物！！！
+      <a href="/2017-06-01-qq/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/blog/">blog</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2017-05-20-jekyll/">
+      <h3 class="post-title">博客全新改版</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 May 20, 2017
+    </p>
+
+    <div class="post-entry">
+      最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！ 1.搭建博客环境 安装ruby rubygems git环境，使用安装工具 railsinstaller: http://railsinstaller.org/en rubygems: https://rubygems.org/pages/download 2.打开git命令面板 生成ssh key 文件 ~~~ cd ~/.ssh ssh-keygen -t rsa -C &quot;***&quot; //***是指github账号 ~~~ 一般生成的新的key文件 在C盘中用户文件夹有个.ssh 里面有id_rsa 把里面的密钥拷贝粘贴到github设置里ssh里 ~~~javascript ssh -T git@github.com //测试一下连接github git config --global user.name &quot;username&quot; git config --global user.email &quot;username@126.com&quot; //github账号 ruby -v //查看ruby安装是否成功 gem update --system gem...
+      <a href="/2017-05-20-jekyll/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/blog/">blog</a>
+      
+    </div>
+  </article>
   
   
   

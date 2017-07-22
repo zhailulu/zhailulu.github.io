@@ -56,7 +56,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;js&amp;rdquo;: 博客全新改版 发表于 May 20, 2017 最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！ 1.搭建博客环境 安装ruby rubygems git环境，使用安装工具 railsinstaller: http://railsinstaller.org/en rubygems: https://rubygems.org/pages/download 2.打开git命令面板 生成ssh key 文件 ~~~ cd ~/.ssh ssh-keygen -t rsa -C &amp;quot;***&amp;quot; //***是指github账号 ~~~ 一般生成的新的key文件 在C盘中用户文件夹有个.ssh 里面有id_rsa 把里面的密钥拷贝粘贴到github设置里ssh里 ~~~javascript ssh -T git@github.com //测试一下连接github git config --global user.name &amp;quot;username&amp;quot; git config --global user.email &amp;quot;username@126.com&amp;quot; //github账号...">
+  <meta property="og:description" content="目录为 &amp;ldquo;js&amp;rdquo;: Ajax跨域请求数据神器 发表于 November 11, 2014 今天没事突然想起了本人还有一个博客，看到别人给我博客留言，又重新燃起我写博客的热情。 写啥呢？其实在公司不是很忙，也没啥可以发挥，但是俺们不能就这样透支以前的经验。没事自己看书学习。 最近比较火的当属慕课网，业界良心啊！终于不用自己苦苦自学，可以有大牛教你技术了。 前段时间看了一个有关jQuery mobile视频，里面大牛介绍了一个Ajax跨域请求数据神器。小女子佩服的五体投地啊！ 原来在上家公司接触到有关跨域请求数据的项目，之前的做法都是下载到本地服务器上，然后在请求。废话不说了。 API地址：http://www.corsproxy.com/ 调用方法： {% highlight javascript linenos %} $.get('http://www.corsproxy.com/en.wikipedia.org/wiki/Http',function(response){ document.body.innerHTML = response; }) {% endhighlight %} 在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。 小伙伴们在也不怕跨域的数据了！哦，今天是光棍节，跟俺没关系。但是还是要祝大家光棍节快乐！ [Read&amp;nbsp;More] 文章类别: js 5种你未必知道的JavaScript和CSS交互的方法（转） 发表于 April 3, 2014 这篇文章没有直接拷贝过来，直接提取重点简化过来，备用笔记！ 1.用JavaScript获取伪元素(pseudo-element)属性 ```javascript var color = window.getComputedStyle( document.querySelector('.element'), ':before' ).getPropertyValue('color'); // Get...">
   
 
 
@@ -82,7 +82,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;js&amp;rdquo;: 博客全新改版 发表于 May 20, 2017 最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！ 1.搭建博客环境 安装ruby rubygems git环境，使用安装工具 railsinstaller: http://railsinstaller.org/en rubygems: https://rubygems.org/pages/download 2.打开git命令面板 生成ssh key 文件 ~~~ cd ~/.ssh ssh-keygen -t rsa -C &amp;quot;***&amp;quot; //***是指github账号 ~~~ 一般生成的新的key文件 在C盘中用户文件夹有个.ssh 里面有id_rsa 把里面的密钥拷贝粘贴到github设置里ssh里 ~~~javascript ssh -T git@github.com //测试一下连接github git config --global user.name &amp;quot;username&amp;quot; git config --global user.email &amp;quot;username@126.com&amp;quot; //github账号...">
+  <meta name="twitter:description" content="目录为 &amp;ldquo;js&amp;rdquo;: Ajax跨域请求数据神器 发表于 November 11, 2014 今天没事突然想起了本人还有一个博客，看到别人给我博客留言，又重新燃起我写博客的热情。 写啥呢？其实在公司不是很忙，也没啥可以发挥，但是俺们不能就这样透支以前的经验。没事自己看书学习。 最近比较火的当属慕课网，业界良心啊！终于不用自己苦苦自学，可以有大牛教你技术了。 前段时间看了一个有关jQuery mobile视频，里面大牛介绍了一个Ajax跨域请求数据神器。小女子佩服的五体投地啊！ 原来在上家公司接触到有关跨域请求数据的项目，之前的做法都是下载到本地服务器上，然后在请求。废话不说了。 API地址：http://www.corsproxy.com/ 调用方法： {% highlight javascript linenos %} $.get('http://www.corsproxy.com/en.wikipedia.org/wiki/Http',function(response){ document.body.innerHTML = response; }) {% endhighlight %} 在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。 小伙伴们在也不怕跨域的数据了！哦，今天是光棍节，跟俺没关系。但是还是要祝大家光棍节快乐！ [Read&amp;nbsp;More] 文章类别: js 5种你未必知道的JavaScript和CSS交互的方法（转） 发表于 April 3, 2014 这篇文章没有直接拷贝过来，直接提取重点简化过来，备用笔记！ 1.用JavaScript获取伪元素(pseudo-element)属性 ```javascript var color = window.getComputedStyle( document.querySelector('.element'), ':before' ).getPropertyValue('color'); // Get...">
   
 
   
@@ -310,29 +310,9 @@
   
   
   
-  <article class="post-preview">
-    <a href="/2017-05-20-jekyll/">
-      <h3 class="post-title">博客全新改版</h3>
-
-      
-    </a>
-
-    <p class="post-meta">
-    发表于 May 20, 2017
-    </p>
-
-    <div class="post-entry">
-      最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！ 1.搭建博客环境 安装ruby rubygems git环境，使用安装工具 railsinstaller: http://railsinstaller.org/en rubygems: https://rubygems.org/pages/download 2.打开git命令面板 生成ssh key 文件 ~~~ cd ~/.ssh ssh-keygen -t rsa -C &quot;***&quot; //***是指github账号 ~~~ 一般生成的新的key文件 在C盘中用户文件夹有个.ssh 里面有id_rsa 把里面的密钥拷贝粘贴到github设置里ssh里 ~~~javascript ssh -T git@github.com //测试一下连接github git config --global user.name &quot;username&quot; git config --global user.email &quot;username@126.com&quot; //github账号 ruby -v //查看ruby安装是否成功 gem update --system gem...
-      <a href="/2017-05-20-jekyll/" class="post-read-more">[Read&nbsp;More]</a>
-    </div>
-
-    <div class="blog-tags">
-      文章类别: 
-      
-        <a href="/tag/js/">js</a>
-      
-    </div>
-  </article>
+  
+  
+  
   
   
   
