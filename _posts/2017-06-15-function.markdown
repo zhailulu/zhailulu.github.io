@@ -1,0 +1,31 @@
+---
+layout: post
+title: "函数声明提升"
+date: 2017-06-12 10:44
+tags: js
+---
+
+  上一篇介绍了变量的提升，其实函数声明也会被提升，不过函数会首先被提升，然后才是变量被提升
+
+~~~
+  function foo(){
+     var a;
+     console.log(a); //undefined
+     a = 2;
+  }
+
+  foo();
+~~~
+
+上面的代码可以看到函数声明会被提升， 但是函数表达式不会被提升，参考下面的代码块
+
+~~~
+  foo(); //不是ReferenceError，而是TypeError
+  var foo = function bar(){
+    //...
+  }
+~~~
+
+因为foo()被提升并分配给所在的作用域，所以没有报ReferenceError，但是foo并没有赋值，由于对undefined值进行函数调用而导致非法操作，因此抛出了TypeError。
+
+注意： 一个普通块内部的函数声明通常会被提升到所在作用域的顶部，不过这行为并不可靠，因此应该尽可能避免在块内部声明函数。
