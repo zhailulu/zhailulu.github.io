@@ -1,0 +1,11 @@
+---
+layout: post
+title: "移动HTML5前端性能优化指南"
+date: 2017-06-27 10:44
+tags: html
+---
+
+网上看博客发现的一个好东西，总结的挺靠谱的。盗图过来，大家欣赏一下！
+
+![Crepe](/images/blog/point.jpg)
+  
