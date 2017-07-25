@@ -102,7 +102,7 @@ url-pretty: "yrzhll.top/"  # eg. "deanattali.com/beautiful-jekyll"
 
 # Fill in your Google Analytics ID to track your website using GA
 #google_analytics: ""
-
+baidu_analytics: true
 # Google Tag Manager ID
 #gtm: ""
 
