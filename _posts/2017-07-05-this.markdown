@@ -1,0 +1,43 @@
+---
+layout: post
+title: "ES6中的箭头函数神奇之处"
+date: 2017-06-27 10:44
+tags: [html, js]
+---
+
+ES6中添加了一个特殊的语法形式用于函数声明，叫做箭头函数
+
+~~~
+  var foo = a =>{
+    console.log(a);
+  };
+
+  foo(2) //2
+~~~
+
+这里的箭头函数通常被当做function关键字的简写。
+
+其实它还有一个重要的用途：
+
+箭头函数在涉及this绑定时的行为和普通函数的行为完全不一致，它放弃所有普通this绑定的规则，取而代之的是用当前的词法作用域覆盖了this本来的值
+ 
+~~~
+  var obj = {
+     count: 0,
+     cool: function coolFn(){
+        if(this.count<1){
+            setTimeout(()=>{
+                this.count++;
+                console.log("test");
+            }, 100)
+        }
+     }
+   }
+~~~
+
+
+ 注意到this.count++ 这句代码了吗？传统函数里我们引用的this是不会指向当前obj的，但是用箭头函数则直接覆盖了this本来的值。
+
+ 这才是箭头函数神奇之处。。。
+
+ 注：样例引用《你不知道JavaScript》书中。
