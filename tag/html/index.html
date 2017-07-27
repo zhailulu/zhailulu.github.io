@@ -10,6 +10,8 @@
 
   <meta name="author" content="zhailulu" />
 
+  <link href="/favicon.png" rel="icon">
+
   
 
   <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
@@ -56,7 +58,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;html&amp;rdquo;: HTML5：Network Information API简介 发表于 September 1, 2014 无意看到博客看到该接口，总结成笔记 1.定义： Network Information API让开发人员得以访问系统与网络（蜂窝网络、无线网络和蓝牙网络等）进行通信所使用的连接类型。 要是连接类型有变化，它还提供了通知脚本的一种手段。 这让开发人员得以对文档对象模型（DOM）进行动态改变，及/或通知用户网络连接类型已有变化。 2.接口： ```javascript window.navigator.connection || window.navigator.mozConnection //加moz前缀 window.navigator.connection.type: //类型 bluetooth //蓝牙 cellular // 移动连接：EDGE 3G 4G ethernet // 以太网 none // 未连接 wifi // 无线网 other // 不是unknow unknown // 已经建立连接，无法确定类型 ``` 3.事件： ontypechange事件。每当网络连接的类型有变化，就会触发该事件。 ```javascript...">
+  <meta property="og:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
 
@@ -82,7 +84,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;html&amp;rdquo;: HTML5：Network Information API简介 发表于 September 1, 2014 无意看到博客看到该接口，总结成笔记 1.定义： Network Information API让开发人员得以访问系统与网络（蜂窝网络、无线网络和蓝牙网络等）进行通信所使用的连接类型。 要是连接类型有变化，它还提供了通知脚本的一种手段。 这让开发人员得以对文档对象模型（DOM）进行动态改变，及/或通知用户网络连接类型已有变化。 2.接口： ```javascript window.navigator.connection || window.navigator.mozConnection //加moz前缀 window.navigator.connection.type: //类型 bluetooth //蓝牙 cellular // 移动连接：EDGE 3G 4G ethernet // 以太网 none // 未连接 wifi // 无线网 other // 不是unknow unknown // 已经建立连接，无法确定类型 ``` 3.事件： ontypechange事件。每当网络连接的类型有变化，就会触发该事件。 ```javascript...">
+  <meta name="twitter:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
   
@@ -165,6 +167,18 @@
 
 
 <a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/vue/">vue</a>
 
                 
               
@@ -307,6 +321,127 @@
   <h2 class="post_title">目录为 &ldquo;html&rdquo;:</h2>
 
 <div class="posts-list">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2017-06-27-this/">
+      <h3 class="post-title">ES6中的箭头函数神奇之处</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 27, 2017
+    </p>
+
+    <div class="post-entry">
+      ES6中添加了一个特殊的语法形式用于函数声明，叫做箭头函数
+
+~~~
+  var foo = a =&gt;{
+    console.log(a);
+  };
+
+  foo(2) //2
+~~~
+
+这里的箭头函数通常被当做function关键字的简写。
+
+其实它还有一个重要的用途：
+
+箭头函数在涉及this绑定时的行为和普通函数的行为完全不一致，它放弃所有普通this绑定的规则，取而代之的是用当前的词法作用域覆盖了this本来的值
+ 
+~~~
+  var obj = {
+     count: 0,
+     cool: function coolFn(){
+        if(this.count{
+                this.count++;
+                console.log(&quot;test&quot;);
+            }, 100)
+        }
+     }
+   }
+~~~
+
+
+ 注意到this.count++ 这句代码了吗？传统函数里我们引用的this是不会指向当前obj的，但是用箭头函数则直接覆盖了this本来的值。
+
+ 这才是箭头函数神奇之处。。。
+
+ 注：样例引用《你不知道JavaScript》书中。
+      <a href="/2017-06-27-this/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/html/">html</a>
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2017-06-27-point/">
+      <h3 class="post-title">移动HTML5前端性能优化指南</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 27, 2017
+    </p>
+
+    <div class="post-entry">
+      网上看博客发现的一个好东西，总结的挺靠谱的。盗图过来，大家欣赏一下！
+
+![Crepe](/images/blog/point.jpg)
+  
+      <a href="/2017-06-27-point/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/html/">html</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -664,40 +799,26 @@
   
   文字从左到右：
   
-  <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>  <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">marquee</span> <span class="nx">direction</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">left</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span> <span class="nx">loop</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span> <span class="nx">scrollamount</span><span class="o">=</span><span class="s1">'4'</span> <span class="nx">onmouseout</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="k">this</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span> <span class="nx">onmouseover</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="k">this</span><span class="p">.</span><span class="nx">stop</span><span class="p">()</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span> <span class="nx">id</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">news</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">gt</span><span class="p">;</span><span class="err">我是从左到右的滚动文字</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span><span class="sr">/marquee&amp;amp;gt</span><span class="err">;
-</span>  <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+  {% highlight javascript linenos %}
+  &amp;lt;marquee direction=&quot;left&quot; loop=&quot;-1&quot; scrollamount='4' onmouseout=&quot;this.start()&quot; onmouseover=&quot;this.stop()&quot; id=&quot;news&quot;&amp;gt;我是从左到右的滚动文字&amp;lt;/marquee&amp;gt;
+  {% endhighlight %}
   
  属性：
-  <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14</pre></td><td class="code"><pre>   <span class="nx">align</span><span class="err">：是设定活动字幕的位置，除了居左、居中、居右三种位置外，又增加靠上（</span><span class="nx">top</span><span class="err">）和靠下（</span><span class="nx">bottom</span><span class="err">）两种位置。</span> 
-   <span class="nx">Bgcolor</span><span class="err">：用于设定活动字幕的背景颜色，可以使用英文的单词也可以是十六进制数的。</span> 
-   <span class="nx">Direction</span><span class="err">：用于设定活动字幕的滚动方向是向左（</span><span class="nx">left</span><span class="err">）、向右（</span><span class="nx">right</span><span class="err">）、向上（</span><span class="nx">up</span><span class="err">）、向下（</span><span class="nx">down</span><span class="err">）。</span> 
-   <span class="nx">Behavior</span><span class="err">：用于设定滚动的方式，主要由三种方式：</span>
-   <span class="nx">behavior</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">scroll</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="err">表示由一端滚动到另一端；</span>
-   <span class="nx">behavior</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">slide</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="err">:表示由一端快速滑动到另一端，且不再重复；</span>
-   <span class="nx">behavior</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">alternate</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="err">表示在两端之间来回滚动。</span> 
-   <span class="nx">Height</span><span class="err">：用于设定滚动字幕的高度。</span> 
-   <span class="nx">Width</span><span class="err">：则设定滚动字幕的宽度。</span> 
-   <span class="nx">Hspace</span><span class="err">和</span><span class="nx">vspace</span><span class="err">：分别用于设定滚动字幕的左右边框和上下边框的宽度。</span> 
-   <span class="nx">Scrollamount</span><span class="err">：用于设定活动字幕的滚动距离。数值越小，滚动的速度就越快。</span> 
-   <span class="nx">scrolldelay</span><span class="err">：用于设定滚动两次之间的延迟时间，数值越小，间隔就越小。</span> 
-   <span class="nx">Loop</span><span class="err">：用于设定滚动的次数，当</span><span class="nx">loop</span><span class="o">=-</span><span class="mi">1</span><span class="err">表示一直滚动下去，直到页面更新。其中默认情况是向左滚动无限次，字幕高度是文本高度；滚动范围：水平滚动的宽度是当前位置的宽度；垂直滚动的高度是当前位置的高度。</span>
-  <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+  {% highlight javascript linenos %}
+   align：是设定活动字幕的位置，除了居左、居中、居右三种位置外，又增加靠上（top）和靠下（bottom）两种位置。 
+   Bgcolor：用于设定活动字幕的背景颜色，可以使用英文的单词也可以是十六进制数的。 
+   Direction：用于设定活动字幕的滚动方向是向左（left）、向右（right）、向上（up）、向下（down）。 
+   Behavior：用于设定滚动的方式，主要由三种方式：
+   behavior=&quot;scroll&quot;表示由一端滚动到另一端；
+   behavior=&quot;slide&quot;:表示由一端快速滑动到另一端，且不再重复；
+   behavior=&quot;alternate&quot;表示在两端之间来回滚动。 
+   Height：用于设定滚动字幕的高度。 
+   Width：则设定滚动字幕的宽度。 
+   Hspace和vspace：分别用于设定滚动字幕的左右边框和上下边框的宽度。 
+   Scrollamount：用于设定活动字幕的滚动距离。数值越小，滚动的速度就越快。 
+   scrolldelay：用于设定滚动两次之间的延迟时间，数值越小，间隔就越小。 
+   Loop：用于设定滚动的次数，当loop=-1表示一直滚动下去，直到页面更新。其中默认情况是向左滚动无限次，字幕高度是文本高度；滚动范围：水平滚动的宽度是当前位置的宽度；垂直滚动的高度是当前位置的高度。
+  {% endhighlight %}
 
   简单吧！不需要javascript耗性能的做效果。滚动可以是文字，也可以是图片。
       <a href="/2012-12-21-marquee/" class="post-read-more">[Read&nbsp;More]</a>
@@ -836,24 +957,27 @@
  
 
  例如
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre><span class="err">显示文字显示文字显示文字</span>
+{% highlight javascript linenos %}
 
 
-<span class="err">隐藏文字隐藏文字隐藏文字</span>
 
- <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+
+
+显示文字显示文字显示文字
+
+
+隐藏文字隐藏文字隐藏文字
+
+ 
+{% endhighlight %}
 
 javascript调用方法
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="err">‘</span><span class="nx">show</span><span class="s1">').hidden = true;//隐藏该元素
-document.getElementById('</span><span class="nx">hidden</span><span class="err">'</span><span class="p">).</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span><span class="c1">//显示该元素</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+{% highlight javascript linenos %}
+document.getElementById(‘show').hidden = true;//隐藏该元素
+document.getElementById('hidden').hidden = false;//显示该元素
+{% endhighlight %}
  
       <a href="/2012-12-14-hidden/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
@@ -957,8 +1081,9 @@ document.getElementById('</span><span class="nx">hidden</span><span class="err">
 
 
 在你的网页里面加上一句简单的代码就可以了
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">text</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span> <span class="nx">placeholder</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="err">输入</span> <span class="err">回车搜索</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span> <span class="nx">autofocus</span> <span class="nx">x</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">speech</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">gt</span><span class="p">;</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+{% highlight javascript linenos %}
+ &amp;lt;input type=&quot;text&quot; placeholder=&quot;输入 回车搜索&quot; autofocus x-webkit-speech&amp;gt;
+{% endhighlight %}
 简短的几个代码就能实现原本多行JS才能实现的完美交互效果，这就是HTML5略窥一点的赞！
 
 placeholder是为了设置初始值，并且这个初始值的颜色为灰色，当input的内容变动时，这个值就消失，它的职责就是给人一种亲和力的指示，十分有爱。
@@ -1107,6 +1232,20 @@ x-webkit-speech，这个大概不必多解释了，webkit核的浏览器（如Ch
     
   
 
+
+
+
+    <!-- baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?11c804172513d0453b2946c4d21bbe3d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu Analytics -->
 
 
 

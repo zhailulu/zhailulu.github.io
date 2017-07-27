@@ -10,6 +10,8 @@
 
   <meta name="author" content="zhailulu" />
 
+  <link href="/favicon.png" rel="icon">
+
   
 
   <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
@@ -56,451 +58,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;github&amp;rdquo;:
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-      git基本命令
-
-      
-    
-
-    
-    发表于 February 28, 2013
-    
-
-    
-         过年回来一直忙着新工作的事，也没有心思写博客！最近稳定下来了，开始写博客吧！
-   
-   哈哈，最近把丢了一年多的命令又捡了起来，新公司用的是git部署服务器！
-   
-   于是上网学习了一下基本命令，做了一下笔记！上网发现有一张图别的网友总结的挺好的，就拷贝下来了！
-   
-   总结的很好，简单易懂！牛人啊！
-   
-   
-   
-   废话不说了，上图！
-   
-   ![Crepe](/images/blog/git.png)
-   
-      [Read&amp;nbsp;More]
-    
-
-    
-      文章类别: 
-      
-        github
-      
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-      第一篇octopress博文
-
-      
-    
-
-    
-    发表于 December 3, 2012
-    
-
-    
-        最近狗血弄了一个多星期的octopress的博客，终于弄出样子了。稍后我会把笔记整理出来，供大家学习。
-  不过网上好多教程，可以搜到。反复多弄几遍就明白了。我就反复的删掉重建删掉重建。。。。。。
-  序言。。。。 嘻嘻…
-
-  
-
-  本来想自己整理安装过程 后来看了网上好多教程都写的很全了。就找了几个比较好的供大家参考吧。
-
-  参考教程：
-
-   1.配置ssh keys教程：http://beiyuu.com/github-pages/
-
-   2.安装教程：http://www.cnblogs.com/sunwufan/archive/2012/10/16/2726225.html
-
-   3.git简易指南：http://rogerdudler.github.com/git-guide/index.zh.html
-
-   ![Crepe](/images/fun/1.jpg)
-      [Read&amp;nbsp;More]
-    
-
-    
-      文章类别: 
-      
-        github
-      
-        blog
-      
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-">
+  <meta property="og:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
 
@@ -526,451 +84,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;github&amp;rdquo;:
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-      git基本命令
-
-      
-    
-
-    
-    发表于 February 28, 2013
-    
-
-    
-         过年回来一直忙着新工作的事，也没有心思写博客！最近稳定下来了，开始写博客吧！
-   
-   哈哈，最近把丢了一年多的命令又捡了起来，新公司用的是git部署服务器！
-   
-   于是上网学习了一下基本命令，做了一下笔记！上网发现有一张图别的网友总结的挺好的，就拷贝下来了！
-   
-   总结的很好，简单易懂！牛人啊！
-   
-   
-   
-   废话不说了，上图！
-   
-   ![Crepe](/images/blog/git.png)
-   
-      [Read&amp;nbsp;More]
-    
-
-    
-      文章类别: 
-      
-        github
-      
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-      第一篇octopress博文
-
-      
-    
-
-    
-    发表于 December 3, 2012
-    
-
-    
-        最近狗血弄了一个多星期的octopress的博客，终于弄出样子了。稍后我会把笔记整理出来，供大家学习。
-  不过网上好多教程，可以搜到。反复多弄几遍就明白了。我就反复的删掉重建删掉重建。。。。。。
-  序言。。。。 嘻嘻…
-
-  
-
-  本来想自己整理安装过程 后来看了网上好多教程都写的很全了。就找了几个比较好的供大家参考吧。
-
-  参考教程：
-
-   1.配置ssh keys教程：http://beiyuu.com/github-pages/
-
-   2.安装教程：http://www.cnblogs.com/sunwufan/archive/2012/10/16/2726225.html
-
-   3.git简易指南：http://rogerdudler.github.com/git-guide/index.zh.html
-
-   ![Crepe](/images/fun/1.jpg)
-      [Read&amp;nbsp;More]
-    
-
-    
-      文章类别: 
-      
-        github
-      
-        blog
-      
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-">
+  <meta name="twitter:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
   
@@ -1053,6 +167,18 @@
 
 
 <a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/vue/">vue</a>
 
                 
               
@@ -1195,6 +321,40 @@
   <h2 class="post_title">目录为 &ldquo;github&rdquo;:</h2>
 
 <div class="posts-list">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -1729,6 +889,20 @@
     
   
 
+
+
+
+    <!-- baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?11c804172513d0453b2946c4d21bbe3d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu Analytics -->
 
 
 

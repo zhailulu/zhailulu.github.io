@@ -10,6 +10,8 @@
 
   <meta name="author" content="zhailulu" />
 
+  <link href="/favicon.png" rel="icon">
+
   
 
   <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
@@ -56,7 +58,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;other&amp;rdquo;: 帮忙一起找宝贝把！ 发表于 August 1, 2013 帮忙一起找宝贝把！ 今天早上无意点到腾讯的404页面，之前就看过腾讯404页面会显示公益找宝贝。但是我还不知道现在也提供对外的接口。 团结力量就是大啊！，加入找宝贝公益。虽然博客没啥流量，但是让我尽自己的一份力量把！ 404页面接入方法 1.方法一 {% highlight javascript linenos %} {% endhighlight %} 2.方法二 {% highlight javascript linenos %} {% endhighlight %} 详细操作见：http://www.qq.com/404/ 本人博客加入的效果截图 ![Crepe](img images/blog/baby.jpg) 博客404地址：http://yrzhll.top/404/ [Read&amp;nbsp;More] 文章类别: other 让自己的博客在搜索引擎里面被检索到方法 发表于 December 27, 2012 上网用百度，google搜索自己的博客网站。搜不到，好奇怪。怎么写在csdn上的博客就能搜到，但是写在github就搜不到呢！ 上网搜了一下，如果你的博客刚创办没什么访问流量，要自己到各个搜索引擎网站上去提交自己博客或者网站的地址。 然后搜索引擎通过验证被收录就可以搜索到了！哈哈哈 好开心啊 各大搜索引擎的提交网站地址 http://tool.lusongsong.com/addurl.html http://urlc.cn/tool/addurl.html 百度或者google一下...">
+  <meta property="og:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
 
@@ -82,7 +84,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;other&amp;rdquo;: 帮忙一起找宝贝把！ 发表于 August 1, 2013 帮忙一起找宝贝把！ 今天早上无意点到腾讯的404页面，之前就看过腾讯404页面会显示公益找宝贝。但是我还不知道现在也提供对外的接口。 团结力量就是大啊！，加入找宝贝公益。虽然博客没啥流量，但是让我尽自己的一份力量把！ 404页面接入方法 1.方法一 {% highlight javascript linenos %} {% endhighlight %} 2.方法二 {% highlight javascript linenos %} {% endhighlight %} 详细操作见：http://www.qq.com/404/ 本人博客加入的效果截图 ![Crepe](img images/blog/baby.jpg) 博客404地址：http://yrzhll.top/404/ [Read&amp;nbsp;More] 文章类别: other 让自己的博客在搜索引擎里面被检索到方法 发表于 December 27, 2012 上网用百度，google搜索自己的博客网站。搜不到，好奇怪。怎么写在csdn上的博客就能搜到，但是写在github就搜不到呢！ 上网搜了一下，如果你的博客刚创办没什么访问流量，要自己到各个搜索引擎网站上去提交自己博客或者网站的地址。 然后搜索引擎通过验证被收录就可以搜索到了！哈哈哈 好开心啊 各大搜索引擎的提交网站地址 http://tool.lusongsong.com/addurl.html http://urlc.cn/tool/addurl.html 百度或者google一下...">
+  <meta name="twitter:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
   
@@ -165,6 +167,18 @@
 
 
 <a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/vue/">vue</a>
 
                 
               
@@ -434,6 +448,40 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <article class="post-preview">
     <a href="/2013-08-01-findbaby/">
       <h3 class="post-title">帮忙一起找宝贝把！</h3>
@@ -455,12 +503,16 @@
    404页面接入方法
    
    1.方法一
+{% highlight javascript linenos %}
 
+{% endhighlight %}
 
    
    
    2.方法二
+{% highlight javascript linenos %}
 
+{% endhighlight %}
 	
    详细操作见：http://www.qq.com/404/
    
@@ -849,6 +901,20 @@ http://urlc.cn/tool/addurl.html
     
   
 
+
+
+
+    <!-- baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?11c804172513d0453b2946c4d21bbe3d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu Analytics -->
 
 
 

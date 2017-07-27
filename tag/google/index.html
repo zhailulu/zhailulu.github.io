@@ -10,6 +10,8 @@
 
   <meta name="author" content="zhailulu" />
 
+  <link href="/favicon.png" rel="icon">
+
   
 
   <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
@@ -56,7 +58,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;google&amp;rdquo;: googleMap V3 Search跑哪里了 发表于 November 20, 2013 googleMap V2版本中有个方便的自动搜索框，但V3里面确找不到调用接口。V2和V3的API差别太大了。 找了好久，原来google把这功能提出来，放在库里的places里面了。简单介绍一下调用方法 1.添加places库 ```javascript ``` 2.页面添加搜索框DOM ```javascript ``` 3.初始化搜索框initialize ```javascript var input = document.getElementById('search'); var searchBox = new google.maps.places.SearchBox(input); //地点变动事件监听器 google.maps.event.addListener(searchBox, 'places_changed', function() { var places = searchBox.getPlaces(); var bounds = new google.maps.LatLngBounds(); if(!!marker){ marker.setMap(null); } // Create a marker...">
+  <meta property="og:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
 
@@ -82,7 +84,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;google&amp;rdquo;: googleMap V3 Search跑哪里了 发表于 November 20, 2013 googleMap V2版本中有个方便的自动搜索框，但V3里面确找不到调用接口。V2和V3的API差别太大了。 找了好久，原来google把这功能提出来，放在库里的places里面了。简单介绍一下调用方法 1.添加places库 ```javascript ``` 2.页面添加搜索框DOM ```javascript ``` 3.初始化搜索框initialize ```javascript var input = document.getElementById('search'); var searchBox = new google.maps.places.SearchBox(input); //地点变动事件监听器 google.maps.event.addListener(searchBox, 'places_changed', function() { var places = searchBox.getPlaces(); var bounds = new google.maps.LatLngBounds(); if(!!marker){ marker.setMap(null); } // Create a marker...">
+  <meta name="twitter:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
   
@@ -165,6 +167,18 @@
 
 
 <a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/vue/">vue</a>
 
                 
               
@@ -307,6 +321,40 @@
   <h2 class="post_title">目录为 &ldquo;google&rdquo;:</h2>
 
 <div class="posts-list">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -625,11 +673,75 @@
     </p>
 
     <div class="post-entry">
-      Google Map V3 绑定气泡窗口(infowindow)Dom事件方法 在调试功能模块时候，发现怎么用什么方法都无法在infowindow里面添加的div进行绑定事件处理。郁闷啊！上网搜了好多方法也没用， 后来想想还是查了一下官方的API，发现了google.maps.InfoWindow下面的Events里面有个domready事件 官方解释： This event is fired when the containing the InfoWindow's content is attached to the DOM. You may wish to monitor this event if you are building out your info window content dynamically. 本人理解大概的意思就是InfoWindow里面动态添加的Dom元素完成后的回调函数。 js是个单线程的引擎，只有等到DOM创建完成之后才能绑定事件，这样理解起来应该很简单了吧！ 看同事写的js代码，里面好多setTimeout之类的延迟 估计没弄清楚脚本执行的顺利 觉的延迟几秒就行执行，其实问题很大。哪些脚本要先执行，哪些要后执行 都是有顺序的。 google.maps.event.addDomListenergoogleMap 提供的监听Dom元素的事件 上代码： <figure class="highlight"><pre><code class="language-..." data-lang="...">ge.getFeatures().removeChild(networkLink);//networkLink=&amp;quot;&amp;quot;</code></pre></figure> 2.清除fetchKml加载的KML/KMZ <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">kmlObject</span><span class="o">=</span><span class="kc">null</span><span class="o">/</span><span class="nx">kmlObject</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;;</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 3.清除地标 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">ge</span><span class="p">.</span><span class="nx">getFeatures</span><span class="p">().</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">placemark</span><span class="p">);</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 4.清除线段 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">ge</span><span class="p">.</span><span class="nx">getFeatures</span><span class="p">().</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">lineMark</span><span class="p">);</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 5.清除球 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">ge</span><span class="p">.</span><span class="nx">setBalloon</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 6.如果是个地标或线段数组（多个），清除方法如下...
+      Google Map V3 绑定气泡窗口(infowindow)Dom事件方法 在调试功能模块时候，发现怎么用什么方法都无法在infowindow里面添加的div进行绑定事件处理。郁闷啊！上网搜了好多方法也没用， 后来想想还是查了一下官方的API，发现了google.maps.InfoWindow下面的Events里面有个domready事件 官方解释： This event is fired when the containing the InfoWindow's content is attached to the DOM. You may wish to monitor this event if you are building out your info window content dynamically. 本人理解大概的意思就是InfoWindow里面动态添加的Dom元素完成后的回调函数。 js是个单线程的引擎，只有等到DOM创建完成之后才能绑定事件，这样理解起来应该很简单了吧！ 看同事写的js代码，里面好多setTimeout之类的延迟 估计没弄清楚脚本执行的顺利 觉的延迟几秒就行执行，其实问题很大。哪些脚本要先执行，哪些要后执行 都是有顺序的。 google.maps.event.addDomListenergoogleMap 提供的监听Dom元素的事件 上代码： {% highlight...
+      <a href="/2013-04-15-domready/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/google/">google</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-01-24-clearearth/">
+      <h3 class="post-title">googleEarth清除KML,地标等方法</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 January 24, 2013
+    </p>
+
+    <div class="post-entry">
+      调项目的bug，从网上搜索的资料，整理一下！方便以后使用 1.清除networkLink加载KML/KMZ {% highlight javascript linenos %}ge.getFeatures().removeChild(networkLink);//networkLink=&quot;&quot;{% endhighlight %} 2.清除fetchKml加载的KML/KMZ {% highlight javascript linenos %} kmlObject=null/kmlObject=&quot;&quot;; {% endhighlight %} 3.清除地标 {% highlight javascript linenos %} ge.getFeatures().removeChild(placemark); {% endhighlight %} 4.清除线段 {% highlight javascript linenos %} ge.getFeatures().removeChild(lineMark); {% endhighlight %} 5.清除球 {% highlight javascript linenos %} ge.setBalloon(null); {% endhighlight %} 6.如果是个地标或线段数组（多个），清除方法如下...
       <a href="/2013-01-24-clearearth/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
@@ -775,12 +887,10 @@
    
    
 
-   <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre>   <span class="kd">function</span> <span class="nx">touring</span><span class="p">(</span><span class="nx">url</span><span class="p">){</span><span class="kd">var</span> <span class="nx">href</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span><span class="nx">google</span><span class="p">.</span><span class="nx">earth</span><span class="p">.</span><span class="nx">fetchKml</span><span class="p">(</span><span class="nx">ge</span><span class="p">,</span> <span class="nx">href</span><span class="p">,</span> <span class="nx">kmlFinishedLoading</span><span class="p">);}</span>
-   <span class="kd">function</span> <span class="nx">kmlFinishedLoading</span><span class="p">(</span><span class="nx">tourObj</span><span class="p">)</span> <span class="p">{</span><span class="nx">ge</span><span class="p">.</span><span class="nx">getTourPlayer</span><span class="p">().</span><span class="nx">setTour</span><span class="p">(</span><span class="nx">tourObj</span><span class="p">);</span><span class="nx">ge</span><span class="p">.</span><span class="nx">getTourPlayer</span><span class="p">().</span><span class="nx">play</span><span class="p">();}</span>
-   <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+   {% highlight javascript linenos %}
+   function touring(url){var href = url;google.earth.fetchKml(ge, href, kmlFinishedLoading);}
+   function kmlFinishedLoading(tourObj) {ge.getTourPlayer().setTour(tourObj);ge.getTourPlayer().play();}
+   {% endhighlight %}
    
   补充一下：
   1.加载KML/KMZ文件的地址必须是网络连接地址 不支持本地或者localhost
@@ -1035,6 +1145,20 @@
     
   
 
+
+
+
+    <!-- baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?11c804172513d0453b2946c4d21bbe3d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu Analytics -->
 
 
 

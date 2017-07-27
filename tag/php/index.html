@@ -10,6 +10,8 @@
 
   <meta name="author" content="zhailulu" />
 
+  <link href="/favicon.png" rel="icon">
+
   
 
   <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
@@ -56,7 +58,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;php&amp;rdquo;: php有用的函数 发表于 May 14, 2014 公司人手不够，让我学php。在网上看见的，总结的笔记. ```javascript $v) { echo &amp;quot;arg&amp;quot;.($k+1).&amp;quot;: $v\n&amp;quot;; } } foo2(); foo2('hello'); foo2('hello', 'world', 'again'); //取得所有的后缀为PHP的文件 $files = glob('*.php'); print_r($files); $files = glob('*.{php,txt}', GLOB_BRACE); print_r($files); //获取文件的绝对地址 $files = glob('web/images/l*.gif'); $files = array_map('realpath',$files); print_r($files); //获取内存使用情况 echo &amp;quot;Initial: &amp;quot;.memory_get_usage().&amp;quot; bytes \n&amp;quot;; //使用内存的峰值 echo &amp;quot;Peak: &amp;quot;.memory_get_peak_usage().&amp;quot; bytes...">
+  <meta property="og:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
 
@@ -82,7 +84,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;php&amp;rdquo;: php有用的函数 发表于 May 14, 2014 公司人手不够，让我学php。在网上看见的，总结的笔记. ```javascript $v) { echo &amp;quot;arg&amp;quot;.($k+1).&amp;quot;: $v\n&amp;quot;; } } foo2(); foo2('hello'); foo2('hello', 'world', 'again'); //取得所有的后缀为PHP的文件 $files = glob('*.php'); print_r($files); $files = glob('*.{php,txt}', GLOB_BRACE); print_r($files); //获取文件的绝对地址 $files = glob('web/images/l*.gif'); $files = array_map('realpath',$files); print_r($files); //获取内存使用情况 echo &amp;quot;Initial: &amp;quot;.memory_get_usage().&amp;quot; bytes \n&amp;quot;; //使用内存的峰值 echo &amp;quot;Peak: &amp;quot;.memory_get_peak_usage().&amp;quot; bytes...">
+  <meta name="twitter:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
   
@@ -165,6 +167,18 @@
 
 
 <a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/vue/">vue</a>
 
                 
               
@@ -307,6 +321,40 @@
   <h2 class="post_title">目录为 &ldquo;php&rdquo;:</h2>
 
 <div class="posts-list">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -786,6 +834,20 @@
     
   
 
+
+
+
+    <!-- baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?11c804172513d0453b2946c4d21bbe3d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu Analytics -->
 
 
 

@@ -10,6 +10,8 @@
 
   <meta name="author" content="zhailulu" />
 
+  <link href="/favicon.png" rel="icon">
+
   
 
   <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
@@ -56,7 +58,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;web&amp;rdquo;: sublime text3安装Emmet 发表于 August 12, 2014 最近在学习一些新东西的时候，发现一个挺好玩的东西。跟大家分享一下， 如果知道的话就忽略吧！ 现在sublime3里面有个插件叫Emmet，原名叫zenCoding。前端神插件。速成写Dom。 1.安装packages control 打开console控制台：view-&amp;gt;show console或者快捷键“ctrl + ` ”(esc下面那个键) ```javascript import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating...">
+  <meta property="og:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
 
@@ -82,7 +84,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;web&amp;rdquo;: sublime text3安装Emmet 发表于 August 12, 2014 最近在学习一些新东西的时候，发现一个挺好玩的东西。跟大家分享一下， 如果知道的话就忽略吧！ 现在sublime3里面有个插件叫Emmet，原名叫zenCoding。前端神插件。速成写Dom。 1.安装packages control 打开console控制台：view-&amp;gt;show console或者快捷键“ctrl + ` ”(esc下面那个键) ```javascript import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating...">
+  <meta name="twitter:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
   
@@ -165,6 +167,18 @@
 
 
 <a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/vue/">vue</a>
 
                 
               
@@ -307,6 +321,40 @@
   <h2 class="post_title">目录为 &ldquo;web&rdquo;:</h2>
 
 <div class="posts-list">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -532,9 +580,7 @@
     </p>
 
     <div class="post-entry">
-      初试grunt项目构建工具 看别人的博客，无意发现了grunt。就尝试在VMWare虚拟机上centos(linux)环境搭建了简单的项目。 1.安装nodeJS和npm环境. 具体步骤省略。 2.grunt有两个版本(服务器端版本-grunt和客户端版本-grunt cli) 安装客户端版本 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">npm</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">g</span> <span class="nx">grunt</span><span class="o">-</span><span class="nx">cli</span> <span class="c1">//安装grunt cli npm uninstall -g grunt //卸载服务器版本grunt </span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 3.项目根目录下创建package.json文件 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="c1">//package.json { &amp;quot;name&amp;quot;: &amp;quot;work&amp;quot;, //项目名字 &amp;quot;version&amp;quot;: &amp;quot;1.0.0&amp;quot;, &amp;quot;devDependencies&amp;quot;: { &amp;quot;grunt-contrib-uglify&amp;quot;: &amp;quot;~0.2.0&amp;quot; //压缩js工具 } } </span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 4.项目根目录执行命令...
+      初试grunt项目构建工具 看别人的博客，无意发现了grunt。就尝试在VMWare虚拟机上centos(linux)环境搭建了简单的项目。 1.安装nodeJS和npm环境. 具体步骤省略。 2.grunt有两个版本(服务器端版本-grunt和客户端版本-grunt cli) 安装客户端版本 {% highlight javascript linenos %} npm install -g grunt-cli //安装grunt cli npm uninstall -g grunt //卸载服务器版本grunt {% endhighlight %} 3.项目根目录下创建package.json文件 {% highlight javascript linenos %} //package.json { &quot;name&quot;: &quot;work&quot;, //项目名字 &quot;version&quot;: &quot;1.0.0&quot;, &quot;devDependencies&quot;: { &quot;grunt-contrib-uglify&quot;: &quot;~0.2.0&quot; //压缩js工具 } } {% endhighlight %} 4.项目根目录执行命令...
       <a href="/2013-10-29-grunt/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
@@ -992,6 +1038,20 @@
     
   
 
+
+
+
+    <!-- baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?11c804172513d0453b2946c4d21bbe3d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu Analytics -->
 
 
 

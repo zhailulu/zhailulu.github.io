@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Vue的v-model修饰指令"
+date: 2017-07-24 10:44
+tags: [vue, js]
+---
+
+在vue.js中，我们可以使用v-model指令同步用户输入的数据到Vue实例data的属性中，我们也可以在v-model指令所在的form控件上添加相应的修饰指令来实现这个需求。
+
+1.lazy
+
+~~~
+ <input v-model="msg" lazy><br/>
+ {{msg}}
+~~~
+
+lazy特性可以把input事件默认同步输入框的值与数据改到在chang事件中去同步
+
+
+2.debounce
+
+~~~
+ <input v-model="msg" debounce="500">
+~~~
+
+设置一个最小的延迟时间，可以避免一些更新时候频繁的高耗操作，优化一些性能
+
+3.number
+
+~~~
+ <input v-model="age" number>
+~~~
+
+当传给后端的字段类型必须是数值的时候，我们可以用number修饰符来将其转换成数值类型，如果转换结果为NaN，则对应的model值还是用户输入的原始值
+

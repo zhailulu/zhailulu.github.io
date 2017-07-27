@@ -10,6 +10,8 @@
 
   <meta name="author" content="zhailulu" />
 
+  <link href="/favicon.png" rel="icon">
+
   
 
   <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
@@ -56,7 +58,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;blog&amp;rdquo;: 增加腾讯公益404页面 发表于 June 1, 2017 一直超喜欢腾讯公益的404页面，既可以优化用户体验，又可以为公益帮一个小小的忙！ 希望有博客的大牛小牛们，都能把腾讯公益404页面加进去，很简单的。。。 ![Crepe](/images/blog/qq.png) 将上面图中里脚本加到你的404页面即可，哈哈哈。直接贴代码，该页面就自动执行脚本，只好截图了！ 今天是儿童节，希望天下所有的儿童都快乐幸福的生活在父母的身边！！！ 今天也是我科目一考了100分，给自己儿童节的礼物！！！ [Read&amp;nbsp;More] 文章类别: blog 博客全新改版 发表于 May 20, 2017 最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！ 1.搭建博客环境 安装ruby rubygems git环境，使用安装工具 railsinstaller: http://railsinstaller.org/en rubygems: https://rubygems.org/pages/download 2.打开git命令面板 生成ssh key 文件 ~~~ cd ~/.ssh ssh-keygen -t rsa -C &amp;quot;***&amp;quot; //***是指github账号 ~~~ 一般生成的新的key文件 在C盘中用户文件夹有个.ssh 里面有id_rsa 把里面的密钥拷贝粘贴到github设置里ssh里 ~~~javascript ssh...">
+  <meta property="og:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
 
@@ -82,7 +84,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;blog&amp;rdquo;: 增加腾讯公益404页面 发表于 June 1, 2017 一直超喜欢腾讯公益的404页面，既可以优化用户体验，又可以为公益帮一个小小的忙！ 希望有博客的大牛小牛们，都能把腾讯公益404页面加进去，很简单的。。。 ![Crepe](/images/blog/qq.png) 将上面图中里脚本加到你的404页面即可，哈哈哈。直接贴代码，该页面就自动执行脚本，只好截图了！ 今天是儿童节，希望天下所有的儿童都快乐幸福的生活在父母的身边！！！ 今天也是我科目一考了100分，给自己儿童节的礼物！！！ [Read&amp;nbsp;More] 文章类别: blog 博客全新改版 发表于 May 20, 2017 最近闲来无事，把丢了三年的博客重新拾起，新的博客，新的开始，全新博客使用Jekyll模板，依旧部署在github上！！！ 1.搭建博客环境 安装ruby rubygems git环境，使用安装工具 railsinstaller: http://railsinstaller.org/en rubygems: https://rubygems.org/pages/download 2.打开git命令面板 生成ssh key 文件 ~~~ cd ~/.ssh ssh-keygen -t rsa -C &amp;quot;***&amp;quot; //***是指github账号 ~~~ 一般生成的新的key文件 在C盘中用户文件夹有个.ssh 里面有id_rsa 把里面的密钥拷贝粘贴到github设置里ssh里 ~~~javascript ssh...">
+  <meta name="twitter:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
   
@@ -165,6 +167,18 @@
 
 
 <a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/vue/">vue</a>
 
                 
               
@@ -307,6 +321,40 @@
   <h2 class="post_title">目录为 &ldquo;blog&rdquo;:</h2>
 
 <div class="posts-list">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -659,32 +707,21 @@
 
 
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13</pre></td><td class="code"><pre><span class="o">---</span>
-<span class="nx">layout</span><span class="err">:</span> <span class="nx">page</span>
-<span class="nl">title</span><span class="p">:</span> <span class="nx">Sorry</span><span class="err">，</span><span class="mi">404</span><span class="err">错误！你要访问的网页不存在</span><span class="o">!</span>
-<span class="nx">footer</span><span class="err">:</span> <span class="kc">false</span>
-<span class="o">---</span>
-<span class="err">看看下面有木有你要找的东东？</span>
+{% highlight javascript linenos %}
+---
+layout: page
+title: Sorry，404错误！你要访问的网页不存在!
+footer: false
+---
+看看下面有木有你要找的东东？
 
- <span class="k">for</span> <span class="nx">post</span> <span class="k">in</span> <span class="nx">site</span><span class="p">.</span><span class="nx">posts</span> <span class="nx">limit</span><span class="err">:</span> <span class="mi">10</span><span class="s1">' //引用时，单引号去掉
+ for post in site.posts limit: 10' //引用时，单引号去掉
 
-'</span><span class="nx">include</span> <span class="nx">archive_post</span><span class="p">.</span><span class="nx">html</span><span class="err">'</span> <span class="c1">//引用时，单引号去掉</span>
-<span class="p">;</span>
-<span class="nx">endfor</span>
-<span class="p">;</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+'include archive_post.html' //引用时，单引号去掉
+;
+endfor
+;
+{% endhighlight %}
 
 将上面的代码贴进404.html即可。简单吧
 
@@ -743,10 +780,7 @@
     </p>
 
     <div class="post-entry">
-      在自己博客里面侧边栏页面里面加了最近评论，方法如下： 1.在source/_includes/asides创建一个comment.html(文件名随便起，自己知道就行了) 2.在comment.html中添加下段代码 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="err">最近评论</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 3.打开_config.yml 将comment.html添加到 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">page_asides</span><span class="err">:</span> <span class="p">[</span><span class="nx">asides</span><span class="o">/</span><span class="nx">nav</span><span class="p">.</span><span class="nx">html</span><span class="p">,</span> <span class="nx">asides</span><span class="o">/</span><span class="nx">category_list</span><span class="p">.</span><span class="nx">html</span><span class="p">,</span> <span class="nx">asides</span><span class="o">/</span><span class="nx">comment</span><span class="p">.</span><span class="nx">html</span><span class="p">,</span> <span class="nx">asides</span><span class="o">/</span><span class="nx">github</span><span class="p">.</span><span class="nx">html</span><span class="p">,</span> <span class="nx">asides</span><span class="o">/</span><span class="nx">twitter</span><span class="p">.</span><span class="nx">html</span><span class="p">,</span> <span class="nx">asides</span><span class="o">/</span><span class="nx">delicious</span><span class="p">.</span><span class="nx">html</span><span class="p">,</span> <span class="nx">asides</span><span class="o">/</span><span class="nx">pinboard</span><span class="p">.</span><span class="nx">html</span><span class="p">,</span> <span class="nx">asides</span><span class="o">/</span><span class="nx">googleplus</span><span class="p">.</span><span class="nx">html</span><span class="p">]</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> asides/comment.html 补充； 参数说明： <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="c1">//以下参数均为可选参数 data-num-items=&amp;quot;10&amp;quot; //显示最新评论的条数 data-show-avatars=&amp;quot;1&amp;quot;//是否显示头像，1：显示，0：不显示 data-show-time=&amp;quot;1&amp;quot;//是否显示时间，1：显示，0：不显示 data-show-title=&amp;quot;0&amp;quot;//是否显示标题，1：显示，0：不显示 data-show-admin=&amp;quot;1&amp;quot;//是否显示管理员的评论，1：显示，0：不显示 data-excerpt-length=&amp;quot;70&amp;quot;//最大显示评论汉字数 </span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>...
+      在自己博客里面侧边栏页面里面加了最近评论，方法如下： 1.在source/_includes/asides创建一个comment.html(文件名随便起，自己知道就行了) 2.在comment.html中添加下段代码 {% highlight javascript linenos %} 最近评论 {% endhighlight %} 3.打开_config.yml 将comment.html添加到 {% highlight javascript linenos %} page_asides: [asides/nav.html, asides/category_list.html, asides/comment.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html] {% endhighlight %} asides/comment.html 补充； 参数说明： {% highlight javascript linenos %} //以下参数均为可选参数 data-num-items=&quot;10&quot; //显示最新评论的条数 data-show-avatars=&quot;1&quot;//是否显示头像，1：显示，0：不显示 data-show-time=&quot;1&quot;//是否显示时间，1：显示，0：不显示 data-show-title=&quot;0&quot;//是否显示标题，1：显示，0：不显示 data-show-admin=&quot;1&quot;//是否显示管理员的评论，1：显示，0：不显示 data-excerpt-length=&quot;70&quot;//最大显示评论汉字数 {% endhighlight %}...
       <a href="/2012-12-12-comment/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
@@ -915,12 +949,11 @@
 
 
 1.在_config.yml 找到下面两句话并改正
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre><span class="err">#</span><span class="nx">Disqus</span> <span class="nx">Comments</span>
-<span class="nl">disqus_short_name</span><span class="p">:</span> <span class="nx">your_disqus_accountName</span>
-<span class="nl">disqus_show_comment_count</span><span class="p">:</span> <span class="kc">true</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+{% highlight javascript linenos %}
+#Disqus Comments
+disqus_short_name: your_disqus_accountName
+disqus_show_comment_count: true
+{% endhighlight %}
 
 2.disqus注册账号
   这个不用我写了吧
@@ -1048,6 +1081,20 @@
     
   
 
+
+
+
+    <!-- baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?11c804172513d0453b2946c4d21bbe3d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu Analytics -->
 
 
 

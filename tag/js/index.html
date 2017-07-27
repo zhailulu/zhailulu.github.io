@@ -10,6 +10,8 @@
 
   <meta name="author" content="zhailulu" />
 
+  <link href="/favicon.png" rel="icon">
+
   
 
   <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
@@ -56,7 +58,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;js&amp;rdquo;: Ajax跨域请求数据神器 发表于 November 11, 2014 今天没事突然想起了本人还有一个博客，看到别人给我博客留言，又重新燃起我写博客的热情。 写啥呢？其实在公司不是很忙，也没啥可以发挥，但是俺们不能就这样透支以前的经验。没事自己看书学习。 最近比较火的当属慕课网，业界良心啊！终于不用自己苦苦自学，可以有大牛教你技术了。 前段时间看了一个有关jQuery mobile视频，里面大牛介绍了一个Ajax跨域请求数据神器。小女子佩服的五体投地啊！ 原来在上家公司接触到有关跨域请求数据的项目，之前的做法都是下载到本地服务器上，然后在请求。废话不说了。 API地址：http://www.corsproxy.com/ 调用方法： {% highlight javascript linenos %} $.get('http://www.corsproxy.com/en.wikipedia.org/wiki/Http',function(response){ document.body.innerHTML = response; }) {% endhighlight %} 在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。 小伙伴们在也不怕跨域的数据了！哦，今天是光棍节，跟俺没关系。但是还是要祝大家光棍节快乐！ [Read&amp;nbsp;More] 文章类别: js 5种你未必知道的JavaScript和CSS交互的方法（转） 发表于 April 3, 2014 这篇文章没有直接拷贝过来，直接提取重点简化过来，备用笔记！ 1.用JavaScript获取伪元素(pseudo-element)属性 ```javascript var color = window.getComputedStyle( document.querySelector('.element'), ':before' ).getPropertyValue('color'); // Get...">
+  <meta property="og:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
 
@@ -82,7 +84,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;js&amp;rdquo;: Ajax跨域请求数据神器 发表于 November 11, 2014 今天没事突然想起了本人还有一个博客，看到别人给我博客留言，又重新燃起我写博客的热情。 写啥呢？其实在公司不是很忙，也没啥可以发挥，但是俺们不能就这样透支以前的经验。没事自己看书学习。 最近比较火的当属慕课网，业界良心啊！终于不用自己苦苦自学，可以有大牛教你技术了。 前段时间看了一个有关jQuery mobile视频，里面大牛介绍了一个Ajax跨域请求数据神器。小女子佩服的五体投地啊！ 原来在上家公司接触到有关跨域请求数据的项目，之前的做法都是下载到本地服务器上，然后在请求。废话不说了。 API地址：http://www.corsproxy.com/ 调用方法： {% highlight javascript linenos %} $.get('http://www.corsproxy.com/en.wikipedia.org/wiki/Http',function(response){ document.body.innerHTML = response; }) {% endhighlight %} 在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。 小伙伴们在也不怕跨域的数据了！哦，今天是光棍节，跟俺没关系。但是还是要祝大家光棍节快乐！ [Read&amp;nbsp;More] 文章类别: js 5种你未必知道的JavaScript和CSS交互的方法（转） 发表于 April 3, 2014 这篇文章没有直接拷贝过来，直接提取重点简化过来，备用笔记！ 1.用JavaScript获取伪元素(pseudo-element)属性 ```javascript var color = window.getComputedStyle( document.querySelector('.element'), ':before' ).getPropertyValue('color'); // Get...">
+  <meta name="twitter:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
   
@@ -165,6 +167,18 @@
 
 
 <a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/vue/">vue</a>
 
                 
               
@@ -312,6 +326,357 @@
   
   
   
+  <article class="post-preview">
+    <a href="/2017-07-24-model/">
+      <h3 class="post-title">Vue的v-model修饰指令</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 July 24, 2017
+    </p>
+
+    <div class="post-entry">
+      在vue.js中，我们可以使用v-model指令同步用户输入的数据到Vue实例data的属性中，我们也可以在v-model指令所在的form控件上添加相应的修饰指令来实现这个需求。
+
+1.lazy
+
+~~~
+ 
+ {{msg}}
+~~~
+
+lazy特性可以把input事件默认同步输入框的值与数据改到在chang事件中去同步
+
+
+2.debounce
+
+~~~
+ 
+~~~
+
+设置一个最小的延迟时间，可以避免一些更新时候频繁的高耗操作，优化一些性能
+
+3.number
+
+~~~
+ 
+~~~
+
+当传给后端的字段类型必须是数值的时候，我们可以用number修饰符来将其转换成数值类型，如果转换结果为NaN，则对应的model值还是用户输入的原始值
+
+
+      <a href="/2017-07-24-model/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/vue/">vue</a>
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2017-07-18-vue/">
+      <h3 class="post-title">Vue的全局分隔符</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 July 18, 2017
+    </p>
+
+    <div class="post-entry">
+      我们都知道vue的文本插值的分隔符默认为双花括号，
+
+Html的分隔符默认为三个花括号。
+
+一般我们都是会使用默认的分隔符，如果我们想自定义分隔符改怎么办呢？
+
+哈哈 其实Vue.config提供修改默认分隔符的方法，可以在vue实例化之前修改其默认分隔符
+
+~~~
+  Vue.config.delimiters = [&quot;&quot;]
+~~~
+
+则上面的文本插值的语变成
+
+~~~
+  Vue.config.unsafeDelimiters = [&quot;&quot;]
+~~~
+
+则上面的HTML插件语法变成 
+      <a href="/2017-07-18-vue/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/vue/">vue</a>
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2017-07-15-undefined/">
+      <h3 class="post-title">undefined和undeclared</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 July 15, 2017
+    </p>
+
+    <div class="post-entry">
+      很多开发人员会将undefined和undeclared混为一谈，但是在JavaScript中它们其实两回事
+
+undefined表示已经在作用域声明但是没有赋值的变量
+
+undeclared表示变量还没有声明过
+
+~~~
+  var a;
+  a; //undefined
+  b; //ReferenceError： b is not defined
+~~~
+
+ReferenceError错误一般都是没有在作用域声明导致的报错
+
+~~~
+  var a;
+  typeof a; //undefined
+  typeof b; //undefined
+~~~
+
+两个都返回undefined，这是为啥呢？
+
+这是因为typeof有一个特殊的安全防范机制，导致undeclared没有报错
+
+这个一般用来检查未声明变量有时候是个不错的办法，可以阻止控制台报错。
+
+嘿嘿。。。。
+      <a href="/2017-07-15-undefined/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2017-06-27-this/">
+      <h3 class="post-title">ES6中的箭头函数神奇之处</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 27, 2017
+    </p>
+
+    <div class="post-entry">
+      ES6中添加了一个特殊的语法形式用于函数声明，叫做箭头函数
+
+~~~
+  var foo = a =&gt;{
+    console.log(a);
+  };
+
+  foo(2) //2
+~~~
+
+这里的箭头函数通常被当做function关键字的简写。
+
+其实它还有一个重要的用途：
+
+箭头函数在涉及this绑定时的行为和普通函数的行为完全不一致，它放弃所有普通this绑定的规则，取而代之的是用当前的词法作用域覆盖了this本来的值
+ 
+~~~
+  var obj = {
+     count: 0,
+     cool: function coolFn(){
+        if(this.count{
+                this.count++;
+                console.log(&quot;test&quot;);
+            }, 100)
+        }
+     }
+   }
+~~~
+
+
+ 注意到this.count++ 这句代码了吗？传统函数里我们引用的this是不会指向当前obj的，但是用箭头函数则直接覆盖了this本来的值。
+
+ 这才是箭头函数神奇之处。。。
+
+ 注：样例引用《你不知道JavaScript》书中。
+      <a href="/2017-06-27-this/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/html/">html</a>
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2017-06-12-function/">
+      <h3 class="post-title">函数声明提升</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 12, 2017
+    </p>
+
+    <div class="post-entry">
+        上一篇介绍了变量的提升，其实函数声明也会被提升，不过函数会首先被提升，然后才是变量被提升
+
+~~~
+  function foo(){
+     var a;
+     console.log(a); //undefined
+     a = 2;
+  }
+
+  foo();
+~~~
+
+上面的代码可以看到函数声明会被提升， 但是函数表达式不会被提升，参考下面的代码块
+
+~~~
+  foo(); //不是ReferenceError，而是TypeError
+  var foo = function bar(){
+    //...
+  }
+~~~
+
+因为foo()被提升并分配给所在的作用域，所以没有报ReferenceError，但是foo并没有赋值，由于对undefined值进行函数调用而导致非法操作，因此抛出了TypeError。
+
+注意： 一个普通块内部的函数声明通常会被提升到所在作用域的顶部，不过这行为并不可靠，因此应该尽可能避免在块内部声明函数。
+      <a href="/2017-06-12-function/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2017-06-12-update/">
+      <h3 class="post-title">变量声明提升</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 June 12, 2017
+    </p>
+
+    <div class="post-entry">
+        最近看书看到一个概念 觉得挺好玩的，就想跟大家分享一下，先看两段代码吧！
+
+~~~
+    a = 2
+    var a;
+    console.log(a);  //2
+~~~
+
+~~~
+    console.log(a); //undefined
+    var a = 2;
+~~~
+
+  哈哈哈 为啥会有两个不同的结果，这是因为JavaScript引擎会在代码之前进行编译，编译阶段的一部分工作是找到所有的声明，并用合适的作用域将它们关联起来。
+
+  实际上面的两段代码在编译阶段是这样处理的
+
+~~~javascript
+    var a;
+    a = 2;
+    console.log(a) //2
+~~~
+
+~~~javascript
+    var a;
+    console.log(a); //undefined
+    a = 2;
+~~~
+
+  这个过程好像变量和函数声明从它们的代码中出现的位置被移动到最上面  这个过程就叫做“提升”
+
+  也就是先声明后赋值
+
+  这样要注意的是只有声明本身会被提升，而赋值或其他运行逻辑会留在原地。
+
+  这里也就是变量声明的提升。咋样，跟想象的不一样吧
+
+  其实代码在编译阶段的并不定按代码书写顺序进行编译，引擎会根据实际情况或者性能进行适当的调整或优化，来使得代码更快的执行。
+
+      <a href="/2017-06-12-update/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -343,12 +708,11 @@
    API地址：http://www.corsproxy.com/
    
    调用方法：
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://www.corsproxy.com/en.wikipedia.org/wiki/Http'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">response</span><span class="p">;</span>
-<span class="p">})</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+{% highlight javascript linenos %}
+$.get('http://www.corsproxy.com/en.wikipedia.org/wiki/Http',function(response){
+  document.body.innerHTML = response;
+})
+{% endhighlight %}
    
    在url前面加上http://www.corsproxy.com/就可以请求到跨域的数据了。
    
@@ -438,8 +802,687 @@
     </p>
 
     <div class="post-entry">
-      休婚假回公司第一天上班，就碰到测试机内存坏了。闲来无事，看倒腾讯首页关于飞机失踪的计时器。 挖出来代码一起分享 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="c1">//样式 .mhkjsl_mod{background:url(http://mat1.gtimg.com/www/images/qq2012/mhkjslBg20140310.jpg) no-repeat 0 0;height:75px;width:660px;position:relative;} .mhkjsl_mod b{color:#ff8400;font:18px/20px 'Microsoft YaHei';} .mhkjsl_mod .ljzt{position:absolute;z-index:9;top:0;left:0;width:660px;height:75px;} .mhkjsl_mod .ljzt:focus{outline:none} #mhkjslTimeNum{position:absolute;top:46px;_top:48px;left:213px;_left:218px;} #mhkjslTimeNum .day{margin-right:28px;_margin-right:32px;} #mhkjslTimeNum .xi{margin-right:43px;_margin-right:46px;} #mhkjslTimeNum .min{margin-right:26px;_margin-right:30px;} @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){ #mhkjslTimeNum{position:absolute;top:45px;left:218px;} #mhkjslTimeNum .day{margin-right:32px;}#mhkjslTimeNum .xi{margin-right:46px;}#mhkjslTimeNum .min{margin-right:30px;} } </span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 大牛的计时器代码 <figure class="highlight"><pre><code class="language-..." data-lang="..."> var obj=[],flag; typeof(obj) == &amp;quot;array&amp;quot; ? flag=true : flag=false console.log(flag); true //本人认为运行结果 false //真实运行结果 </code></pre></figure> 然后就没多想就把代码上线。之后没事闲看，才发现自己犯了错误认识 typeof这会返回一个javascript基本类型的实例的类型。Array实际上不是基本类型，所以typeof Array对象将返回Object， 代码如下： typeof {} === &quot;object&quot; //true typeof &quot;&quot; === &quot;string&quot; //true typeof [] === &quot;array&quot;; //false 当你对自己的对象的实例使用这个操作符时将会得到相同的结果（typeof = &quot;object&quot;）。 另外说明一点，”typeof null“将返回”object“，这个有点诡异。 那应该判断array类型呢。估计大家跟我想的一样。jquery里面肯定有封装好的函数jQuery.isArray(obj) 深究一下jQuery.isArray(obj)，打开jquery框架可以发现相关的代码有以下几段...
+      休婚假回公司第一天上班，就碰到测试机内存坏了。闲来无事，看倒腾讯首页关于飞机失踪的计时器。 挖出来代码一起分享 {% highlight javascript linenos %} //样式 .mhkjsl_mod{background:url(http://mat1.gtimg.com/www/images/qq2012/mhkjslBg20140310.jpg) no-repeat 0 0;height:75px;width:660px;position:relative;} .mhkjsl_mod b{color:#ff8400;font:18px/20px 'Microsoft YaHei';} .mhkjsl_mod .ljzt{position:absolute;z-index:9;top:0;left:0;width:660px;height:75px;} .mhkjsl_mod .ljzt:focus{outline:none} #mhkjslTimeNum{position:absolute;top:46px;_top:48px;left:213px;_left:218px;} #mhkjslTimeNum .day{margin-right:28px;_margin-right:32px;} #mhkjslTimeNum .xi{margin-right:43px;_margin-right:46px;} #mhkjslTimeNum .min{margin-right:26px;_margin-right:30px;} @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){ #mhkjslTimeNum{position:absolute;top:45px;left:218px;} #mhkjslTimeNum .day{margin-right:32px;}#mhkjslTimeNum .xi{margin-right:46px;}#mhkjslTimeNum .min{margin-right:30px;} } {% endhighlight %} 大牛的计时器代码 {% highlight...
+      <a href="/2014-03-18-air/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2014-03-05-console/">
+      <h3 class="post-title">使用console.time()计算js代码执行时间</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 March 5, 2014
+    </p>
+
+    <div class="post-entry">
+      firefox，chrome开发工具都提供了调试api，console.time就是其中一个工具 console.time() 方法可用来计算 js 执行的时间。 ```javascript console.time('good'); var $page = $('#page'),option; for(var i=1;i第 &quot;+i+&quot; 页&quot;; } //dom 操作一次 $page.append(option); console.timeEnd('good'); ``` IE不支持，下面是兼容代码 ```javascript if(window.console &amp;&amp; typeof(window.console.time) == &quot;undefined&quot;) { console.time = function(name, reset){ if(!name) { return; } var time = new Date().getTime(); if(!console.timeCounters) { console.timeCounters = {}; } var key...
+      <a href="/2014-03-05-console/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2014-02-26-globalfuntion/">
+      <h3 class="post-title">JavaScript的全局函数</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 February 26, 2014
+    </p>
+
+    <div class="post-entry">
+      JavaScript 中包含以下 7 个全局函数，用于完成一些常用的功能（以后的章节中可能会用到）：escape( )、eval( )、isFinite( )、isNaN( )、parseFloat( )、parseInt( )、unescape( )。 **1.escape( )** escape( ) 函数以一个 string 对象或表达式为参数并返回一个 string 对象。参数指定的字符串中的所有非字母字符被转换成以 XX% 表示的等价数字，XX 是一个表示非字母字符的十六进制数。 以下示例显示了 escape( ) 函数的作用。 **2.eval( )** eval( ) 函数将通过参数传入的一个包含 JavaScript 语句的字符串作为一个 JavaScript 源代码执行。eval( ) 返回执行 JavaScript 语句的返回值。 **3.isFinite( )** isFinite ( ) 函数用于确定一个变量是否有界，如果有界则返回 true，否则返回 false。所谓有界是指表达式的值界于 MAX_VALUE 和...
+      <a href="/2014-02-26-globalfuntion/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-10-15-allchoice/">
+      <h3 class="post-title">jquery'全选'简单code</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 October 15, 2013
+    </p>
+
+    <div class="post-entry">
+      十一大假过了一个星期了，好长时间没有写文章了。今天翻翻笔记。把之前整理网站上的jquery“全选”的脚本分享一下 请大家多多指教。(嘻嘻，估计也没几个人看) ```javascript /* *jQuery allChoice plus v1.0 全选 可以直接拷贝到页面位置 * 创建人 : zhailulu * 创建时间 : 2013-09-05 调用方式 : $(&quot;#all&quot;).allChoice(&quot;input[name='filter[]']&quot;); */ $.fn.extend({ allChoice: function(single){ var $all = $(this),$single = $(single); $all.unbind(&quot;click&quot;); $all.click(function(){ !$(this).attr(&quot;checked&quot;) ? $single.attr(&quot;checked&quot;,false) : $single.attr(&quot;checked&quot;,true); }); $single.unbind(&quot;click&quot;); $single.click(function(){ if(!$(this).attr(&quot;checked&quot;) &amp;&amp; $all.attr(&quot;checked&quot;)){ $all.attr(&quot;checked&quot;,false); }else if($(this).attr(&quot;checked&quot;)){ var flag =...
+      <a href="/2013-10-15-allchoice/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-09-02-getday/">
+      <h3 class="post-title">‘星期几’不同脚本写法</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 September 2, 2013
+    </p>
+
+    <div class="post-entry">
+      这篇文章是总结《 WEB前端研发工程师编程能力成长之路》文章。一直觉的这篇文章写的很好。 1.第一种写法 ```javascript var str = &quot;&quot;; var week = new Date().getDay(); if (week == 0) { str = &quot;今天是星期日&quot;; } else if (week == 1) { str = &quot;今天是星期一&quot;; } else if (week == 2) { str = &quot;今天是星期二&quot;; } else if (week == 3) { str =...
+      <a href="/2013-09-02-getday/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-08-22-write/">
+      <h3 class="post-title">解决广告中的document.write</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 August 22, 2013
+    </p>
+
+    <div class="post-entry">
+      网站一般用的都是第三方的广告管理平台，而第三方的广告管理平台一般解决跨域的问题的方案： 1.iframe 2.script 3.document.write 最让人头疼的就是document.write document.write的用法：实时的将javascript脚本执行到页面中。 也就是这个实时导致执行脚本的时间会阻塞页面的渲染，只有等脚本执行完成后，页面才能执行渲染流程。 这样就会增加空白页面的显示时间。 查了一些资料，对于document.write目前最好的解决办法就是重写document.write ```javascript var origin = document.write;//保存原生态的document.write函数 document.write = function(code){ //对code的一些操作 }document.write = origin;//恢复原生态的document.write函数 ``` 补充一点： ```javascript //延迟执行的脚本 ``` 将type中的text/javascript 换成其他任意单词。例如：text/controlJS , 这样浏览器就不会识别，也不会执行其中相应的代码。 等到页面渲染完成后，在执行脚本 ```javascript if (window.execScript) { window.execScript(code); }else { var fn = function() { window.eval.call(window, code); }; fn(); } ``` 这里的思路主要参考controlJS的思路。只是提炼自己需要的核心思路。供大家参考。...
+      <a href="/2013-08-22-write/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-08-14-reg/">
+      <h3 class="post-title">收集常用的正则表达式</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 August 14, 2013
+    </p>
+
+    <div class="post-entry">
+      收集常用的正则表达式，欢迎补充。 1.匹配IP地址 ```javascript function isIP(value){ return /^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$/i.test(value); } ``` 2.匹配URL ```javascript function isURL(value){ return /^((http|https):\/\/(\w+:{0,1}\w*@)?(\S+)|)(:[0-9]+)?(\/|\/([\w#!:.?+=&amp;%@!\-\/]))?$/.test(value); } ``` 3.匹配全汉字 ```javascript function isChina(value){ return /^[\u4E00-\u9FA3]{1,}$/.test(value); } ``` 4.匹配身份证号码 ```javascript function isIDCard(value){ return /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(value); } ``` 5.匹配手机号码 ```javascript function isPhoneNum(value){ return /^0?(13[0-9]|15[012356789]|18[0236789]|14[57])[0-9]{8}$/.test(value); } ``` 6.匹配邮箱 ```javascript function isEmail(value){ return /^((([a-z]|\d|[!#\$%&amp;'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&amp;'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i.test(value); } ``` 7.匹配数字...
+      <a href="/2013-08-14-reg/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-08-08-car/">
+      <h3 class="post-title">chrome下CSS3 Animation监控事件</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 August 8, 2013
+    </p>
+
+    <div class="post-entry">
+      对于CSS3动画的监控事件了解 应该是刚工作的一年。那时候研究公司的有关HTML5新产品demo应用的。
+   
+只针对webkit内核浏览器，其他内核浏览器应该也有。估计只是写法不一样而已
+   
+补充一点；
+
+Chrome 28是Google用Blink替代Webkit之后的第一个浏览器版本，用户可到chrome://version/查看自己的Blink ID。
+测试了一下，也支持。
+   
+1.动画开始事件webkitAnimationStart
+```javascript
+var anim = document.getElementById(&quot;anim&quot;);
+anim.addEventListener(&quot;webkitAnimationStart&quot;, function(){},false);
+```
+
+
+
+2.动画执行过程事件webkitAnimationIteration
+```javascript
+var anim = document.getElementById(&quot;anim&quot;);
+anim.addEventListener(&quot;webkitAnimationIteration&quot;, function(){}, false);
+```
+
+2.动画结束过程事件webkitAnimationEnd
+```javascript
+var anim = document.getElementById(&quot;anim&quot;);
+anim.addEventListener(&quot;webkitAnimationEnd&quot;, function(){}, false);
+```
+
+第一个参数是监控事件的名称，第二个参数是回调函数，第三个是事件的响应顺序(false--冒泡，true--捕获)
+
+这些都是原生态监控事件。感兴趣的可以自己在深入研究一下。
+
+手痒，突发奇想的练练手。写了一个简单的应用动画切换汽车的demo。
+
+Demo地址：http://yrzhll.top/example/car.html
+      <a href="/2013-08-08-car/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-07-29-xingneng/">
+      <h3 class="post-title">jquery简单的性能测试</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 July 29, 2013
+    </p>
+
+    <div class="post-entry">
+      jquery简单的性能测试
+
+不同的写法，虽然结果一样，但是性能会差很多的。
+
+最近自己总结了一个简单的小例子
+
+最简单的性能测试函数
+```javascript
+function test(fn, id) {
+    var s, d;
+    // 记录执行的起始时间
+    s = new Date().getTime();
+    // 执行待测试的方法
+    fn();
+    // 记录执行的结束时间
+    d = new Date().getTime();
+    // 输出待测试方法所运行的结果和耗时
+    $(&quot;#&quot;+id).text( '耗时：' + (d-s) + 'ms' );
+}
+```
+
+方法一: 动态创建Dom元素
+```javascript
+function test1(){
+  for(var i=0;ihttp://yrzhll.top/example/performance.html
+
+      <a href="/2013-07-29-xingneng/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-07-10-ueditor/">
+      <h3 class="post-title">推荐一个很好的富文本web编辑器UEditor</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 July 10, 2013
+    </p>
+
+    <div class="post-entry">
+      前天产品提了一个编辑器的bug，本人找是找到了问题的症结，就是不好改。框架是压缩兼混淆后的代码。查一下，好多年前的框架。。。 咨询了一个同事有关旧框架的事情，他也建议我升级编辑器并帮忙帮我找了UEditor。嘻嘻。。。。 不错，开源，文档也很好用。由百度web前端研发部开发。符合中国国情，ie6也支持的不错！ 官方地址：http://ueditor.baidu.com/website/index.html 1.部署方法(php版本) a.下载项目需要的版本源码，以php为例 b.文本编辑框所放的位置 ```javascript ``` c.加载框架脚本 ```javascript //$_POST['myContent'] 上传内容到服务器 ``` 编辑框初始化完成。 2.配置上传图片路径 a.修改imageUp.php ```javascript $config = array( &quot;savePath&quot; =&gt; ($path == &quot;1&quot; ? &quot;../../../../uploads/news/images/&quot;: &quot;upload1/&quot;), &quot;maxSize&quot; =&gt; 1000, //单位KB &quot;allowFiles&quot; =&gt; array(&quot;.gif&quot;, &quot;.png&quot;, &quot;.jpg&quot;, &quot;.jpeg&quot;, &quot;.bmp&quot;) ); ``` b.修改dialogs /image/image.html ```javascript uploads ``` c.修改getRemoteImage.php ```javascript //远程抓取图片配置...
+      <a href="/2013-07-10-ueditor/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-07-04-aop/">
+      <h3 class="post-title">用AOP改善javascript代码(转)</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 July 4, 2013
+    </p>
+
+    <div class="post-entry">
+      Aop又叫面向切面编程，用过spring的同学肯定对它非常熟悉，而在js中，AOP是一个被严重忽视的技术点，这篇就通过下面这几个小例子，来说说AOP在js中的妙用. ```javascript Function.prototype.before = function(func){ var _self = this; return function(){ if(func.apply(this, arguments) === false){ return false; } return _self.apply(this, arguments); } } Function.prototype.after = function( func ){ var _self = this; return function(){ var ret = _self.apply(this, arguments); if(ret === false){ return false; } func.apply(this, arguments); return ret; }...
+      <a href="/2013-07-04-aop/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-05-31-namespace/">
+      <h3 class="post-title">javascript命名空间</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 May 31, 2013
+    </p>
+
+    <div class="post-entry">
+         升级网站地图的时候，发现之前旧的代码用了好多全局变量。
+   
+   Javascript的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。
+   
+   推荐使用匿名包装器（译者注：也就是自执行的匿名函数）来创建命名空间。这样不仅可以防止命名冲突， 而且有利于程序的模块化。
+
+   另外，使用全局变量被认为是不好的习惯。这样的代码倾向于产生错误和带来高的维护成本。
+   
+   ```javascript
+(function(){// 函数创建一个命名空间
+   window.foo = function(){// 对外公开的函数，创建了闭包
+   };
+})(); // 立即执行此匿名函数
+  ```
+   
+   
+   
+   匿名函数被认为是 表达式；因此为了可调用性，它们首先会被执行。
+   
+   ```javascript
+   // 另外两种方式
+   +function(){}();
+   (function(){}());
+   ```
+   
+   上面都是我查找的有关命名空间的资料,看看本人在项目中的应用代码
+   ```javascript
+(function(){
+   window['googleMap']= {}; //命名空间
+   googleMapwindow['googleMap']['init'] = init; //对外的接口init
+})();
+   ```
+      <a href="/2013-05-31-namespace/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-04-09-overlay/">
+      <h3 class="post-title">基于jquery简单的遮罩层overlay小插件</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 April 9, 2013
+    </p>
+
+    <div class="post-entry">
+         基于jquery简单的遮罩层overlay小插件
+   
+   上网看见一网友用js写了一个简单的小插件，自己没动手写过。于是打算练练手，用jquery写一个！嘻嘻
+   
+   写的不好，不要见怪。花了大概两个小时。有bug可有留言告诉我！
+   
+   效果图：
+   
+   
+   
+   ![Crepe](/images/blog/overlay.jpg)
+   
+   Demo:
+   
+   http://www.yrzhll.top/example/overlay.html
+   
+
+      <a href="/2013-04-09-overlay/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-03-22-tabs/">
+      <h3 class="post-title">jquery简单的Tabs选项卡</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 March 22, 2013
+    </p>
+
+    <div class="post-entry">
+         协助市场部做专题，让本人帮忙写个简单的tabs脚本！嘿嘿，就用jquery写个把！
+   
+   之后又整理了一下，加点颜色效果！头部的Tab标题的border-top的颜色会随着内容的背景颜色做变化
+   
+   本人的Tab选项卡的个数不受限制，不过外面的容器的样式大小自己要足够大啊！
+   
+   观点:其实如果业务不需要那么复杂的组件效果，可以自己写一个简单的。不需要在加载那么多的小框架。多了也不好管理，里面的效果大部分都用不上
+   
+   不上代码了，下面是demo地址：
+   
+   
+   
+   {{ site.url }}/example/tabs.html
+   
+   效果图
+   ![Crepe](/images/blog/tabs/tabs1.png 380 450)
+   ![Crepe](/images/blog/tabs/tabs2.png 380 450)
+   
+      <a href="/2013-03-22-tabs/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-01-15-secret/">
+      <h3 class="post-title">javascript秘密花园</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 January 15, 2013
+    </p>
+
+    <div class="post-entry">
+         上网搜一个问题的解决方法，发现了在github上一个关于javascript一些误解的教程。好东西啊！推荐给大家
+   
+   
+   
+   javascript秘密花园
+   
+   ![Crepe](/images/blog/secret.jpg)
+   
+   里面有九种不同语言的版本，适合有一定基础的前端学习。很好的东西。
+      <a href="/2013-01-15-secret/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-01-10-isarray/">
+      <h3 class="post-title">javascript判断array类型杂记</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 January 10, 2013
+    </p>
+
+    <div class="post-entry">
+      前天同事说台风有bug,我赶紧查原因。发现原来是判断array类型犯了个错误。上网搜搜，整理成笔记 错误代码： {% highlight javascript linenos %} var obj=[],flag; typeof(obj) == &quot;array&quot; ? flag=true : flag=false console.log(flag); true //本人认为运行结果 false //真实运行结果 {% endhighlight %} 然后就没多想就把代码上线。之后没事闲看，才发现自己犯了错误认识 typeof这会返回一个javascript基本类型的实例的类型。Array实际上不是基本类型，所以typeof Array对象将返回Object， 代码如下： typeof {} === &quot;object&quot; //true typeof &quot;&quot; === &quot;string&quot; //true typeof [] === &quot;array&quot;; //false 当你对自己的对象的实例使用这个操作符时将会得到相同的结果（typeof = &quot;object&quot;）。 另外说明一点，”typeof null“将返回”object“，这个有点诡异。 那应该判断array类型呢。估计大家跟我想的一样。jquery里面肯定有封装好的函数jQuery.isArray(obj) 深究一下jQuery.isArray(obj)，打开jquery框架可以发现相关的代码有以下几段...
       <a href="/2013-01-10-isarray/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
@@ -471,9 +1514,50 @@
     </p>
 
     <div class="post-entry">
-      从网上找到的资料，加工了一下啊！ <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="kd">var</span> <span class="nx">Max</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">arr</span><span class="p">){</span> <span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="k">return</span> <span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;});</span> <span class="k">return</span> <span class="nx">r</span><span class="p">[</span><span class="nx">r</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="p">}</span> <span class="kd">var</span> <span class="nx">Min</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">arr</span><span class="p">){</span> <span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="k">return</span> <span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;});</span> <span class="k">return</span> <span class="nx">r</span><span class="p">[</span><span class="mi">0</span><span class="p">];}</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 也可以封装成一个函数 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="kd">var</span> <span class="nx">getArrayMaxVal</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="nx">flag</span><span class="p">){</span> <span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="k">return</span> <span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;});</span> <span class="k">return</span> <span class="nx">flag</span><span class="o">===</span><span class="kc">true</span> <span class="p">?</span> <span class="nx">r</span><span class="p">[</span><span class="nx">r</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span> <span class="nx">r</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="p">}</span> <span class="nx">getArrayMaxVal</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="kc">true</span><span class="p">);</span><span class="c1">//max getArrayMaxVal([1,2,3,0],false);//min </span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 网上也有直接扩张Array对象方法， <figure class="highlight"><pre><code class="language-javascript..." data-lang="javascript...">function f(s,e){
+      从网上找到的资料，加工了一下啊！ {% highlight javascript linenos %} var Max=function(arr){ var r=arr.sort(function(a,b){return a-b;}); return r[r.length-1]; } var Min=function(arr){ var r=arr.sort(function(a,b){return a-b;}); return r[0];} {% endhighlight %} 也可以封装成一个函数 {% highlight javascript linenos %} var getArrayMaxVal=function(arr,flag){ var r=arr.sort(function(a,b){return a-b;}); return flag===true ? r[r.length-1]: r[0]; } getArrayMaxVal([1,2,3,0],true);//max getArrayMaxVal([1,2,3,0],false);//min {% endhighlight %} 网上也有直接扩张Array对象方法， {% highlight javascript...
+      <a href="/2013-01-05-array/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/js/">js</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-26-code/">
+      <h3 class="post-title">一段简洁而优雅的数字高通滤波器（javascript）</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 26, 2012
+    </p>
+
+    <div class="post-entry">
+       今天在看一本有关javascript的书籍（javascript王者归来电子版），书中编者介绍一段代码。我也想尖叫，很少看见这么优美简洁的代码。
+ 真的有点被javascript的魅力所震撼！
+ 
+ 
+ 
+ 上代码
+ {% highlight javascript linenos %}
+function f(s,e){
  var ret=[];
  for(var i in s){
  ret.push(e(s[i]));
@@ -482,10 +1566,10 @@
 }
 window.onload=function(){
  var a=[-1,1,1,-3,-3,-3,2,2,-2,3,-1,1];
- var b=f(a,function(n){return n&amp;gt;0?n:0});
- document.getElementsByTagName(&amp;quot;body&amp;quot;)[0].innerHTML=b;
+ var b=f(a,function(n){return n&gt;0?n:0});
+ document.getElementsByTagName(&quot;body&quot;)[0].innerHTML=b;
 }
- </code></pre></figure>
+ {% endhighlight %}
 
  仔细琢磨这段代码，你会发现javascript很震撼。最好动手试试
  
@@ -538,12 +1622,10 @@ window.onload=function(){
  
  
  当时的代码好像是
- <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre>   <span class="kd">var</span> <span class="nx">temp</span><span class="p">;</span>
-   <span class="k">if</span><span class="p">(</span><span class="o">!!</span><span class="nx">temp</span><span class="p">){</span><span class="k">return</span> <span class="kc">false</span><span class="p">;}</span><span class="k">else</span><span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;}</span>
- <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+ {% highlight javascript linenos %}
+   var temp;
+   if(!!temp){return false;}else{ return true;}
+ {% endhighlight %}
  
  此时 temp会默认为undefined。
  !temp ==&gt; true  !!temp==&gt;false
@@ -680,10 +1762,10 @@ minutes//显示数字时钟的容器
 其正确的使用方法是为：IE:obj.style.styleFloat，其他浏览器Mozilla(gecko)，ff等用styleFloat:obj.style.cssFloat。
 
 给个例子让大家好理解：
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre><span class="err">测试</span><span class="mi">1</span>
-<span class="err">测试</span><span class="mi">2</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+{% highlight javascript linenos %}
+测试1
+测试2
+{% endhighlight %}
       <a href="/2012-12-13-js/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
@@ -853,6 +1935,20 @@ minutes//显示数字时钟的容器
     
   
 
+
+
+
+    <!-- baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?11c804172513d0453b2946c4d21bbe3d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu Analytics -->
 
 
 

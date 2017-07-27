@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Vue的全局分隔符"
+date: 2017-07-18 17:44
+tags: [vue, js]
+---
+
+我们都知道vue的文本插值的分隔符默认为双花括号，
+
+Html的分隔符默认为三个花括号。
+
+一般我们都是会使用默认的分隔符，如果我们想自定义分隔符改怎么办呢？
+
+哈哈 其实Vue.config提供修改默认分隔符的方法，可以在vue实例化之前修改其默认分隔符
+
+~~~
+  Vue.config.delimiters = ["<%", "%>"]
+~~~
+
+则上面的文本插值的语变成<%string%>
+
+~~~
+  Vue.config.unsafeDelimiters = ["<$", "$>"]
+~~~
+
+则上面的HTML插件语法变成 <$HTML$>

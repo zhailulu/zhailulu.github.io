@@ -10,6 +10,8 @@
 
   <meta name="author" content="zhailulu" />
 
+  <link href="/favicon.png" rel="icon">
+
   
 
   <link rel="alternate" type="application/rss+xml" title="Yrzhll's Blog - 前端工程师" href="/feed.xml" />
@@ -56,7 +58,7 @@
   
 
    
-  <meta property="og:description" content="目录为 &amp;ldquo;css&amp;rdquo;: chrome浏览器的默认样式 发表于 January 28, 2014 好久没写博客了，好像有一个月了吧！每天大大小小的烦人的事。也不知道写什么， 感觉最近没啥长进，也懒的写了。再没长进，估计就被淘汰了。发点小牢骚，说正题吧！ 之前在调样式的时候就发现chrome的一些默认样式，哎呀 真不知道chrome一些默认样式是福还是麻烦。 几乎每次都要取消chrome的一些默认样式，跟其他浏览器保持一致。有点烦人 随便举几个例子： 1.默认样式字体大小12px; 经常调chrome浏览器会发现chrome最小的字体只能是12px. {% highlight javascript linenos %} html{-webkit-text-size-adjust:none;}//取消chrome默认字体 {% endhighlight %} 2.input和textarea聚焦边框 {% highlight javascript linenos %} input,button,select,textarea{outline:none} textarea{resize:none} //取消textarea可拖动放大 {% endhighlight %} 经常遇见的好像也就是上面两个例子 网上搜到的chrome默认样式表 http://wenku.baidu.com/view/98395820aaea998fcc220ee2.html [Read&amp;nbsp;More] 文章类别: css Img src空属性的解决方法对比 发表于 November 8, 2013 今天早上服务器超载，让查问题。我一头雾水。后来牛逼的同事找出原因。 原因：...">
+  <meta property="og:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
 
@@ -82,7 +84,7 @@
   
 
   
-  <meta name="twitter:description" content="目录为 &amp;ldquo;css&amp;rdquo;: chrome浏览器的默认样式 发表于 January 28, 2014 好久没写博客了，好像有一个月了吧！每天大大小小的烦人的事。也不知道写什么， 感觉最近没啥长进，也懒的写了。再没长进，估计就被淘汰了。发点小牢骚，说正题吧！ 之前在调样式的时候就发现chrome的一些默认样式，哎呀 真不知道chrome一些默认样式是福还是麻烦。 几乎每次都要取消chrome的一些默认样式，跟其他浏览器保持一致。有点烦人 随便举几个例子： 1.默认样式字体大小12px; 经常调chrome浏览器会发现chrome最小的字体只能是12px. {% highlight javascript linenos %} html{-webkit-text-size-adjust:none;}//取消chrome默认字体 {% endhighlight %} 2.input和textarea聚焦边框 {% highlight javascript linenos %} input,button,select,textarea{outline:none} textarea{resize:none} //取消textarea可拖动放大 {% endhighlight %} 经常遇见的好像也就是上面两个例子 网上搜到的chrome默认样式表 http://wenku.baidu.com/view/98395820aaea998fcc220ee2.html [Read&amp;nbsp;More] 文章类别: css Img src空属性的解决方法对比 发表于 November 8, 2013 今天早上服务器超载，让查问题。我一头雾水。后来牛逼的同事找出原因。 原因：...">
+  <meta name="twitter:description" content="{{page.title}}: {% for post in site.posts %} {% for tag in post.tags %} {% if tag == page.tag %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} 发表于 {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50...">
   
 
   
@@ -165,6 +167,18 @@
 
 
 <a href="http://yrzhll.top/tag/html/">html</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://yrzhll.top/tag/vue/">vue</a>
 
                 
               
@@ -382,6 +396,40 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <article class="post-preview">
     <a href="/2014-01-28-chromedefault/">
       <h3 class="post-title">chrome浏览器的默认样式</h3>
@@ -408,16 +456,15 @@
   
   1.默认样式字体大小12px;
    经常调chrome浏览器会发现chrome最小的字体只能是12px.
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>   
-<span class="nx">html</span><span class="p">{</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">text</span><span class="o">-</span><span class="nx">size</span><span class="o">-</span><span class="nx">adjust</span><span class="err">:</span><span class="nx">none</span><span class="p">;}</span><span class="c1">//取消chrome默认字体</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+{% highlight javascript linenos %}   
+html{-webkit-text-size-adjust:none;}//取消chrome默认字体
+{% endhighlight %}
   
   2.input和textarea聚焦边框
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre><span class="nx">input</span><span class="p">,</span><span class="nx">button</span><span class="p">,</span><span class="nx">select</span><span class="p">,</span><span class="nx">textarea</span><span class="p">{</span><span class="nl">outline</span><span class="p">:</span><span class="nx">none</span><span class="p">}</span>
-<span class="nx">textarea</span><span class="p">{</span><span class="nl">resize</span><span class="p">:</span><span class="nx">none</span><span class="p">}</span>  <span class="c1">//取消textarea可拖动放大</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+{% highlight javascript linenos %}
+input,button,select,textarea{outline:none}
+textarea{resize:none}  //取消textarea可拖动放大
+{% endhighlight %}
   
   经常遇见的好像也就是上面两个例子
   
@@ -527,7 +574,9 @@
   上网搜了一下google Fonts的API使用文档。挺方便的，可惜基本上都是英文字体。
   
   官方Demo代码：
-  
+  {% highlight javascript linenos %}
+
+  {% endhighlight %}
   
   
   
@@ -570,8 +619,7 @@
     </p>
 
     <div class="post-entry">
-      之前介绍过元素居中，前段时间看了一个文章，介绍了完全居中。太帅了。牛人就是不一样啊，几句css就全部搞定。 我们都知道 margin:0 auto; 的样式能让元素水平居中，而 margin: auto; 却不能做到垂直居中……直到现在。但是，请注意！想让元素绝对居中，只需要声明元素高度，并且附加以下样式，就可以做到： <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="p">.</span><span class="nx">Absolute</span><span class="o">-</span><span class="nx">Center</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="nx">auto</span><span class="p">;</span> <span class="nl">position</span><span class="p">:</span> <span class="nx">absolute</span><span class="p">;</span> <span class="nl">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="nl">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="nl">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="nl">right</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 我并不是第一个发现这种方法的人（不过我还是敢把它叫做“完全居中”），它有可能是种非常普遍的技巧。但大多数介绍垂直居中的文章中并没有提到过这种方法。如果不是浏览这篇文章的评论，我甚至根本就不会发现这个办法。 上面那篇文章的评论栏中，Simon提供了一个jsFiddle的链接，其他的方法相比之下就相形见绌了。（Priit也在评论栏中提到了同样的方法）。深入研究了一番之后，我又用某些关键词找到了记载这种方法的三个网站：站点一、站点二、站点三。 以前从未用过这种方法的我想试试，看看这种”完全居中”的方法到底有多么神奇。 好处： 跨浏览器，兼容性好（无需hack，可兼顾IE8~IE10） 无特殊标记，样式更精简 自适应布局，可以使用百分比和最大最小高宽等样式 居中时不考虑元素的padding值（也不需要使用box-sizing样式） 布局块可以自由调节大小 img的图像也可以使用 同时注意： 必须声明元素高度 推荐设置overflow:auto;样式避免元素溢出，显示不正常的问题 这种方法在Windows Phone上不起作用 浏览器支持：Chrome、Firefox、Safari、Mobile Safari、IE8-10。 “完全居中”经测试可以完美地应用在最新版本的Chrome、Firefox、Safari、Mobile Safari中，甚至也可以运行在IE8~IE10上...
+      之前介绍过元素居中，前段时间看了一个文章，介绍了完全居中。太帅了。牛人就是不一样啊，几句css就全部搞定。 我们都知道 margin:0 auto; 的样式能让元素水平居中，而 margin: auto; 却不能做到垂直居中……直到现在。但是，请注意！想让元素绝对居中，只需要声明元素高度，并且附加以下样式，就可以做到： {% highlight javascript linenos %} .Absolute-Center { margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; } {% endhighlight %} 我并不是第一个发现这种方法的人（不过我还是敢把它叫做“完全居中”），它有可能是种非常普遍的技巧。但大多数介绍垂直居中的文章中并没有提到过这种方法。如果不是浏览这篇文章的评论，我甚至根本就不会发现这个办法。 上面那篇文章的评论栏中，Simon提供了一个jsFiddle的链接，其他的方法相比之下就相形见绌了。（Priit也在评论栏中提到了同样的方法）。深入研究了一番之后，我又用某些关键词找到了记载这种方法的三个网站：站点一、站点二、站点三。 以前从未用过这种方法的我想试试，看看这种”完全居中”的方法到底有多么神奇。 好处： 跨浏览器，兼容性好（无需hack，可兼顾IE8~IE10） 无特殊标记，样式更精简 自适应布局，可以使用百分比和最大最小高宽等样式 居中时不考虑元素的padding值（也不需要使用box-sizing样式） 布局块可以自由调节大小 img的图像也可以使用 同时注意： 必须声明元素高度 推荐设置overflow:auto;样式避免元素溢出，显示不正常的问题 这种方法在Windows Phone上不起作用 浏览器支持：Chrome、Firefox、Safari、Mobile Safari、IE8-10。 “完全居中”经测试可以完美地应用在最新版本的Chrome、Firefox、Safari、Mobile Safari中，甚至也可以运行在IE8~IE10上...
       <a href="/2013-10-17-allcenter/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
@@ -707,18 +755,14 @@ margin;0px auto或margin:0 auto作用：常用于让DIV布局居中,起到让布
  
  
  2.CSS
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre>  <span class="p">.</span><span class="nx">radius</span><span class="p">{</span>
-	<span class="o">-</span><span class="nx">moz</span><span class="o">-</span><span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="err">:</span> <span class="mi">11</span><span class="nx">px</span><span class="p">;</span>
-	<span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="err">:</span> <span class="mi">11</span><span class="nx">px</span><span class="p">;</span>
-	<span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="err">:</span> <span class="mi">11</span><span class="nx">px</span><span class="p">;</span>
-	<span class="nl">behavior</span><span class="p">:</span> <span class="nx">url</span><span class="p">(</span><span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="p">.</span><span class="nx">htc</span><span class="p">);</span>
- <span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+{% highlight javascript linenos %}
+  .radius{
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	behavior: url(border-radius.htc);
+ }
+{% endhighlight %}
 
 
  优点：
@@ -957,8 +1001,7 @@ margin;0px auto或margin:0 auto作用：常用于让DIV布局居中,起到让布
    
    
    css通用写法：
-   <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">.</span><span class="nx">demo</span><span class="p">{</span><span class="nl">cursor</span><span class="p">:</span><span class="nx">url</span><span class="p">(</span><span class="s1">'路径'</span><span class="p">),</span><span class="nx">auto</span><span class="p">;}</span><span class="c1">//IE,FF,chrome浏览器都可以</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+   {% highlight javascript linenos %}.demo{cursor:url('路径'),auto;}//IE,FF,chrome浏览器都可以{% endhighlight %}
    
    注意的两点
    
@@ -971,7 +1014,7 @@ margin;0px auto或margin:0 auto作用：常用于让DIV布局居中,起到让布
    简单把！其实从本人毕业到现在做项目总结了一个问题，再复杂的问题都是一个一个简单的点组成，一个一个慢慢突破就行了。
    写代码 关键要思路清晰！
    
-   Demo:http://localhost:4000/example/cursor.html
+   Demo:{{ site.url }}/example/cursor.html
 
       <a href="/2013-03-28-cursor/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
@@ -1004,9 +1047,7 @@ margin;0px auto或margin:0 auto作用：常用于让DIV布局居中,起到让布
     </p>
 
     <div class="post-entry">
-      最近在优化网站浮动广告时候遇见了IE6不支持position:fixed属性。上网收集了一下解决方案 比较好的方案就是利用css表达式进行解决 补充：CSS Expression （CSS 表达式），是一种使用动态设置 CSS 属性的方式，并且被 IE5 以上的版本所支持，但是 IE8 的标准模式已不再支持 CSS 表达式了 IE7和以上的浏览器都支持position:fixed； 之前写过一篇介绍过固定页脚的文字,那时候没在ie6下测试 方法一 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span><span class="o">!--</span><span class="p">[</span><span class="k">if</span> <span class="nx">IE</span> <span class="mi">6</span><span class="p">]</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">gt</span><span class="p">;</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">style</span> <span class="nx">type</span><span class="o">=&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">text</span><span class="o">/</span><span class="nx">css</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">gt</span><span class="p">;</span> <span class="nx">html</span><span class="p">{</span><span class="nl">overflow</span><span class="p">:</span><span class="nx">hidden</span><span class="p">}</span><span class="nx">body</span><span class="p">{</span><span class="nl">height</span><span class="p">:</span><span class="mi">100</span><span class="o">%</span><span class="p">;</span><span class="nl">overflow</span><span class="p">:</span><span class="nx">auto</span><span class="p">;}</span> <span class="err">#</span><span class="nx">gs</span><span class="p">{</span><span class="nl">position</span><span class="p">:</span><span class="nx">absolute</span><span class="p">}</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span><span class="sr">/style&amp;amp;gt; &amp;amp;lt;!</span><span class="se">[</span><span class="sr">endif</span><span class="se">]</span><span class="sr">--&amp;amp;gt; </span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 优点:比较简单，方便！就针对IE6的hack 缺点：一个页面只能有一个元素是position：absolute 不然所有设置absolute的元素都会浮动 方法二 利用css表达式--固定底部 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="nx">_position</span><span class="err">:</span><span class="nx">absolute</span><span class="p">;</span> <span class="nl">_bottom</span><span class="p">:</span><span class="nx">auto</span><span class="p">;</span> <span class="nl">_top</span><span class="p">:</span><span class="nx">expression</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollTop</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">clientHeight</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="o">-</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentStyle</span><span class="p">.</span><span class="nx">marginTop</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">||</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentStyle</span><span class="p">.</span><span class="nx">marginBottom</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">||</span><span class="mi">0</span><span class="p">)));</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>...
+      最近在优化网站浮动广告时候遇见了IE6不支持position:fixed属性。上网收集了一下解决方案 比较好的方案就是利用css表达式进行解决 补充：CSS Expression （CSS 表达式），是一种使用动态设置 CSS 属性的方式，并且被 IE5 以上的版本所支持，但是 IE8 的标准模式已不再支持 CSS 表达式了 IE7和以上的浏览器都支持position:fixed； 之前写过一篇介绍过固定页脚的文字,那时候没在ie6下测试 方法一 {% highlight javascript linenos %} &amp;lt;!--[if IE 6]&amp;gt; &amp;lt;style type=&quot;text/css&quot;&amp;gt; html{overflow:hidden}body{height:100%;overflow:auto;} #gs{position:absolute} &amp;lt;/style&amp;gt; &amp;lt;![endif]--&amp;gt; {% endhighlight %} 优点:比较简单，方便！就针对IE6的hack 缺点：一个页面只能有一个元素是position：absolute 不然所有设置absolute的元素都会浮动 方法二 利用css表达式--固定底部 {% highlight javascript linenos %} _position:absolute; _bottom:auto; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))); {% endhighlight %}...
       <a href="/2013-03-22-ie6fixed/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
@@ -1046,12 +1087,319 @@ margin;0px auto或margin:0 auto作用：常用于让DIV布局居中,起到让布
     </p>
 
     <div class="post-entry">
-      最近心情比较浮躁。好久都没有学习，今天把之前下的一本电子书打开，整理笔记。 1.完全匹配属性选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nx">id</span><span class="o">=</span><span class="nx">book</span><span class="p">]{</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 例如：id=&quot;book&quot; 2.部分匹配属性选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nx">id</span><span class="o">*=</span><span class="nx">book</span><span class="p">]{</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 例如：id=&quot;bookMy&quot; id=&quot;Mybook&quot; 3.首字符匹配属性选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nx">id</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="err">#</span><span class="mi">8869</span><span class="p">;</span><span class="o">=</span><span class="nx">book</span><span class="p">]{</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 例如：id=&quot;bookMy&quot; 4.尾字符匹配属性选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="nx">id$</span><span class="o">=</span><span class="nx">book</span><span class="p">]{</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 例如：id=&quot;Mybook&quot; 5.:nth-child选择器 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="nx">div</span><span class="err">:</span><span class="nx">nth</span><span class="o">-</span><span class="nx">child</span><span class="p">(</span><span class="mi">2</span><span class="p">){</span><span class="nl">color</span><span class="p">:</span><span class="nx">red</span><span class="p">}</span> <span class="c1">//指定第二节点div</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> 6.:nth-last-child选择器 <figure class="highlight"><pre><code class="language-..." data-lang="...">html{-webkit-text-size-adjust:none;}/*chrome font-size&amp;lt;12px */ </code></pre></figure>
+      最近心情比较浮躁。好久都没有学习，今天把之前下的一本电子书打开，整理笔记。 1.完全匹配属性选择器 {% highlight javascript linenos %}[id=book]{color:red}{% endhighlight %} 例如：id=&quot;book&quot; 2.部分匹配属性选择器 {% highlight javascript linenos %}[id*=book]{color:red}{% endhighlight %} 例如：id=&quot;bookMy&quot; id=&quot;Mybook&quot; 3.首字符匹配属性选择器 {% highlight javascript linenos %}[id&amp;#8869;=book]{color:red}{% endhighlight %} 例如：id=&quot;bookMy&quot; 4.尾字符匹配属性选择器 {% highlight javascript linenos %}[id$=book]{color:red}{% endhighlight %} 例如：id=&quot;Mybook&quot; 5.:nth-child选择器 {% highlight javascript linenos %}div:nth-child(2){color:red} //指定第二节点div{% endhighlight %} 6.:nth-last-child选择器 {% highlight...
+      <a href="/2013-01-26-attr/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-21-fixed/">
+      <h3 class="post-title">制作header和footer固定在页头和页脚的方法</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 21, 2012
+    </p>
+
+    <div class="post-entry">
+       之前在项目做过此效果，但是没有仔细的总结过。今天闲来没事，就做了小demo
+ 
+ 
+ 
+ 代码：
+ ```javascript
+ 
+ 
+ 
+ 制作header和footer固定在页头和页脚的方法
+ 
+ 
+ 
+ 
+ 
+ 制作header和footer固定在页头和页脚的方法
+ 制作header和footer固定在页头和页脚的方法
+ 制作header和footer固定在页头和页脚的方法
+ 制作header和footer固定在页头和页脚的方法
+ 
+ 
+ 
+ 
+```
+
+1.header固定在页头
+
+  top:0px;
+  
+  position:fixed;
+
+2.footer固定在页脚
+
+  position:fixed;
+  
+  bottom:0px
+
+补充一下 本demo中间的main部分是自适应高度的。嘻嘻
+
+Demo：
+ {{ site.url }}/example/fixed.html
+      <a href="/2012-12-21-fixed/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-18-test/">
+      <h3 class="post-title">推荐测试浏览器支持HTML5和CSS3在线网站</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 18, 2012
+    </p>
+
+    <div class="post-entry">
+      整理笔记，发现一年前自己研究HTML5/CSS3的笔记。发现自己做的笔记，其实这几个网站，估计大家经常用。还是啰嗦一下吧
+
+
+
+1.HTML5
+
+  地址：http://www.html5test.com/
+  
+ ![Crepe](/images/blog/test/test1.jpg)
+
+2.CSS3
+
+  地址：http://modernizr.github.com/Modernizr/test/ 
+  
+  ![Crepe](/images/blog/test/test2.jpg)
+  
+3.touch
+
+  地址：http://modernizr.github.com/Modernizr/touch.html
+  
+  ![Crepe](/images/blog/test/test3.jpg)
+
+4.HTML5/CSS3
+
+  地址：http://www.findmebyip.com/litmus/ 
+  
+  ![Crepe](/images/blog/test/test4.jpg)
+  
+5.HTML5/CSS3
+
+  地址：http://caniuse.com/
+
+  ![Crepe](/images/blog/test/test5.jpg)
+  
+6.Mobile HTML5
+
+  地址：http://mobilehtml5.org/
+  
+  ![Crepe](/images/blog/test/test6.jpg)
+
+7.HTML5/CSS3
+
+  地址：http://html5readiness.com/
+  
+  ![Crepe](/images/blog/test/test7.jpg)
+
+8.HTML5/CSS3
+
+  地址：http://fmbip.com/
+  
+  ![Crepe](/images/blog/test/test8.jpg)
+  
+这样的网站现在很多，前两个用的最多。
+
+  
+  
+
+      <a href="/2012-12-18-test/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+        <a href="/tag/html/">html</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-17-animation/">
+      <h3 class="post-title"> css3元素简单的闪烁效果</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 17, 2012
+    </p>
+
+    <div class="post-entry">
+      CSS3属性中有关于制作动画的三个属性：Transform,Transition,Animation； 下面教大家一个简单的闪烁的动画 ```javascript //animation关键帧 @-webkit-keyframes twinkling{ /*透明度由0到1*/ 0%{ opacity:0; /*透明度为0*/ } 100%{ opacity:1; /*透明度为1*/ } } ``` Jquery 调用： ```javascript $(element).css({&quot;-webkit-animation&quot;:&quot;twinkling 1s infinite ease-in-out&quot;}); //在对象element中添加闪烁动画 ``` javascript调用 ```javascript var elem=document.getElementById(id); elem.css({&quot;-webkit-animation&quot;:&quot;twinkling 1s infinite ease-in-out&quot;}); //在对象element中添加闪烁动画 elem.style.webkitAnimation=&quot;twinkling 1s infinite ease-in-out&quot;; ``` 也可以在css样式里添加如下： ```javascript #element{ -webkit-animation: twinkling 1s infinite ease-in-out; } ```...
+      <a href="/2012-12-17-animation/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-12-text/">
+      <h3 class="post-title">常用的CSS3文字特效(转)</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 12, 2012
+    </p>
+
+    <div class="post-entry">
+      在调自己博客header标题时 搜到这篇文章 很好 收藏了！！！ PS：请使用支持CSS3的浏览器，如Chrome、Firefox3.5+、Safari4+、Opera 文字阴影 text-shadow text-shadow是最为简单及常用的效果，而且有很多变换，这里列举一些有代表性的： 1.普通： ```javascript .text-shadow{ text-shadow:1px 1px 2px #2c5103; color:#60ad0d; } ``` Here is some text effect 2.3D： ```javascript .text-shadow{ text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0...
+      <a href="/2012-12-12-text/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      文章类别: 
+      
+        <a href="/tag/css/">css</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-12-font/">
+      <h3 class="post-title">解决chrome网页字体小于12的问题</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    发表于 December 12, 2012
+    </p>
+
+    <div class="post-entry">
+      在做项目时，发现chrome网页字体设为小于12的时候，仍然和12字体保持一样大小。解决办法如下：
+
+在css文件里加入：
+
+
+
+{% highlight javascript linenos %}
+html{-webkit-text-size-adjust:none;}/*chrome font-size&lt;12px */ 
+{% endhighlight %}
 
 即可解决此问题。(*^__^*) 嘻嘻……
       <a href="/2012-12-12-font/" class="post-read-more">[Read&nbsp;More]</a>
@@ -1085,8 +1433,7 @@ margin;0px auto或margin:0 auto作用：常用于让DIV布局居中,起到让布
     </p>
 
     <div class="post-entry">
-      二话不说，先贴上代码，这个简单的动画我花了几分钟就写好了！(*^__^*) 嘻嘻……自恋一下啊 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre> <span class="p">.</span><span class="nx">wrap</span><span class="p">{</span> <span class="nl">background</span><span class="p">:</span><span class="err">#</span><span class="nx">FFFFFF</span><span class="p">;</span> <span class="nl">width</span><span class="p">:</span><span class="mi">200</span><span class="nx">px</span><span class="p">;</span> <span class="nl">height</span><span class="p">:</span><span class="mi">50</span><span class="nx">px</span><span class="p">;</span> <span class="nl">border</span><span class="p">:</span><span class="mi">1</span><span class="nx">px</span> <span class="nx">solid</span> <span class="err">#</span><span class="nx">CCCCCC</span><span class="p">;</span> <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="err">:</span><span class="mi">4</span><span class="nx">px</span><span class="p">;</span> <span class="c1">//圆角 margin:50px auto 0px; -webkit-transition:all 1s 1 ease-in-out; //引用webkit的过渡效果语句 text-align:center; } .wrap:hover{ background:-webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#EEEEEE)); //背景线性渐变 -webkit-transform:scale(1.2); //规模变大为1.2倍 -webkit-box-shadow:2px 4px 6px #555555; //wrap阴影效果 } &amp;amp;lt;div class='wrap'&amp;amp;gt;&amp;amp;lt;/div&amp;amp;gt; </span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure> ![Crepe](/images/blog/wrap.png) 大家贴上代码试一下吧，记住用webkit内核的浏览器（chrome，safrai）.好用的话，记得顶一下，谢谢支持！O(∩_∩)O~...
+      二话不说，先贴上代码，这个简单的动画我花了几分钟就写好了！(*^__^*) 嘻嘻……自恋一下啊 {% highlight javascript linenos %} .wrap{ background:#FFFFFF; width:200px; height:50px; border:1px solid #CCCCCC; border-radius:4px; //圆角 margin:50px auto 0px; -webkit-transition:all 1s 1 ease-in-out; //引用webkit的过渡效果语句 text-align:center; } .wrap:hover{ background:-webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#EEEEEE)); //背景线性渐变 -webkit-transform:scale(1.2); //规模变大为1.2倍 -webkit-box-shadow:2px 4px 6px #555555; //wrap阴影效果 } &amp;lt;div class='wrap'&amp;gt;&amp;lt;/div&amp;gt; {% endhighlight %} ![Crepe](/images/blog/wrap.png) 大家贴上代码试一下吧，记住用webkit内核的浏览器（chrome，safrai）.好用的话，记得顶一下，谢谢支持！O(∩_∩)O~...
       <a href="/2012-12-11-wrap/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
@@ -1341,6 +1688,20 @@ filter：alpha（opacity=90）；/*IE6-8*/
     
   
 
+
+
+
+    <!-- baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?11c804172513d0453b2946c4d21bbe3d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu Analytics -->
 
 
 
