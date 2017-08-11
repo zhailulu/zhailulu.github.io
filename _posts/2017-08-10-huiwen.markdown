@@ -1,0 +1,45 @@
+---
+layout: post
+title: "JavaScript中的回文"
+date: 2017-08-10 10:44
+tags: [JavaScript]
+---
+
+  最近在家忙着驾照科三考试，本来以为自己能过的。结果最后一把死在停车没关上车门上。。。。
+
+  真想冲着老天爷喊一声：“冤枉啊！” 废话不说了，等着补考吧！考个驾照不容易啊。。。
+
+
+  1.回文的定义: 一个单词，短语或数字，从前往后写和从后往前写都是一模一样的。
+
+    例如 “dad”, "racecar"
+
+  2.判断字符串是否为回文：
+ 
+    可以将字符串的每个字符从左向右压入数组中，压入完毕后其实在数组中就保存一个反转的字符串，只要比较两个字符串相等即可。这里其实利用了栈的原理。
+
+    字符串完整的压入栈内后，通过持续弹出栈中的每个字母就可以得到一个新的字符串，该字符串刚好与原来的字符串顺序相反，比较相等就是一个回文
+
+
+    ~~~javascript
+      function isHuiWen(str){
+         var oldArr = str.split(""), newArr = [], len = oldArr.length-1;
+
+         for(var i=len; i>=0; i--){
+            newArr.push(oldArr[i]);
+         }
+
+         if(str!==newArr.join("")){
+            return false;
+         }
+
+         return true;
+      }
+
+      isHuiWen("racecar"); //true
+    ~~~
+
+
+    怎么样？超简单吧！。。。。哈哈哈哈。。。
+
+
